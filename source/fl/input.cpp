@@ -1,9 +1,8 @@
+#include "fl/ui.h"
 #include "sead/math/seadVector.h"
 #include <al/util.hpp>
 #include <fl/tas.h>
 #include <fl/input.h>
-
-#if(SMOVER==100)
 
 #define PADTRIGGER(BUTTON, PNAME) bool fisPadTrigger##BUTTON(int port) {\
                                fl::TasHolder& h = fl::TasHolder::instance();\
@@ -41,7 +40,18 @@ PADTRIGGER(A, A);
 PADTRIGGER(B, B);
 PADTRIGGER(X, X);
 PADTRIGGER(Y, Y);
-PADTRIGGER(L, L);
+bool fisPadTriggerL(int port) {
+    fl::TasHolder &h = fl::TasHolder::instance();
+    if (h.isRunning) {
+        if (h.curFrame == 0)
+            return h.frames[0].L;
+        return !h.frames[h.curFrame - 1].L && h.frames[h.curFrame].L;
+    }
+    else if (!fl::PracticeUI::instance().options.disableTriggerL)
+        return al::isPadTriggerL(port);
+    else
+        return false;
+}
 PADTRIGGER(R, R);
 PADTRIGGER(ZL, ZL);
 PADTRIGGER(ZR, ZR);
@@ -87,5 +97,3 @@ PADRELEASE(Up, dUp);
 PADRELEASE(Right, dRight);
 PADRELEASE(Down, dDown);
 PADRELEASE(Left, dLeft);
-
-#endif

@@ -2,6 +2,9 @@
 StageScene::control+18:
     bl stageSceneControlHook
 
+004cc788: // StageScene::kill+19:
+    bl stageSceneKillHook
+
 // overwrites some move instructions with hook code, which reimplements the move instructions at the end of the code
 005359dc: // GameSystem::init+18C
     mov x0, x19 // move GameSystem to arg register
@@ -25,6 +28,67 @@ StageScene::control+18:
     bl isTriggerAmiiboModeVar
 00002e8c:
     bl isTriggerAmiiboModeVar
+
+// resize StageScene
+//004c1c10:
+//    mov w0, #0x4c8
+
+//004c8dd8:
+//    bl storeActorInitInfo
+
+//004c8440:
+//    bl stageSceneCtorHook
+
+// override KuriboHack->mIsGold to true
+//0014b160:
+//    mov w2, #1
+//    strb w2, [x19, #0x168]
+//    mov x21, x1
+//    nop
+//    nop
+
+// set Shine->mIsNoRotate to true
+//001cd904:
+//    mov w0, #1
+//    str w0, [x19, #0x2fc]
+//    nop
+//    nop
+
+// disable GameDataFile::setGrowFlowerTime
+//005203f0:
+//    ret
+
+//00520d48:
+//    mov x0, #1
+//    ret
+
+// cancel al::addVelocity in PlayerActionAirMoveControl::update (doesn't disable gravity, just moving midair)
+//00414fc0:
+//    nop
+//00415020:
+//    nop
+
+// set GameDataFile::isGotCheckpointInWorld to true
+//00521300:
+//    mov w0, #1
+//    ret
+
+// change SkyWorldKoopaFrame::receiveMsg to only respond to TsukkunThrustCollide
+0031cd74:
+    mov x1, xzr
+    bl #0x26fd68    // rs::isMsgTsukkunCollideThrust
+    tbz w0, #0, #0x54
+    nop
+    nop
+    nop
+    nop
+    nop
+
+// add bounds checking to NerveKeeper::update
+009596a4:
+    bl nerveKeeperUpdateVar
+    nop
+    nop
 
 // moon refresh
 001d14d0:
@@ -63,6 +127,57 @@ StageScene::control+18:
 // toggle bowser skip
 0050fa10:
     bl isDefeatKoopaLv1Var
+
+// toggle updating joints if gravity changed
+0041e764:
+    bl setPlayerJointUpdate
+
+// toggle x/y motion rolls
+0045b75c:
+    b isTriggerRollingRestartSwingVar
+
+// toggle loading current file
+004e7f84:
+    bl setLoadDataSelectingCurrentVar
+    nop
+
+// toggle load file confirmation
+004e804c:
+    bl setLoadDataSelectingConfirmVar
+
+// toggle infinite cap bounces
+004083ac:
+    bl setRepeatCapBounceVar
+
+// toggle infinite rainbow spins
+00458cb8:
+    bl setRepeatRainbowSpinVar
+
+// toggle cap bounce after wall jump
+00407f2c:
+    bl setWallJumpCapBounceVar
+
+// toggle taking damage
+00528824:
+    b setDamageVar
+
+// toggle kingdom moon requirements
+0052639c:
+    b findUnlockShineNumVar
+0052a0c4:
+    b findUnlockShineNumVar
+005336e8:
+    bl findUnlockShineNumVar
+00533770:
+    bl findUnlockShineNumVar
+00533928:
+    bl findUnlockShineNumVar
+00533c0c:
+    bl findUnlockShineNumVar
+00533ca0:
+    bl findUnlockShineNumVar
+
+
 
 // TAS
 
@@ -312,7 +427,8 @@ StageScene::control+18:
     bl fisPadTriggerL
 0045007c:
     bl fisPadTriggerL
-
+0045059c:
+    bl fisPadTriggerL
 00573454:
     bl fisPadTriggerL
 0057607c:

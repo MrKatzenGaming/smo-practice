@@ -58,7 +58,7 @@ namespace smo
     {
         StageScene* stageScene = fl::PracticeUI::instance().getStageScene();
         if (!stageScene) return;
-        PlayerActorHakoniwa* player = rs::getPlayerActor(stageScene);
+        PlayerActorHakoniwa* player = static_cast<PlayerActorHakoniwa*>(rs::getPlayerActor(stageScene));
         player->startDemoPuppetable();
         al::setTrans(player, pos);
         player->endDemoPuppetable();
@@ -93,8 +93,8 @@ namespace smo
             if (stageName) m->Free(stageName);
         }
         
-        ChangeStageInfo info = ChangeStageInfo(stageScene->mHolder, entrance, stageName, false, scenario, {0});
-        stageScene->mHolder->changeNextStage(&info, 0);
+        ChangeStageInfo info = ChangeStageInfo(stageScene->mDataHolderBase, entrance, stageName, false, scenario, {0});
+        stageScene->mDataHolderBase->changeNextStage(&info, 0);
 
         if (entrance) m->Free(entrance);
         if (stageName) m->Free(stageName);
