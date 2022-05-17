@@ -1,10 +1,10 @@
 #pragma once
 
-#include "fl/tas.h"
+#include "smo/tas.h"
 #include <sead/math/seadQuat.h>
 #include <sead/math/seadVector.h>
 #include <sead/prim/seadSafeString.h>
-#include <fl/server.h>
+#include <smo/server.h>
 #include <types.h>
 
 namespace smo

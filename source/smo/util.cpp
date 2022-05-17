@@ -1,6 +1,6 @@
-#include <fl/util.h>
+#include <smo/util.h>
 
-sead::Vector3f fl::QuatToEuler(sead::Quatf *quat) {
+sead::Vector3f smo::QuatToEuler(sead::Quatf *quat) {
 
     f32 x = quat->z;
     f32 y = quat->y;
@@ -23,7 +23,7 @@ sead::Vector3f fl::QuatToEuler(sead::Quatf *quat) {
     return sead::Vector3f(yaw, pitch, roll);
 }
 
-void* fl::memset (void *dest, int val, size_t len)
+void* smo::memset (void *dest, int val, size_t len)
 {
   unsigned char *ptr = (unsigned char*) dest;
   while (len-- > 0)
@@ -31,7 +31,7 @@ void* fl::memset (void *dest, int val, size_t len)
   return dest;
 }
 
-void* fl::memcpy (void *dest, const void *src, size_t len)
+void* smo::memcpy (void *dest, const void *src, size_t len)
 {
   char *d = (char*) dest;
   const char *s = (const char*) src;

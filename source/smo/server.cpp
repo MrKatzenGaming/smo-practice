@@ -1,10 +1,10 @@
 #include "al/util.hpp"
-#include "fl/packet.h"
+#include "smo/packet.h"
 #include "game/Layouts/CoinCounter.h"
 #include "nn/init.h"
 #include "nn/os.hpp"
 #include "types.h"
-#include <fl/server.h>
+#include <smo/server.h>
 #include <mem.h>
 #include <nn/nifm.h>
 #include <nn/socket.h>

@@ -2,15 +2,15 @@
 #include "al/nerve/Nerve.h"
 #include "al/rail/RailRider.h"
 #include "al/util.hpp"
-#include "fl/input.h"
-#include "fl/tas.h"
+#include "smo/input.h"
+#include "smo/tas.h"
 #include "game/Layouts/MapLayout.h"
 #include "game/Player/PlayerHitPointData.h"
 #include "game/Player/PlayerJointControl.h"
 #include "rs/util.hpp"
 #include "sead/math/seadVector.h"
-#include <fl/ui.h>
-#include <fl/server.h>
+#include <smo/ui.h>
+#include <smo/server.h>
 #include <nn/init.h>
 #include <mem.h>
 
@@ -20,13 +20,13 @@ void stageSceneControlHook() {
     StageScene* stageScene;
     __asm ("MOV %[result], X0" : [result] "=r" (stageScene));
     
-    fl::PracticeUI::instance().update(*stageScene);
+    smo::PracticeUI::instance().update(*stageScene);
 
     __asm ("MOV X0, %[input]" : [input] "=r" (stageScene));
 }
 
 void stageSceneKillHook() {
-    fl::PracticeUI& ui = fl::PracticeUI::instance();
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
     ui.renderer.curArea = nullptr;
     ui.renderer.curAreaGroup = nullptr;
     ui.renderer.nearestEdgePoint = sead::Vector3f::zero;
@@ -50,46 +50,46 @@ void stageSceneKillHook() {
 
 void setGotShineVar(GameDataHolderWriter writer, const ShineInfo* shineInfo)
 {
-    fl::PracticeUI& ui = fl::PracticeUI::instance();
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
     if (!ui.options.shineRefresh)
         writer.mPlayingFile->setGotShine(shineInfo);
 }
 
 void setPlayerJointUpdate(PlayerJointControlKeeper* keeper)
 {
-    fl::PracticeUI& ui = fl::PracticeUI::instance();
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
     // if (!ui.options.gravityChanged)
         keeper->update();
 }
 
 int fgetPadAccelerationDeviceNum(int port)
 {
-    return fl::TasHolder::instance().isRunning ? 2 : al::getPadAccelerationDeviceNum(port);
+    return smo::TasHolder::instance().isRunning ? 2 : al::getPadAccelerationDeviceNum(port);
 }
 
 bool isGotShineVar(GameDataHolderAccessor accessor, const ShineInfo* shineInfo)
 {
-    return fl::PracticeUI::instance().options.gotShineRefresh ? false : accessor.mPlayingFile->isGotShine(shineInfo);
+    return smo::PracticeUI::instance().options.gotShineRefresh ? false : accessor.mPlayingFile->isGotShine(shineInfo);
 }
 
 bool isEnableCheckpointWarpVar(MapLayout* layout)
 {
-    return fl::PracticeUI::instance().options.alwaysWarp ? true : layout->isEnableCheckpointWarp();
+    return smo::PracticeUI::instance().options.alwaysWarp ? true : layout->isEnableCheckpointWarp();
 }
 
 bool isEnableSaveVar(StageScene* stageScene)
 {
-    return fl::PracticeUI::instance().options.disableAutoSave ? false : stageScene->isEnableSave();
+    return smo::PracticeUI::instance().options.disableAutoSave ? false : stageScene->isEnableSave();
 }
 
 bool isDefeatKoopaLv1Var(StageScene* stageScene)
 {
-    return fl::PracticeUI::instance().options.skipBowser ? true : stageScene->isDefeatKoopaLv1();
+    return smo::PracticeUI::instance().options.skipBowser ? true : stageScene->isDefeatKoopaLv1();
 }
 
 bool isTriggerRollingRestartSwingVar(PlayerInput* playerInput)
 {
-    return fl::PracticeUI::instance().options.buttonMotionRoll ? true : playerInput->isTriggerRollingRestartSwing();
+    return smo::PracticeUI::instance().options.buttonMotionRoll ? true : playerInput->isTriggerRollingRestartSwing();
 }
 
 void setLoadDataSelectingCurrentVar()
@@ -99,14 +99,14 @@ void setLoadDataSelectingCurrentVar()
     GameDataHolder* holder;
     __asm ("MOV %[result], X0" : [result] "=r" (holder));
 
-    s32 fileId = fl::PracticeUI::instance().options.loadCurrentFile ? 5 : holder->getPlayingFileId();
+    s32 fileId = smo::PracticeUI::instance().options.loadCurrentFile ? 5 : holder->getPlayingFileId();
 
     __asm ("MOV X0, %[input]" : [input] "=r" (fileId));
 }
 
 void setLoadDataSelectingConfirmVar()
 {
-    if (fl::PracticeUI::instance().options.loadFileConfirm)
+    if (smo::PracticeUI::instance().options.loadFileConfirm)
         __asm ("ADD X9, X8, #0x78");
     else
         __asm ("ADD X9, X8, #0x70");
@@ -114,7 +114,7 @@ void setLoadDataSelectingConfirmVar()
 
 void setRepeatCapBounceVar()
 {
-    if (fl::PracticeUI::instance().options.repeatCapBounce)
+    if (smo::PracticeUI::instance().options.repeatCapBounce)
         __asm ("MOV W8, #1");
     else
         __asm ("LDRB W8, [X8, #0x38]");
@@ -122,7 +122,7 @@ void setRepeatCapBounceVar()
 
 void setRepeatRainbowSpinVar()
 {
-    if (fl::PracticeUI::instance().options.repeatRainbowSpin)
+    if (smo::PracticeUI::instance().options.repeatRainbowSpin)
         __asm ("MOV W8, #1");
     else
         __asm ("LDRB W8, [X8, #0x39]");
@@ -130,20 +130,20 @@ void setRepeatRainbowSpinVar()
 
 void setWallJumpCapBounceVar()
 {
-    if (fl::PracticeUI::instance().options.wallJumpCapBounce)
+    if (smo::PracticeUI::instance().options.wallJumpCapBounce)
         __asm ("MOV W8, WZR");
     else
         __asm ("LDRB W8, [X8]");
 }
 
 void setDamageVar(PlayerHitPointData* hitPointData) {
-    fl::PracticeUI& ui = fl::PracticeUI::instance();
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
     if (!ui.options.noDamageLife)
         hitPointData->damage();
 }
 
 int findUnlockShineNumVar(GameDataHolder* holder, bool* param_1, int param_2) {
-    fl::PracticeUI& ui = fl::PracticeUI::instance();
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
     if (ui.options.disableShineNumUnlock) {
         return 0;
     }
@@ -162,7 +162,7 @@ void nerveKeeperUpdateVar() {
 
 bool isTriggerSnapShotModeVar(const al::IUseSceneObjHolder* objHolder)
 {
-    return (inputEnabled && showMenu) || fl::TasHolder::instance().isRunning ? false : rs::isTriggerSnapShotMode(objHolder);
+    return (inputEnabled && showMenu) || smo::TasHolder::instance().isRunning ? false : rs::isTriggerSnapShotMode(objHolder);
 }
 
 bool isTriggerAmiiboModeVar(const al::IUseSceneObjHolder* objHolder)
@@ -172,43 +172,43 @@ bool isTriggerAmiiboModeVar(const al::IUseSceneObjHolder* objHolder)
 
 bool fisModeDiverOrJungleGymRom()
 {
-    return fl::PracticeUI::instance().modes.isModeDiverOrJungleGymRom;
+    return smo::PracticeUI::instance().modes.isModeDiverOrJungleGymRom;
 }
 
 bool fisModeDiverRom()
 {
-    return fl::PracticeUI::instance().modes.isModeDiverRom;
+    return smo::PracticeUI::instance().modes.isModeDiverRom;
 }
 
 bool fisModeJungleGymRom()
 {
-    return fl::PracticeUI::instance().modes.isModeJungleGymRom;
+    return smo::PracticeUI::instance().modes.isModeJungleGymRom;
 }
 
 bool fisModeE3LiveRom()
 {
-    return fl::PracticeUI::instance().modes.isModeE3LiveRom;
+    return smo::PracticeUI::instance().modes.isModeE3LiveRom;
 }
 
 bool fisModeE3MovieRom()
 {
-    return fl::PracticeUI::instance().modes.isModeE3MovieRom;
+    return smo::PracticeUI::instance().modes.isModeE3MovieRom;
 }
 
 bool fisModeEpdMovieRom()
 {
-    return fl::PracticeUI::instance().modes.isModeEpdMovieRom;
+    return smo::PracticeUI::instance().modes.isModeEpdMovieRom;
 }
 
 bool fisPadTriggerLMotion(int port)
 {
-    return fl::TasHolder::instance().isRunning ? false : al::isPadTriggerL(port);
+    return smo::TasHolder::instance().isRunning ? false : al::isPadTriggerL(port);
 }
 
 void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
 {
-    if (!fl::TasHolder::instance().isRunning) {dis->update(); return;}
-    fl::TasHolder& h = fl::TasHolder::instance();
+    if (!smo::TasHolder::instance().isRunning) {dis->update(); return;}
+    smo::TasHolder& h = smo::TasHolder::instance();
     int controllerPort;
     if (dis->mControllerPort < 0)
         controllerPort = al::getMainControllerPort();

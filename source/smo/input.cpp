@@ -1,25 +1,25 @@
-#include "fl/ui.h"
+#include "smo/ui.h"
 #include "sead/math/seadVector.h"
 #include <al/util.hpp>
-#include <fl/tas.h>
-#include <fl/input.h>
+#include <smo/tas.h>
+#include <smo/input.h>
 
 #define PADTRIGGER(BUTTON, PNAME) bool fisPadTrigger##BUTTON(int port) {\
-                               fl::TasHolder& h = fl::TasHolder::instance();\
+                               smo::TasHolder& h = smo::TasHolder::instance();\
                                if (h.isRunning) {\
                                    if (h.curFrame == 0) return h.frames[0].PNAME;\
                                    return !h.frames[h.curFrame - 1].PNAME && h.frames[h.curFrame].PNAME;\
                                } else return al::isPadTrigger##BUTTON(port);}
 
 #define PADHOLD(BUTTON, PNAME) bool fisPadHold##BUTTON(int port) {\
-                            fl::TasHolder& h = fl::TasHolder::instance();\
+                            smo::TasHolder& h = smo::TasHolder::instance();\
                             if (h.isRunning) {\
                                 if (h.curFrame == 0) return h.frames[0].PNAME;\
                                 return h.frames[h.curFrame].PNAME;\
                             } else return al::isPadHold##BUTTON(port);}
 
 #define PADRELEASE(BUTTON, PNAME) bool fisPadRelease##BUTTON(int port) {\
-                               fl::TasHolder& h = fl::TasHolder::instance();\
+                               smo::TasHolder& h = smo::TasHolder::instance();\
                                if (h.isRunning) {\
                                    if (h.curFrame == 0) return false;\
                                    return h.frames[h.curFrame - 1].PNAME && !h.frames[h.curFrame].PNAME;\
@@ -27,12 +27,12 @@
 
 sead::Vector2f* fgetLeftStick(int port)
 {
-    fl::TasHolder& h = fl::TasHolder::instance();
+    smo::TasHolder& h = smo::TasHolder::instance();
     return h.isRunning ? &h.frames[h.curFrame].leftStick : al::getLeftStick(port);
 }
 sead::Vector2f* fgetRightStick(int port)
 {
-    fl::TasHolder& h = fl::TasHolder::instance();
+    smo::TasHolder& h = smo::TasHolder::instance();
     return h.isRunning ? &h.frames[h.curFrame].rightStick : al::getRightStick(port);
 }
 
@@ -41,13 +41,13 @@ PADTRIGGER(B, B);
 PADTRIGGER(X, X);
 PADTRIGGER(Y, Y);
 bool fisPadTriggerL(int port) {
-    fl::TasHolder &h = fl::TasHolder::instance();
+    smo::TasHolder &h = smo::TasHolder::instance();
     if (h.isRunning) {
         if (h.curFrame == 0)
             return h.frames[0].L;
         return !h.frames[h.curFrame - 1].L && h.frames[h.curFrame].L;
     }
-    else if (!fl::PracticeUI::instance().options.disableTriggerL)
+    else if (!smo::PracticeUI::instance().options.disableTriggerL)
         return al::isPadTriggerL(port);
     else
         return false;

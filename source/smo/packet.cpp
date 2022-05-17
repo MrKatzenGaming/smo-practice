@@ -1,13 +1,13 @@
 #include "al/util.hpp"
-#include "fl/tas.h"
-#include "fl/ui.h"
-#include "fl/util.h"
+#include "smo/tas.h"
+#include "smo/ui.h"
+#include "smo/util.h"
 #include "game/Player/PlayerActorHakoniwa.h"
 #include "game/StageScene/ChangeStageInfo.h"
 #include "nn/mem.h"
 #include "rs/util.hpp"
 #include "sead/prim/seadSafeString.h"
-#include <fl/packet.h>
+#include <smo/packet.h>
 #include <str.h>
 #include <mem.h>
 #include <nn/init.h>
@@ -27,16 +27,16 @@ namespace smo
 
     void InPacketPlayerScriptInfo::parse(const u8* data, u32 len)
     {
-        fl::TasHolder& h = fl::TasHolder::instance();
+        smo::TasHolder& h = smo::TasHolder::instance();
         if (h.isRunning) return;
         scriptName = (char*) alloc(len + 1);
-        fl::memcpy(scriptName, data, len);
+        smo::memcpy(scriptName, data, len);
         scriptName[len] = '\0';
     }
 
     void InPacketPlayerScriptInfo::on(Server &server)
     {
-        fl::TasHolder& h = fl::TasHolder::instance();
+        smo::TasHolder& h = smo::TasHolder::instance();
         if (h.isRunning) return;
         h.setScriptName(scriptName);
         if (h.frames)
@@ -56,7 +56,7 @@ namespace smo
 
     void InPacketPlayerTeleport::on(Server &server)
     {
-        StageScene* stageScene = fl::PracticeUI::instance().getStageScene();
+        StageScene* stageScene = smo::PracticeUI::instance().getStageScene();
         if (!stageScene) return;
         PlayerActorHakoniwa* player = static_cast<PlayerActorHakoniwa*>(rs::getPlayerActor(stageScene));
         player->startDemoPuppetable();
@@ -73,11 +73,11 @@ namespace smo
         u8 entranceLength = data[2];
 
         stageName = (char*) m->Allocate(stageLength + 1);
-        fl::memcpy(stageName, &data[3], stageLength);
+        smo::memcpy(stageName, &data[3], stageLength);
         stageName[stageLength] = '\0';
 
         entrance = (char*) m->Allocate(entranceLength + 1);
-        fl::memcpy(entrance, &data[3 + stageLength], entranceLength);
+        smo::memcpy(entrance, &data[3 + stageLength], entranceLength);
         entrance[entranceLength] = '\0';
 
         startScript = data[len - 1];
@@ -86,7 +86,7 @@ namespace smo
     void InPacketPlayerGo::on(Server& server)
     {
         nn::mem::StandardAllocator* m = nn::init::GetAllocator();
-        StageScene* stageScene = fl::PracticeUI::instance().getStageScene();
+        StageScene* stageScene = smo::PracticeUI::instance().getStageScene();
         if (!stageScene)
         {
             if (entrance) m->Free(entrance);
@@ -99,25 +99,25 @@ namespace smo
         if (entrance) m->Free(entrance);
         if (stageName) m->Free(stageName);
 
-        if (startScript && fl::TasHolder::instance().frames) fl::TasHolder::instance().startPending = true;
+        if (startScript && smo::TasHolder::instance().frames) smo::TasHolder::instance().startPending = true;
     }
 
     void InPacketPlayerScriptData::parse(const u8* data, u32 len)
     {
-        fl::TasHolder& h = fl::TasHolder::instance();
+        smo::TasHolder& h = smo::TasHolder::instance();
         if (h.isRunning) return;
         size_t cur = h.frameCount;
         if (h.frames)
         {
-            h.frameCount += len / sizeof(fl::TasFrame);
-            h.frames = (fl::TasFrame*) realloc(h.frames, h.frameCount * sizeof(fl::TasFrame));
+            h.frameCount += len / sizeof(smo::TasFrame);
+            h.frames = (smo::TasFrame*) realloc(h.frames, h.frameCount * sizeof(smo::TasFrame));
         }
         else
         {
-            h.frames = (fl::TasFrame*) alloc(len);
-            h.frameCount = len / sizeof(fl::TasFrame);
+            h.frames = (smo::TasFrame*) alloc(len);
+            h.frameCount = len / sizeof(smo::TasFrame);
         }
-        fl::memcpy(&h.frames[cur], data, len);
+        smo::memcpy(&h.frames[cur], data, len);
     }
 
     void InPacketPlayerScriptData::on(Server& server) {}

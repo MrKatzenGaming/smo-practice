@@ -1,7 +1,7 @@
-#include <fl/tas.h>
+#include <smo/tas.h>
 #include <mem.h>
 
-void fl::TasHolder::update()
+void smo::TasHolder::update()
 {
     if (!isRunning)
     {
@@ -17,18 +17,18 @@ void fl::TasHolder::update()
     curFrame++;
 }
 
-void fl::TasHolder::start()
+void smo::TasHolder::start()
 {
     isRunning = true;
 }
 
-void fl::TasHolder::stop()
+void smo::TasHolder::stop()
 {
     curFrame = 0;
     isRunning = false;
 }
 
-void fl::TasHolder::setScriptName(char* name)
+void smo::TasHolder::setScriptName(char* name)
 {
     if (scriptName) dealloc(scriptName);
     scriptName = name;

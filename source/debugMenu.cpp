@@ -1,6 +1,6 @@
 #include "debugMenu.hpp"
 #include "drawer.h"
-#include "fl/ui.h"
+#include "smo/ui.h"
 #include "rs/util.hpp"
 #include <al/util.hpp>
 
@@ -57,7 +57,7 @@ void drawMainHook(HakoniwaSequence *curSequence, sead::Viewport *viewport, sead:
     gTextWriter->mColor = sead::Color4f(1.f, 1.f, 1.f, 0.8f);
     al::Scene *curScene = curSequence->curScene;
 
-    fl::PracticeUI& ui = fl::PracticeUI::instance();
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
 
     if (curScene && isInGame) {
         sead::LookAtCamera* cam = al::getLookAtCamera(curScene, 0);

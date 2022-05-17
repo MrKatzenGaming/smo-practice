@@ -3,13 +3,13 @@
 #include "types.h"
 
 #include <cstdint>
-#include <fl/common.h>
-#include <fl/server.h>
-#include <fl/input.h>
-#include <fl/tas.h>
-#include <fl/ui.h>
-#include <fl/util.h>
-#include <fl/rtti.hpp>
+#include <smo/common.h>
+#include <smo/server.h>
+#include <smo/input.h>
+#include <smo/tas.h>
+#include <smo/ui.h>
+#include <smo/util.h>
+#include <smo/rtti.hpp>
 #include <str.h>
 #include <cxxabi.h>
 #include <typeinfo>
@@ -84,13 +84,13 @@ const char* stageNames[] = {"CapWorldHomeStage", "WaterfallWorldHomeStage", "San
 #define INDEXZRL(VAR, ZVAR, MIN, MAX, LINE) INDEXZ(Right, Left, VAR, ZVAR, MIN, MAX, LINE)
 
 
-void fl::PracticeUI::savePosition(PlayerActorHakoniwa& player, s8 idx) {
+void smo::PracticeUI::savePosition(PlayerActorHakoniwa& player, s8 idx) {
     savestates[idx].mTrans = *al::getTrans(&player);
     savestates[idx].mQuat = *al::getQuat(&player);
     savestates[idx].mSaved = true;
 }
 
-void fl::PracticeUI::loadPosition(PlayerActorHakoniwa& player, s8 idx) {
+void smo::PracticeUI::loadPosition(PlayerActorHakoniwa& player, s8 idx) {
     al::LiveActor* move = &player;
     al::LiveActor* hack = player.mHackKeeper->mCurrentHackActor;
 
@@ -111,7 +111,7 @@ void fl::PracticeUI::loadPosition(PlayerActorHakoniwa& player, s8 idx) {
     }
 }
 
-void fl::PracticeUI::toggleNoclip(PlayerActorHakoniwa& player) {
+void smo::PracticeUI::toggleNoclip(PlayerActorHakoniwa& player) {
     al::LiveActor* move = &player;
     al::LiveActor* hack = player.mHackKeeper->mCurrentHackActor;
 
@@ -129,7 +129,7 @@ void fl::PracticeUI::toggleNoclip(PlayerActorHakoniwa& player) {
     }
 }
 
-void fl::PracticeUI::update(StageScene& stageScene) {
+void smo::PracticeUI::update(StageScene& stageScene) {
     this->stageScene = &stageScene;
     isInGame = true;
 
@@ -146,7 +146,7 @@ void fl::PracticeUI::update(StageScene& stageScene) {
     bool triggerLeft = al::isPadTriggerLeft(CONTROLLER_AUTO);
     bool triggerRight = al::isPadTriggerRight(CONTROLLER_AUTO);
 
-    fl::TasHolder::instance().update();
+    smo::TasHolder::instance().update();
 
     if (holdL && triggerRight) {
         inputEnabled = !inputEnabled;
@@ -211,7 +211,7 @@ void fl::PracticeUI::update(StageScene& stageScene) {
     }
 }
 
-void fl::PracticeUI::menu(sead::TextWriter& p) {
+void smo::PracticeUI::menu(sead::TextWriter& p) {
     if (!stageScene) return;
     if (showMenu) {
         const char* charCursor = " ";
@@ -488,13 +488,13 @@ void fl::PracticeUI::menu(sead::TextWriter& p) {
                 sead::Vector3f* playerTrans = al::getTrans(player);
                 sead::Vector3f* playerVel = al::getVelocity(player);
                 sead::Quatf* playerQuat = al::getQuat(player);
-                sead::Vector3f playerEulerAngles = fl::QuatToEuler(playerQuat);
+                sead::Vector3f playerEulerAngles = smo::QuatToEuler(playerQuat);
                 sead::Vector3f playerRot = sead::Vector3f(DEG(playerEulerAngles.x),DEG(playerEulerAngles.y),DEG(playerEulerAngles.z));
                 sead::Vector3f* playerRecoveryPoint = player->mRecoverPoint->getSafetyPoint();
                 sead::Vector3f* cappyPosition = al::getTrans(cappy);
                 sead::Vector3f* cappyVel = al::getVelocity(cappy);
                 sead::Quatf* cappyQuat = al::getQuat(cappy);
-                sead::Vector3f cappyEulerAngles = fl::QuatToEuler(cappyQuat);
+                sead::Vector3f cappyEulerAngles = smo::QuatToEuler(cappyQuat);
                 sead::Vector3f cappyRot = sead::Vector3f(DEG(cappyEulerAngles.x),DEG(cappyEulerAngles.y),DEG(cappyEulerAngles.z));
                 const char* anim = player->mAnimator->mCurrentAnim;
                 float hSpeed = al::calcSpeedH(player), vSpeed = al::calcSpeedV(player), speed = al::calcSpeed(player);
@@ -612,9 +612,9 @@ void fl::PracticeUI::menu(sead::TextWriter& p) {
                 TRIGGER("Connect to server", 1, {
                     //smo::Server::instance().connect("someip", 7902);
                 });
-                TOGGLE("Old Motion Mod", fl::TasHolder::instance().oldMotion, 2);
+                TOGGLE("Old Motion Mod", smo::TasHolder::instance().oldMotion, 2);
 
-                fl::TasHolder& h = fl::TasHolder::instance();
+                smo::TasHolder& h = smo::TasHolder::instance();
 
                 if (h.isRunning)  {TRIGGER("Stop Script", 3, h.stop());}
                 else { TRIGGER("Start Script", 3, {

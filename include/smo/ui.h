@@ -32,7 +32,7 @@
 #define NUMSAVES 16
 #define MAXDEPTH 16
 
-namespace fl {
+namespace smo {
 
 struct SaveState {
     bool mSaved = false;

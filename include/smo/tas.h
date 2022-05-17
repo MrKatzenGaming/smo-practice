@@ -2,7 +2,7 @@
 
 #include <sead/math/seadVector.h>
 
-namespace fl
+namespace smo
 {
     struct TasFrame
     {
