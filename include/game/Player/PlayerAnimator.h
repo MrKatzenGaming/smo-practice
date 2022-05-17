@@ -4,25 +4,17 @@
 #include "sead/prim/seadSafeString.h"
 #include "types.h"
 
-#include <fl/efun.h>
-
 class PlayerAnimator {
     public:
-        void startAnim(const sead::SafeStringBase<char>& animName);
-        void startAnimCommon(const sead::SafeStringBase<char>&);
-        void startSubAnim(const sead::SafeStringBase<char>& animName);
+        void startAnim(const sead::SafeString& animName);
+        void startAnimCommon(const sead::SafeString&);
+        void startSubAnim(const sead::SafeString& animName);
         
-        bool isAnim(const sead::SafeStringBase<char> &animName) const;
+        bool isAnim(const sead::SafeString &animName) const;
         bool isSubAnimEnd() const;
 
-        #if(SMOVER==100)
         float getAnimFrame(void) const;
         float getAnimFrameMax(void) const;
-        #endif
-        #if(SMOVER==130)
-        CVEFUN(PlayerAnimator, 0x003CD520, float, getAnimFrame);
-        CVEFUN(PlayerAnimator, 0x003CD530, float, getAnimFrameMax);
-        #endif
         float getAnimFrameRate(void) const;
         float getSubAnimFrame() const;
         float getBlendWeight(int index);
