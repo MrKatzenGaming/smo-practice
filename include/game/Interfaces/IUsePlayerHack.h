@@ -6,5 +6,6 @@
 */
 
 class IUsePlayerHack {
-
+public:
+    unsigned char padding[0x8];
 };
