@@ -14,9 +14,9 @@
 *.til
 *.pchtxt
 *.ips
+*.sh
 .vscode/
 build*/
-debug/
 release/
 lib/
 linkerscripts/symstemp.ld
@@ -25,8 +25,4 @@ scripts/.idea/*
 !exported.txt
 compile_commands.json
 .cache/
-build100.sh
 keys.dat
-.exefs100/
-.exefs130/
-build130.sh
