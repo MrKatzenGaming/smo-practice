@@ -43,16 +43,16 @@ class HakoniwaSequence : public al::Sequence {
         al::Scene *getCurrentScene(void) const; // {return this->curScene}
 
         undefined padding[0x90];
-        al::Scene *curScene; // 0xB0
-        GameDataHolder *mGameDataHolder; // 0xB8
-        al::GamePadSystem *mGamepadSys; // 0xC0
-        HakoniwaStateDemoOpening *mDemoOpening; // 0xC8
-        HakoniwaStateDemoEnding *mDemoEnding; // 0xD0
-        HakoniwaStateDemoWorldWarp *mDemoWorldWarp; // 0xD8
-        HakoniwaStateSimpleDemo *mSimpleDemo; // 0xE0
-        HakoniwaStateBootLoadData *mBootLoadData; // 0xE8
-        HakoniwaStateDeleteScene *mDeleteScene; // 0xF0
-        al::LayoutKit *mLytKit; // 0xF8
+        al::Scene *curScene;
+        GameDataHolder *mGameDataHolder;
+        al::GamePadSystem *mGamepadSys;
+        HakoniwaStateDemoOpening *mDemoOpening;
+        HakoniwaStateDemoEnding *mDemoEnding;
+        HakoniwaStateDemoWorldWarp *mDemoWorldWarp;
+        HakoniwaStateSimpleDemo *mSimpleDemo;
+        HakoniwaStateBootLoadData *mBootLoadData;
+        HakoniwaStateDeleteScene *mDeleteScene;
+        al::LayoutKit *mLytKit;
 
         // undefined * * field_0x0;
         // undefined padding_120[0x120];

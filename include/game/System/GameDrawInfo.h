@@ -13,9 +13,9 @@ namespace al
 {
     class GameDrawInfo {
         public:
-            agl::RenderBuffer *mFirstRenderBuffer; // 0x0
-            agl::RenderBuffer *mSecondRenderBuffer; // 0x8
-            bool unkBool; // 0x10
-            agl::DrawContext *mDrawContext; // 0x18
+            agl::RenderBuffer *mFirstRenderBuffer;
+            agl::RenderBuffer *mSecondRenderBuffer;
+            bool unkBool;
+            agl::DrawContext *mDrawContext;
     };
 } // namespace al

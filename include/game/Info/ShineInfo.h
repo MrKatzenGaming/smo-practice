@@ -28,12 +28,12 @@ class ShineInfo {
         void readShineData(const UniqObjInfo *);
         void copyShineInfo(const ShineInfo *);
 
-        sead::FixedSafeString<0x80> stageName = sead::FixedSafeString<0x80>(); // 0x0 (Size: 0x98)
-        sead::FixedSafeString<0x80> objectId = sead::FixedSafeString<0x80>(); // 0xA0
-        sead::FixedSafeString<0x80> scenObjId = sead::FixedSafeString<0x80>(); // 0x138
+        sead::FixedSafeString<128> stageName = sead::FixedSafeString<128>();
+        sead::FixedSafeString<128> objectId = sead::FixedSafeString<128>();
+        sead::FixedSafeString<128> scenObjId = sead::FixedSafeString<128>();
 
-        int shineId; // 1C8
-        const QuestInfo *curQuest; // 1D0
-        bool unkA; // 0x1D8
-        unsigned long timeDay; // 0x1E0
+        int shineId;
+        const QuestInfo *curQuest;
+        bool unkA;
+        unsigned long timeDay;
 };

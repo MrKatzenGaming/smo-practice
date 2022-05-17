@@ -1,8 +1,8 @@
 #pragma once
 
 #include <types.h>
+#include <stdlib.h>
 
-void free(void* __ptr);
 
 #define EFUN_ARGS(...) __VA_ARGS__
 

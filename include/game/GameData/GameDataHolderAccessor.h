@@ -10,7 +10,12 @@
 #include "game/GameData/GameDataFile.h"
 #include "types.h"
 #include "GameDataHolderWriter.h"
-namespace al{struct SceneInitInfo;class IUseSceneObjHolder; class SceneObjHolder;}
+
+namespace al {
+class IUseSceneObjHolder;
+class SceneObjHolder;
+}
+
 class GameDataHolderAccessor : public GameDataHolderWriter
 {
     public:
