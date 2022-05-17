@@ -27,11 +27,11 @@ namespace agl
         void create(s32, s32 bufferSize, sead::Heap *);
         void clearVariation();
         void pushBackVariation(char const *, char const *);
-        void calcCompileSource(agl::ShaderType, sead::BufferedSafeStringBase<char> *, agl::ShaderCompileInfo::Target, bool);
-        sead::SafeStringBase<char>* getRegitserUniformBlockName(); // "RegisterUBO"
+        void calcCompileSource(agl::ShaderType, sead::BufferedSafeString *, agl::ShaderCompileInfo::Target, bool);
+        sead::SafeString* getRegitserUniformBlockName(); // "RegisterUBO"
 
         u64 _8;
-        char* mName; // _10
+        char* mName;
         u64 _18;
         u64 _20;
         sead::PtrArrayImpl _28;

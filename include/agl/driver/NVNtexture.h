@@ -29,7 +29,7 @@ namespace agl
             void setReference_() const;
 
             u8 _0[0xC0]; // NVNtexture
-            s32 mTextureID; // _C0
+            s32 mTextureID;
             u8 _C4;
             u8 _C5;
             u8 _C6;

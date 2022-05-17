@@ -20,7 +20,7 @@ namespace agl
 
             void updateImageId(s32 id);
 
-            u64 mImageId; // _0
+            u64 mImageId;
         };
     };
 };

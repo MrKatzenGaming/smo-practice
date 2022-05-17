@@ -20,8 +20,8 @@ namespace agl
         {
         public:
             void initialize(s32, sead::Heap *);
-            void createMacro(s32, sead::SafeStringBase<char> const &, sead::SafeStringBase<char> const &, s32, sead::Heap *);
-            void setMacroValue(s32, s32, sead::SafeStringBase<char> const &);
+            void createMacro(s32, sead::SafeString const &, sead::SafeString const &, s32, sead::Heap *);
+            void setMacroValue(s32, s32, sead::SafeString const &);
             void create(sead::Heap *);
         };
 
@@ -31,13 +31,13 @@ namespace agl
 
         void cleanUp();
         void destroyLocationBuffers();
-        void initializeVariation(sead::SafeStringBase<char> const &, s32, sead::Heap *);
-        void createVariationMacro(s32, sead::SafeStringBase<char> const &, sead::SafeStringBase<char> const &, s32, sead::Heap *);
-        void setVariationMacroValue(s32, s32, sead::SafeStringBase<char> const &);
+        void initializeVariation(sead::SafeString const &, s32, sead::Heap *);
+        void createVariationMacro(s32, sead::SafeString const &, sead::SafeString const &, s32, sead::Heap *);
+        void setVariationMacroValue(s32, s32, sead::SafeString const &);
         void createVariation(sead::Heap *);
 
         u64* _8;
-        agl::DisplayList mShaderDisplayList; // _10
+        agl::DisplayList mShaderDisplayList;
         u32 _278;
         u32 _27C;
         u64 _280;
@@ -56,10 +56,10 @@ namespace agl
         u32 _2C8;
         u32 _2CC;
         u64 _2D0;
-        agl::VertexShader mVertexShader; // _2D8
-        agl::FragmentShader mFragmentShader; // _2F8
-        agl::GeometryShader mGeometryShader; // _318
-        agl::ComputeShader mComputeShader; // _338
+        agl::VertexShader mVertexShader;
+        agl::FragmentShader mFragmentShader;
+        agl::GeometryShader mGeometryShader;
+        agl::ComputeShader mComputeShader;
         u8 _358[0x418-0x358]; // todo; what is here?
         u64 _418;
         u32 _420;

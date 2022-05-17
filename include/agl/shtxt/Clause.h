@@ -28,20 +28,20 @@ namespace agl
             ~Clause();
 
             u64 findNumberBlock(agl::shtxt::Clause::Type *, char const *);
-            void appendTo(sead::BufferedSafeStringBase<char> *) const;
-            void appendTo(sead::BufferedSafeStringBase<char> *, u32) const;
-            void copyTo(sead::BufferedSafeStringBase<char> *) const;
+            void appendTo(sead::BufferedSafeString *) const;
+            void appendTo(sead::BufferedSafeString *, u32) const;
+            void copyTo(sead::BufferedSafeString *) const;
             f64 toNumber() const;
             f64 forceNumber() const;
             u32 calcLineFeedCount() const;
             bool compareImpl(agl::shtxt::Clause const &, u32, agl::shtxt::Clause const *, agl::shtxt::Clause const *) const;
-            bool compare(sead::SafeStringBase<char> const &, u32) const;
+            bool compare(sead::SafeString const &, u32) const;
             bool compare(agl::shtxt::Clause const &, u32) const;
             s32 calcHash(void const *, u32, u32) const;
 
             agl::shtxt::Clause* _0;
             agl::shtxt::Clause* _8;
-            u8 mClauseType; // _10
+            u8 mClauseType;
             u8 _11;
             u8 _12;
             u8 _13;

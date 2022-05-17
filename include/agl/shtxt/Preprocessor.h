@@ -38,7 +38,7 @@ namespace agl
             void reduceSpace();
             void reduceLF();
             void format(bool);
-            bool construct(sead::BufferedSafeStringBase<char> *dest) const;
+            bool construct(sead::BufferedSafeString *dest) const;
             u64 calcConstructLength() const;
             
 
@@ -49,7 +49,7 @@ namespace agl
             u64 _20;
             agl::shtxt::Clause* _28;
             agl::shtxt::DefineLinker* _30;
-            char* mRefName; // _38
+            char* mRefName;
             agl::shtxt::MacroReplaceInfo* _40;
             u32 _48; // related to replace info
             u32 _4C;

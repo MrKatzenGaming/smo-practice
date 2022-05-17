@@ -30,7 +30,7 @@ namespace agl
 
         void setBinary(void const *shaderBinary);
 
-        void* mShaderBinary; // _8
+        void* mShaderBinary;
         u64 _10;
         u64 _18;
     };

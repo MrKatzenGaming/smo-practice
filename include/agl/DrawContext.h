@@ -28,7 +28,7 @@ namespace agl
         void setTextureDirty(s32);
         void setCommandBufferTemporary();
 
-        agl::DisplayList* mDisplayList; // _F0
+        agl::DisplayList* mDisplayList;
         u64* _F8; // agl::RenderBuffer*
         u8 _100;
         u8 _101;
@@ -36,6 +36,6 @@ namespace agl
         u8 _103;
         u32 _104;
         u32 _10C;
-        sead::CriticalSection mCriticalSection; // _110
+        sead::CriticalSection mCriticalSection;
     };
 };

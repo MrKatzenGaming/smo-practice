@@ -28,8 +28,8 @@ namespace agl
             u64 _30;
             u32 _38;
             u64 _40;
-            agl::detail::Surface mSurface; // _48
-            agl::driver::NVNtexture_ mTexture; // _70
+            agl::detail::Surface mSurface;
+            agl::driver::NVNtexture_ mTexture;
         };
 
         TextureData();
@@ -44,7 +44,7 @@ namespace agl
         bool hasStencil() const;
         void invalidateCPUCache();
         void flushCPUCache() const;
-        void setDebugLabel(sead::SafeStringBase<char> const &);
+        void setDebugLabel(sead::SafeString const &);
         void getDebugLabel() const;
 
         u64 _0;
@@ -54,8 +54,8 @@ namespace agl
         u64 _18;
         u64 _20;
         u64 _28;
-        agl::detail::Surface mSurface; // _30
-        agl::TextureFormat mTextureFormat; // _54
+        agl::detail::Surface mSurface;
+        agl::TextureFormat mTextureFormat;
         u8 _58[0x120-0x58];
         char* _120; // "agl::TextureData string"
     };

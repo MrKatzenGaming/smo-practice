@@ -27,7 +27,7 @@ namespace agl
 
             sead::Heap* _0;
             agl::shtxt::Clause* _8;
-            char* mRefName; // _10
+            char* mRefName;
             u64 _18;
             u64 _20;
             u64 _28;

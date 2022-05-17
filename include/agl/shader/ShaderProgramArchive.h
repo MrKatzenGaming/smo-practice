@@ -32,7 +32,7 @@ namespace agl
         void setUp_(bool);
 
         u64 _20;
-        agl::ResBinaryShaderArchive* mBinaryShaderArchive; // _28
-        agl::ResShaderArchive* mResShaderArchive; // _30
+        agl::ResBinaryShaderArchive* mBinaryShaderArchive;
+        agl::ResShaderArchive* mResShaderArchive;
     };
 };

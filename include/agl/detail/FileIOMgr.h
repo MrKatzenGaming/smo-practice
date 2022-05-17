@@ -29,7 +29,7 @@ namespace agl
             public:
                 CreateArg();
 
-                u32 mArg; // _0
+                u32 mArg;
             };
 
             class DialogArg
@@ -42,7 +42,7 @@ namespace agl
                 u64 _10;
                 u64 _18;
                 u64 _20;
-                char* mMsg; // _28
+                char* mMsg;
                 u64* _30;
                 u64* _38;
                 u64 _40;
@@ -57,11 +57,11 @@ namespace agl
             FileIOMgr();
 
             void initialize(agl::detail::FileIOMgr::CreateArg const &, sead::Heap *);
-            void setCheckoutCommandPath(sead::SafeStringBase<char> const &);
+            void setCheckoutCommandPath(sead::SafeString const &);
             void save(sead::XmlDocument const &, agl::detail::FileIOMgr::DialogArg const &, u32);
-            void showDialog(sead::hostio::FileInfo *, sead::SafeStringBase<char> const &, sead::SafeStringBase<char> const &, sead::SafeStringBase<char> const &, sead::SafeStringBase<char> const &) const;
-            void checkout_(sead::SafeStringBase<char> const &) const;
-            void showErrorDialog_(sead::SafeStringBase<char> const &) const;
+            void showDialog(sead::hostio::FileInfo *, sead::SafeString const &, sead::SafeString const &, sead::SafeString const &, sead::SafeString const &) const;
+            void checkout_(sead::SafeString const &) const;
+            void showErrorDialog_(sead::SafeString const &) const;
             void save(void const*, u32, agl::detail::FileIOMgr::DialogArg const &);
             s32 load(agl::detail::FileIOMgr::DialogArg const &);
             void close(s32);

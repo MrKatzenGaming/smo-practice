@@ -37,10 +37,10 @@ namespace agl
         u64 getByteOffset() const;
         u64 getMemoryPoolType() const;
 
-        void* mMemBlockBuffer; // _8
-        u64 mMemBlockBufferSize; // _10
-        agl::detail::MemoryPool* mMemoryPool; // _18
-        agl::detail::MemoryPoolHeap* mMemoryPoolHeap; // _20
+        void* mMemBlockBuffer;
+        u64 mMemBlockBufferSize;
+        agl::detail::MemoryPool* mMemoryPool;
+        agl::detail::MemoryPoolHeap* mMemoryPoolHeap;
         u8 _28; // this is some sort of bitflag
         u8 _29;
         u8 _2A;
@@ -63,10 +63,10 @@ namespace agl
         void flushCPUCache(u64);
         void invalidateCPUCache(u64);
 
-        agl::detail::MemoryPool* mMemoryPool; // _0
-        u32 mAlignmentAddr; // _8
+        agl::detail::MemoryPool* mMemoryPool;
+        u32 mAlignmentAddr;
         u32 GPUMemAddrBase_C; // most likely padding bytes
-        agl::GPUMemBlockBase* mMemoryBlock; // _10
+        agl::GPUMemBlockBase* mMemoryBlock;
     };
 
     template<typename T>
@@ -87,7 +87,7 @@ namespace agl
     class GPUMemAddr
     {
     public:
-        u64* mPtr; // _0
+        u64* mPtr;
         u64 _8;
     };
 };

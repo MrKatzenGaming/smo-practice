@@ -37,9 +37,9 @@ namespace agl
             agl::shtxt::Clause* _28;
             u64 _30;
             u64 _38;
-            s32 mHash; // _40
+            s32 mHash;
             s16 _44; // -1
-            u16 _46; // 0x101
+            u16 _46;
         };
     };
 };
