@@ -24,7 +24,7 @@ class Shine : public al::LiveActor , public IUseDimension {
         void setGrandShine(void);
         
         undefined padding[0x120 - 0xD0];
-        ShineInfo *curShineInfo; // 0x120
+        ShineInfo *curShineInfo;
         undefined padding_290[0x290 - 0x128];
-        int shineId; // 0x290
+        int shineId;
 };
