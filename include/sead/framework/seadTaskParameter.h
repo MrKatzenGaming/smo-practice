@@ -1,6 +1,6 @@
 #pragma once
 
-#include "prim/seadRuntimeTypeInfo.h"
+#include "sead/prim/seadRuntimeTypeInfo.h"
 
 namespace sead
 {

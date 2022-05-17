@@ -4,8 +4,8 @@
 #include <limits>
 #include <type_traits>
 
-#include <basis/seadRawPrint.h>
-#include <basis/seadTypes.h>
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
 
 namespace sead
 {

@@ -42,6 +42,6 @@ namespace sead
 
         u32 _8;
         u32 DrawLockContext_xC;
-        sead::CriticalSection mContextSection; // _10
+        sead::CriticalSection mContextSection;
     };
 };

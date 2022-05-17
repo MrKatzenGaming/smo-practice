@@ -4,11 +4,11 @@
 #include <algorithm>
 #include <type_traits>
 
-#include <basis/seadNew.h>
-#include <basis/seadRawPrint.h>
-#include <basis/seadTypes.h>
-#include <math/seadMathCalcCommon.h>
-#include <prim/seadPtrUtil.h>
+#include <sead/basis/seadNew.h>
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/math/seadMathCalcCommon.h>
+#include <sead/prim/seadPtrUtil.h>
 
 namespace sead
 {

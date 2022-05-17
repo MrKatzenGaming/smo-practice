@@ -3,9 +3,9 @@
 
 #include <cafe.h>
 
-#include <basis/seadTypes.h>
-#include <gfx/seadTexture.h>
-#include <prim/seadRuntimeTypeInfo.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/gfx/seadTexture.h>
+#include <sead/prim/seadRuntimeTypeInfo.h>
 
 namespace sead
 {

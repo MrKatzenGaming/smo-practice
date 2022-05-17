@@ -1,7 +1,7 @@
 #pragma once
 
-#include <basis/seadTypes.h>
-#include <time/seadCalendarSpan.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/time/seadCalendarSpan.h>
 
 namespace sead
 {

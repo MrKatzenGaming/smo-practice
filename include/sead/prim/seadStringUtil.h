@@ -4,9 +4,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include <basis/seadTypes.h>
-#include <container/seadBuffer.h>
-#include <prim/seadSafeString.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadBuffer.h>
+#include <sead/prim/seadSafeString.h>
 
 namespace sead
 {

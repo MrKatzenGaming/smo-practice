@@ -1,12 +1,12 @@
 #ifndef SEAD_CAFE_FSA_FILEDEVICE_H_
 #define SEAD_CAFE_FSA_FILEDEVICE_H_
 
-#include <cafe.h>
+#include <sead/cafe.h>
 
-#include <basis/seadTypes.h>
-#include <filedevice/seadFileDevice.h>
-#include <prim/seadRuntimeTypeInfo.h>
-#include <prim/seadSafeString.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/filedevice/seadFileDevice.h>
+#include <sead/prim/seadRuntimeTypeInfo.h>
+#include <sead/prim/seadSafeString.h>
 
 namespace sead
 {

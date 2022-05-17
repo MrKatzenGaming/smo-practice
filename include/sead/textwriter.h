@@ -32,7 +32,7 @@ namespace sead
             void setCursorFromTopLeft(sead::Vector2<f32> const &);
             void beginDraw();
             void endDraw();
-            sead::DebugFontMgrNvn *getDefaultFont();
+            sead::DebugFontMgrNvn* getDefaultFont();
             static void setDefaultFont(sead::FontBase *);
             static void setupGraphics(sead::DrawContext*);
 

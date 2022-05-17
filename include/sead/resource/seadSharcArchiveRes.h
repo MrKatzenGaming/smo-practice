@@ -1,12 +1,12 @@
 #ifndef SEAD_SHARC_ARCHIVE_RES_H_
 #define SEAD_SHARC_ARCHIVE_RES_H_
 
-#include <basis/seadTypes.h>
-#include <container/seadBuffer.h>
-#include <filedevice/seadFileDevice.h>
-#include <prim/seadEndian.h>
-#include <prim/seadSafeString.h>
-#include <resource/seadArchiveRes.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadBuffer.h>
+#include <sead/filedevice/seadFileDevice.h>
+#include <sead/prim/seadEndian.h>
+#include <sead/prim/seadSafeString.h>
+#include <sead/resource/seadArchiveRes.h>
 
 namespace sead
 {
