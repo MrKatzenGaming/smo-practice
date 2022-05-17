@@ -24,7 +24,7 @@ namespace alNerveFunction
 
         void addNerve(al::NerveAction *);
 
-        int mActionCount; // _0
+        int mActionCount;
         int _4;
         al::NerveAction* _8;
         al::NerveAction* _10;

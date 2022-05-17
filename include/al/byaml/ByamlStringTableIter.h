@@ -17,7 +17,7 @@ namespace al
         int findStringIndex(const char *) const;
         bool isValidate() const;
 
-        const unsigned char* mData; // _0
+        const unsigned char* mData;
         unsigned char _8;
     };
 };

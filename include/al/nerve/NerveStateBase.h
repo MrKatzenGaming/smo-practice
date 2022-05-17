@@ -1,6 +1,7 @@
 #pragma once
 
 #include "al/nerve/NerveExecutor.h"
+#include "al/LiveActor/LiveActor.h"
 
 namespace al
 {
@@ -16,6 +17,14 @@ namespace al
         virtual bool update();
         virtual void control();
 
-        bool mIsDead; // _10
+        bool mIsDead = true;
     };
+
+    class ActorStateBase : public al::NerveStateBase {
+    public:
+        ActorStateBase(const char*, al::LiveActor*);
+
+    private:
+        LiveActor* mLiveActor;
+};
 };

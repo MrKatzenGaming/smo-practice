@@ -11,7 +11,7 @@ namespace al
 {
     class AsyncFunctorThread {
         public:
-            AsyncFunctorThread(sead::SafeStringBase<char> const &functorName, al::FunctorBase const &functor, int blockType, int stackSize, sead::CoreId id);
+            AsyncFunctorThread(sead::SafeString const &functorName, al::FunctorBase const &functor, int blockType, int stackSize, sead::CoreId id);
             // this function is whats passed into the delegate thread as the function to call when the thread becomes unblocked
             void threadFunction(sead::Thread *, s64); // unused args(?)
             

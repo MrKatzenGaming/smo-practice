@@ -59,7 +59,7 @@ namespace al
         bool tryConvertIter(al::ByamlIter *, al::ByamlData const *) const;
         bool isEqualData(al::ByamlIter const&) const;
 
-        unsigned char* mData; // _0
-        unsigned long mDataOffset; // _8
+        unsigned char* mData;
+        unsigned long mDataOffset;
     };
 };

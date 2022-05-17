@@ -14,7 +14,7 @@ namespace al
         al::HitSensor* getSensor(int) const;
         
         int _0;
-        int mSensorCount; // _4
-        al::HitSensor** mSensors; // _8
+        int mSensorCount;
+        al::HitSensor** mSensors;
     };
 };

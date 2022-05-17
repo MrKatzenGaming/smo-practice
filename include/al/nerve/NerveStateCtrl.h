@@ -7,9 +7,9 @@ namespace al
 {
     struct State
     {
-        al::NerveStateBase* mStateBase; // _0
-        const al::Nerve* mNerve; // _8
-        const char* mName; // _10
+        al::NerveStateBase* mStateBase;
+        const al::Nerve* mNerve;
+        const char* mName;
     };
 
     class NerveStateCtrl
@@ -27,8 +27,8 @@ namespace al
         void tryEndCurrentState();
 
         int _0;
-        int mStateCount; // _4
-        State* mStates; // _8
-        State* mCurrentState; // _10
+        int mStateCount;
+        State* mStates;
+        State* mCurrentState;
     };
 };

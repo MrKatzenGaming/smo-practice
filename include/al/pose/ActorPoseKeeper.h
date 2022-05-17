@@ -34,7 +34,7 @@ namespace al
         virtual void copyPose(const al::ActorPoseKeeperBase *);
         virtual void calcBaseMtx(sead::Matrix34<float> *) = 0;
 
-        sead::Vector3<float> mTranslation; // _8
+        sead::Vector3<float> mTrans;
 
         static const sead::Vector3<float> sDefaultVelocity;
     };
@@ -57,8 +57,8 @@ namespace al
 
         virtual void calcBaseMtx(sead::Matrix34<float> *);
 
-        sead::Vector3<float> mRotation; // _14
-        sead::Vector3<float> mScale; // _20
-        sead::Vector3<float> mVelocity; // _2C
+        sead::Vector3<float> mRotation;
+        sead::Vector3<float> mScale;
+        sead::Vector3<float> mVelocity;
     };
 };

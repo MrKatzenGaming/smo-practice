@@ -1,21 +1,22 @@
 #pragma once
 
 #include "al/hio/HioNode.h"
+#include <sead/container/seadPtrArray.h>
 
 namespace al
 {
-    class LiveActor;
+class LiveActor;
 
-    class LiveActorGroup : public al::HioNode
-    {
-    public:
-        LiveActorGroup(const char *, int);
+class LiveActorGroup : public al::HioNode
+{
+public:
+    LiveActorGroup(const char *, int);
 
-        virtual void registerActor(al::LiveActor *);
+    virtual void registerActor(al::LiveActor *);
+    int calcAliveActorNum() const;
 
-        const char* mGroupName; // _8
-        int mMaxActorCount; // _10
-        int mActorCount; // _14
-        al::LiveActor** mActors; // _18
-    };
+    const char* mName;
+    sead::PtrArray<al::LiveActor> mActors;
+
+};
 };

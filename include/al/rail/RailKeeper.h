@@ -9,6 +9,6 @@ namespace al
     public:
         virtual al::RailRider* getRailRider() const;
 
-        al::RailRider* mRailRider; // _8
+        al::RailRider* mRailRider;
     };
 };

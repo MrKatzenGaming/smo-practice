@@ -7,20 +7,41 @@
 #include "al/collision/CollisionDirector.h"
 #include "al/effect/EffectKeeper.h"
 #include "al/hio/HioNode.h"
+#include "al/model/ModelKeeper.h"
 #include "al/nerve/Nerve.h"
 #include "al/pose/ActorPoseKeeper.h"
 #include "al/rail/RailKeeper.h"
-#include "al/rail/RailRider.h"
+#include "al/iuse/IUseAudioKeeper.h"
+#include "al/iuse/IUseCamera.h"
+#include "al/iuse/IUseNerve.h"
+#include "al/iuse/IUseRail.h"
+#include "al/iuse/IUseSceneObjHolder.h"
 #include "al/scene/SceneObjHolder.h"
 #include "al/screen/ScreenPointKeeper.h"
 #include "al/sensor/HitSensorKeeper.h"
 #include "al/sensor/HitSensor.h"
 #include "al/switch/StageSwitchKeeper.h"
+#include "LiveActorFlag.h"
 
 // vtable for LiveActor: 1C4EB58
 
+
 namespace al
 {
+    class ActorPoseKeeperBase;
+    class ActorExecuteInfo;
+    class ActorActionKeeper;
+    class ActorItemKeeper;
+    class ActorScoreKeeper;
+    class Collider;
+    class CollisionParts;
+    class ShadowKeeper;
+    class ActorPrePassLightKeeper;
+    class ActorOcclusionKeeper;
+    class SubActorKeeper;
+    class ActorParamHolder;
+    class ActorSceneInfo;
+
     class HitSensor;
     class SensorMsg;
     class ScreenPointer;
@@ -60,16 +81,29 @@ namespace al
         virtual void control();
         virtual void updateCollider();
         
-        const char* mActorName; // _48
-        al::ActorPoseKeeperBase* mPoseKeeper; // _50
-        char _58[0x90-0x58];
-        al::NerveKeeper* mNerveKeeper; // _90
-        al::HitSensorKeeper* mHitSensorKeeper; // _98
-        al::ScreenPointKeeper* mScreenPointKeeper; // _A0
-        al::EffectKeeper* mEffectKeeper; // _A8
-        al::AudioKeeper* mAudioKeeper; // _B0
-
-        al::StageSwitchKeeper* mStageSwitchKeeper; // _C0
-        al::RailKeeper* mRailKeeper; // _C8
+        const char* mName;
+        al::ActorPoseKeeperBase* mPoseKeeper;
+        al::ActorExecuteInfo* mLayoutExecuteInfo;
+        al::ActorActionKeeper* mActionKeeper;
+        al::ActorItemKeeper* mItemKeeper;
+        al::ActorScoreKeeper* mScoreKeeper;
+        al::Collider* mCollider;
+        al::CollisionParts* mCollisionParts;
+        al::ModelKeeper* mModelKeeper;
+        al::NerveKeeper* mNerveKeeper;
+        al::HitSensorKeeper* mHitSensorKeeper;
+        al::ScreenPointKeeper* mScreenPointKeeper;
+        al::EffectKeeper* mEffectKeeper;
+        al::AudioKeeper* mAudioKeeper;
+        void* gap_1;
+        al::StageSwitchKeeper* mStageSwitchKeeper;
+        al::RailKeeper* mRailKeeper;
+        al::ShadowKeeper* mShadowKeeper;
+        al::ActorPrePassLightKeeper* mPrePassLightKeeper;
+        al::ActorOcclusionKeeper* mOcclusionKeeper;
+        al::SubActorKeeper* mSubActorKeeper;
+        al::ActorParamHolder* mParamHolder;
+        al::ActorSceneInfo* mSceneInfo;
+        al::LiveActorFlag* mLiveActorFlag;
     };
 };

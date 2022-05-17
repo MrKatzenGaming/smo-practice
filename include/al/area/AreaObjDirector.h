@@ -1,12 +1,21 @@
 #pragma once
 
+#include "al/iuse/IUseAreaObj.h"
+#include "al/area/AreaObjGroup.h"
+
 namespace al
 {
-    class AreaObjDirector;
+class AreaObjFactory;
+class AreaObjMtxConnecterHolder;
 
-    class IUseAreaObj
-    {
-    public:
-        virtual al::AreaObjDirector* getAreaObjDirector() const = 0;
-    };
+class AreaObjDirector {
+public:
+    AreaObjGroup* getAreaObjGroup(const char*) const;
+
+    AreaObjFactory* mFactory;
+    AreaObjMtxConnecterHolder* mMtxConnecterHolder;
+    AreaObjGroup** mAreaGroups;
+    int mAreaGroupCount;
 };
+
+}

@@ -8,6 +8,6 @@ namespace al
         int getType() const;
         int getCount(bool) const;
 
-        int mType; // _0
+        int mType;
     };
 };

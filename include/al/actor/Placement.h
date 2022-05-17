@@ -12,8 +12,8 @@ namespace al
 
         void set(const al::ByamlIter &, const al::ByamlIter &);
 
-        al::ByamlIter _0;
-        al::ByamlIter mZoneIter; // _10
+        al::ByamlIter mPlacementIter;
+        al::ByamlIter mZoneIter;
     };
 
     class PlacementId
@@ -26,11 +26,11 @@ namespace al
         bool isEqual(const al::PlacementId &) const;
         static bool isEqual(const al::PlacementId &, const al::PlacementId &);
         bool isValid() const;
-        bool makeString(sead::BufferedSafeStringBase<char> *) const;
+        bool makeString(sead::BufferedSafeString *) const;
 
-        const char* _0;
-        const char* mUnitConfigName; // _8
-        const char* mID; // _10
-        const char* mCommonID; // _18
+        const char* sVar1;
+        const char* mUnitConfigName;
+        const char* mID;
+        const char* mCommonID;
     };
 }

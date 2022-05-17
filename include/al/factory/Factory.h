@@ -33,9 +33,9 @@ namespace al
 
         protected:
             // 0x0 is vtable
-            const char *factoryName; // 0x8
-            al::FactoryEntry<T> *actorTable; // 0x10
-            int factoryCount; // 0x18
+            const char *factoryName;
+            al::FactoryEntry<T> *actorTable;
+            int factoryCount;
     };
 
 } // namespace al

@@ -6,8 +6,8 @@ namespace al
 
     struct FactoryEntry
     {
-        const char* mName; // _0
-        void* mCreationFunction; // _8
+        const char* mName;
+        void* mCreationFunction;
     };
 
     template<typename T>
@@ -24,9 +24,9 @@ namespace al
     public:
         ActorFactory(const char *);
 
-        const char* mFactoryName; // _8
-        al::FactoryEntry** mFactoryEntries; // _10
-        int mNumFactoryEntries; // _18
+        const char* mFactoryName;
+        al::FactoryEntry** mFactoryEntries;
+        int mNumFactoryEntries;
     };
     
     class ProjectActorFactory : public al::ActorFactory

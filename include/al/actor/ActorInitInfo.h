@@ -1,14 +1,51 @@
 #pragma once
 
+#include "al/LiveActor/LiveActorGroup.h"
 #include "al/actor/Placement.h"
+#include "al/area/AreaObjDirector.h"
+#include "al/camera/CameraDirector.h"
+#include "al/collision/CollisionDirector.h"
+#include "al/gamepad/util.h"
+#include "al/layout/LayoutInitInfo.h"
+#include "game/GameData/GameDataHolderBase.h"
+#include "al/scene/SceneObjHolder.h"
 
 namespace al
 {
-    class ActorInitInfo
-    {
-    public:
-        unsigned long _0;
-        const al::PlacementInfo& mPlacementInfo; // _8
-        
-    };
+class ClippingDirector;
+class DemoDirector;
+class GravityHolder;
+class ItemDirectorBase;
+class NatureDirector;
+class PadRumbleDirector;
+class PlayerHolder;
+class SceneStopCtrl;
+class SceneMsgCtrl;
+class SceneCoverCtrl;
+
+class ActorInitInfo
+{
+public:
+    LiveActorGroup* mGroup1;
+    // const al::PlacementInfo& mPlacementInfo;
+    PlacementInfo* mPlacementInfo;
+    LayoutInitInfo* mLayoutInitInfo;
+    AreaObjDirector* mAreaObjDirector;
+    CameraDirector* mCameraDirector;
+    ClippingDirector* mClippingDirector;
+    CollisionDirector* mCollisionDirector;
+    DemoDirector* mDemoDirector;
+    GameDataHolderBase* mGameDataHolder;
+    GravityHolder* mGravityHolder;
+    ItemDirectorBase* mItemDirector;
+    NatureDirector* mNatureDirector;
+    GamePadSystem* mGamePadSystem;
+    PadRumbleDirector* mPadRumbleDirector;
+    PlayerHolder* mPlayerHolder;
+    SceneObjHolder* mSceneObjHolder;
+    SceneStopCtrl* mSceneStopCtrl;
+    SceneMsgCtrl* mSceneMsgCtrl;
+    SceneCoverCtrl* mSceneCoverCtrl;
+
+};
 };

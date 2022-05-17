@@ -18,8 +18,8 @@ namespace al
             unsigned short mTag, mVersion;
         };
 
-        int mHashKeyOffset; // _4
-        int mStringTableOffset; // _8
-        int mDataOffset; // _C
+        int mHashKeyOffset;
+        int mStringTableOffset;
+        int mDataOffset;
     };
 };

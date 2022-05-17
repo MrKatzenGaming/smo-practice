@@ -31,7 +31,7 @@ namespace al
         unsigned char getType() const;
         unsigned int getValue() const;
 
-        unsigned int mValue; // _0
-        unsigned char mType; // _4
+        unsigned int mValue;
+        unsigned char mType;
     };
 };
