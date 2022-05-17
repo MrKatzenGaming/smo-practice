@@ -33,7 +33,7 @@ namespace nn
             static void FreeExtraContextsForAllVariables();
             static s64 GetNbOfExtraContexts();
 
-            nn::nex::PseudoGlobalVariableRoot* mNextRoot; // _8
+            nn::nex::PseudoGlobalVariableRoot* mNextRoot;
 
             static s64 s_uiNbOfExtraContexts;
             static PseudoGlobalVariableList s_oList;

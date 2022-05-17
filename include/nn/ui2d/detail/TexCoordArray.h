@@ -31,7 +31,7 @@ namespace nn
                 u16 _0;
                 u16 _2;
                 u32 _4; // padding?
-                nn::ui2d::Layout* mLayout; // _8
+                nn::ui2d::Layout* mLayout;
             };
         };
     };

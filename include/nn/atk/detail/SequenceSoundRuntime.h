@@ -33,7 +33,7 @@ namespace nn
                 void Update();
 
                 u8 _0[0xD0];
-                nn::atk::detail::SoundArchiveManager* mArchiveManager; // _D0
+                nn::atk::detail::SoundArchiveManager* mArchiveManager;
                 u64 _D8;
             };
         };

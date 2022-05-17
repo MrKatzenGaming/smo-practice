@@ -15,7 +15,7 @@ namespace nn
         {
         public:
 
-            u64 mInfo; // _0
+            u64 mInfo;
         };
 
         template<typename T>

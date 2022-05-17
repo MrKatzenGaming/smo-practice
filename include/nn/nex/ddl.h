@@ -30,7 +30,7 @@ namespace nn
             void Unload();
             void ResetDOClassIDs();
 
-            u32 mNumDecsLoaded; // _8
+            u32 mNumDecsLoaded;
             u8 _C;
             u8 _D; // padding
             u8 _E; // ^^

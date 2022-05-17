@@ -7,9 +7,9 @@ extern "C" {
 #endif
 
 typedef struct nnosMutexType {
-    u8 curState;            // _0
-    bool isRecursiveMutex;  // _1
-    s32 lockLevel;          // _2
+    u8 curState;            // 0x0
+    bool isRecursiveMutex;  // 0x1
+    s32 lockLevel;          // 0x2
     u8 _6[0x20 - 0xE];
 } nnosMutexType;
 

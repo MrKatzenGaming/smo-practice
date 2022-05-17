@@ -28,7 +28,7 @@ namespace nn
 
             void SetLibrary(void *);
 
-            void* mLibrary; // _8s
+            void* mLibrary;
 
             static nn::nex::Plugin* s_pInstance;
         };

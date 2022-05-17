@@ -16,7 +16,7 @@ namespace nn
         public:
             void SetDefault();
 
-            u64 mInfo; // _0
+            u64 mInfo;
         };
 
         class BufferTextureViewInfo

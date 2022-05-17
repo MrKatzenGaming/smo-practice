@@ -51,12 +51,12 @@ namespace nn
             s64 GetAnalyzedWorkBufferSize() const;
             JpegStatus Decode(void *out, s64, s32 alignment, void *, s64);
 
-            nn::image::ProcessStage mProcessStage; // _8
-            void* mData; // _C
-            s64 mSize; // _14
+            nn::image::ProcessStage mProcessStage;
+            void* mData;
+            s64 mSize;
             s32 _18;
-            nn::image::PixelFormat mFormat; // _1C
-            Dimension mImgDimensions; // _20
+            nn::image::PixelFormat mFormat;
+            Dimension mImgDimensions;
             s64 _28;
             // rest is related to EXIF processing
         };

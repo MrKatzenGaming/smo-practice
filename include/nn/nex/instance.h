@@ -17,10 +17,10 @@ namespace nn
         public:
             InstanceControl(u32, u32);
 
-            u32 mInstanceContext; // _8
-            u32 mInstanceType; // _C
-            void* mDelegateInstance; // _10
-            bool mIsValidControl; // _18
+            u32 mInstanceContext;
+            u32 mInstanceType;
+            void* mDelegateInstance;
+            bool mIsValidControl;
             u8 _19; // probably padding
             u8 _1A;
             u8 _1B;

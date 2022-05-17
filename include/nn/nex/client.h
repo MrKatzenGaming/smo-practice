@@ -59,15 +59,15 @@ namespace nn
             static void ExtractProtocolKey(nn::nex::Message *, nn::nex::Protocol::_Command &, u16 &);
             static bool IsOldRVDDLVersion(nn::nex::EndPoint *);
 
-            u16 mProtocolID; // _48
+            u16 mProtocolID;
             u16 _4A;
             u32 _4C;
-            nn::nex::EndPoint* mOutgoingConnection; // _50
-            nn::nex::ProtocolRequestBrokerInterface* mBrokerInterface; // _58
-            u32 mFlags; // _60
+            nn::nex::EndPoint* mOutgoingConnection;
+            nn::nex::ProtocolRequestBrokerInterface* mBrokerInterface;
+            u32 mFlags;
             u32 _64;
-            nn::nex::EndPoint* mIncomingConnection; // _68
-            u32 mUseLoopback; // _70 (boolean)
+            nn::nex::EndPoint* mIncomingConnection;
+            u32 mUseLoopback; // 0x70 (boolean)
             u32 _74;
             u64 _78;
             u32 _80;
@@ -95,7 +95,7 @@ namespace nn
             bool SendRMCMessage(nn::nex::ProtocolCallContext *, nn::nex::Message *);
             void ProcessResponse(nn::nex::Message *, nn::nex::EndPoint *);
 
-            nn::nex::Credentials* mCredentials; // _88
+            nn::nex::Credentials* mCredentials;
         };
 
         class ServerProtocol : public nn::nex::Protocol

@@ -27,11 +27,11 @@ namespace nn
             void StopAllSound(s32, bool);
             void DisposeInstances();
 
-            nn::atk::detail::SoundArchiveManager mArchiveManager; // _8
-            nn::atk::detail::SequenceSoundRuntime mSeqSoundRuntime; // _50
-            nn::atk::detail::WaveSoundRuntime mWaveSoundRuntime; // _130
-            nn::atk::detail::AdvancedWaveSoundRuntime mAdvancedWaveSound; // _1B0
-            nn::atk::detail::StreamSoundRuntime mStreamSoundRuntime; // _1E0
+            nn::atk::detail::SoundArchiveManager mArchiveManager;
+            nn::atk::detail::SequenceSoundRuntime mSeqSoundRuntime;
+            nn::atk::detail::WaveSoundRuntime mWaveSoundRuntime;
+            nn::atk::detail::AdvancedWaveSoundRuntime mAdvancedWaveSound;
+            nn::atk::detail::StreamSoundRuntime mStreamSoundRuntime;
             u64 _290;
             u32 _298;
             u8 _29C[0x2E8-0x29C];

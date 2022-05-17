@@ -62,7 +62,7 @@ namespace nn
             u32 _28;
             u32 _2C;
             u64 _30;
-            nn::nex::SystemComponent::_State mState; // _38
+            nn::nex::SystemComponent::_State mState;
             u32 _3C;
             u64 _40;
         };

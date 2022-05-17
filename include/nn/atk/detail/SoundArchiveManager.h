@@ -36,7 +36,7 @@ namespace nn
                 u64* _10;
                 nn::atk::detail::AddonSoundArchiveContainer* _18;
                 u64* _20;
-                nn::atk::SoundArchive* mSoundArchive; // _28
+                nn::atk::SoundArchive* mSoundArchive;
                 u64 _30;
                 u64 _38;
                 u64 _40;

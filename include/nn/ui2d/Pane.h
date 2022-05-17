@@ -44,25 +44,25 @@ namespace nn
             void RemoveChild(nn::ui2d::Pane *);
             void GetVertexPos() const;
 
-            nn::ui2d::Pane* mParent; // _8
+            nn::ui2d::Pane* mParent;
             u64 _10;
             u64 _18;
             u64 _20;
             u64 _28;
-            u32 mPositionX; // _30
-            u32 mPositionY; // _34
-            u32 mPositionZ; // _38
-            u32 mRotationX; // _3C
-            u32 mRotationY; // _40
-            u32 mRotationZ; // _44
-            u32 mScaleX; // _48
-            u32 mScaleY; // _4C
-            u32 mSizeX; // _50
-            u32 mSizeY; // _54
-            u8 mFlags; // _58 (pane + 0x8)
-            u8 mAlpha; // _59
-            u8 mAlphaInfluence; // _5A
-            u8 mOriginFlags; // _5B
+            u32 mPositionX;
+            u32 mPositionY;
+            u32 mPositionZ;
+            u32 mRotationX;
+            u32 mRotationY;
+            u32 mRotationZ;
+            u32 mScaleX;
+            u32 mScaleY;
+            u32 mSizeX;
+            u32 mSizeY;
+            u8 mFlags; // 0x58 (pane + 0x8)
+            u8 mAlpha;
+            u8 mAlphaInfluence;
+            u8 mOriginFlags;
             u32 _5C;
             u64 _60;
             u64 _68;
@@ -71,10 +71,10 @@ namespace nn
             u128 _90;
             u64 _A0;
             u64 _A8;
-            void* mAnimExtUserData; // _B0
-            char[0x18] mPanelName; // _B8
+            void* mAnimExtUserData;
+            char[0x18] mPanelName;
             u8 _D0;
-            char [8] mUserData; // _D1
+            char [8] mUserData;
             u8 _D9;
             u16 _DA;
             u32 _DC;

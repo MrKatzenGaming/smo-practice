@@ -26,7 +26,7 @@ namespace nn
             static Time ConvertTimeoutToDeadline(u32 timeout);
             static u32 ConvertDeadlineToTimeout(Time deadline);
             
-            u64 mCurTime; // _0
+            u64 mCurTime;
 
             static u64* s_pfGetSessionTime; // some sort of callback?
 

@@ -34,8 +34,8 @@ namespace nn
             void Trace(u64) const;
             void GenerateRandomKey(u64);
 
-            u64* mContentPtrStart; // _10
-            u64* mContentPtrEnd; // _18
+            u64* mContentPtrStart;
+            u64* mContentPtrEnd;
 
         };
     };

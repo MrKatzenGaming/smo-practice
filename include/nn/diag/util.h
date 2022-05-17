@@ -6,9 +6,9 @@ namespace nn
     {
         struct ModuleInfo
         {
-            const char* modulePath; // _0
-            uintptr_t moduleAddr; // _8
-            size_t moduleSize; // _C
+            const char* modulePath;
+            uintptr_t moduleAddr;
+            size_t moduleSize;
         };
 
         size_t GetRequiredBufferSizeForGetAllModuleInfo();

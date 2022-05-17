@@ -45,14 +45,14 @@ namespace nn
             u64 _30;
             u64 _38;
             s32 _40;
-            s32 mPlayableSoundCount; // _44
+            s32 mPlayableSoundCount;
             s32 _48;
-            f32 mVolume; // _4C
-            f32 mLowPassFreq; // _50
-            s32 mFilterType; // _54
-            f32 mBaseFreq; // _58
-            u32 mDefaultOutputLine; // _5C
-            f32 mOutputVolume; // _60
+            f32 mVolume;
+            f32 mLowPassFreq;
+            s32 mFilterType;
+            f32 mBaseFreq;
+            u32 mDefaultOutputLine;
+            f32 mOutputVolume;
             u64 _64;
             u64 _6C;
         };

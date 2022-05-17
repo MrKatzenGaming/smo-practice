@@ -31,7 +31,7 @@ namespace nn
                 void InvalidateMappedRange(s64, u64) const;
                 void GetGpuAddress(nn::gfx::GpuAddress *) const;
 
-                T* mBuff; // _0
+                T* mBuff;
             };
 
             template<typename T>

@@ -9,16 +9,16 @@ namespace nn
         class ResFogAnim
         {
         public:
-            char mMagic[4]; // _0
-            u16 mFlags; // _4
-            u16 mPad; // _6
-            s32 mNumFrames; // _8
-            u8 mNumCurves; // _C
-            u8 mIdxDistanceAttnFunc; // _D
-            u16 mNumUserData; // _E
-            u32 mSizeBaked; // _10
-            u64 mNameOffset; // _14
-            u64 mFuncNameOffset; // _1C
+            char mMagic[4];
+            u16 mFlags;
+            u16 mPad;
+            s32 mNumFrames;
+            u8 mNumCurves;
+            u8 mIdxDistanceAttnFunc;
+            u16 mNumUserData;
+            u32 mSizeBaked;
+            u64 mNameOffset;
+            u64 mFuncNameOffset;
             
         };
     };

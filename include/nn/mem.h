@@ -24,10 +24,10 @@ namespace nn
             void Free(void* address);
             void Dump();
 
-            bool mIsInitialized; // _0
-            bool mIsEnabledThreadCache; // _1
+            bool mIsInitialized;
+            bool mIsEnabledThreadCache;
             u16 _2;
-            u64* mAllocAddr; // _4
+            u64* mAllocAddr;
         };
     };
 };
