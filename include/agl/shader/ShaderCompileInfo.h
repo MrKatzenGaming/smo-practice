@@ -5,9 +5,9 @@
 
 #pragma once
 
-#include "sead/heap.h"
-#include "sead/hostio.h"
-#include "sead/array.h"
+#include <sead/heap/seadHeap.h>
+#include <sead/hostio/seadHostIONode.h>
+#include <sead/container/seadPtrArray.h>
 #include "Shader.h"
 #include "types.h"
 

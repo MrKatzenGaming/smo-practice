@@ -5,8 +5,9 @@
 
 #pragma once
 
-#include "sead/heap.h"
-#include "sead/string.h"
+#include <sead/heap/seadHeap.h>
+#include <sead/heap/seadExpHeap.h>
+#include <sead/prim/seadSafeString.h>
 
 namespace agl
 {

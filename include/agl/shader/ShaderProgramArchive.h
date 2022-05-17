@@ -5,9 +5,9 @@
 
 #pragma once
 
-#include "sead/disposer.h"
-#include "sead/heap.h"
-#include "sead/hostio.h"
+#include <sead/heap/seadDisposer.h>
+#include <sead/heap/seadHeap.h>
+#include <sead/hostio/seadHostIONode.h>
 
 namespace agl
 {

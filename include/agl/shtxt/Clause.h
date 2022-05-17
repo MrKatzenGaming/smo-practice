@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "sead/string.h"
+#include <sead/prim/seadSafeString.h>
 #include "types.h"
 
 namespace agl

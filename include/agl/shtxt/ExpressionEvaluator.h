@@ -5,9 +5,13 @@
 
 #pragma once
 
-#include "sead/array.h"
-#include "sead/delegate.h"
-#include "sead/heap.h"
+#include <sead/container/seadObjArray.h>
+// #include <sead/prim/seadDelegate.h>
+#include <sead/heap/seadHeap.h>
+
+namespace sead {
+template <typename T> class AnyDelegate1Const;
+}
 
 namespace agl
 {

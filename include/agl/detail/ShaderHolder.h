@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "sead/heap.h"
+#include <sead/heap/seadHeap.h>
 
 namespace agl
 {
