@@ -15,41 +15,6 @@
 #include "GameProgressData.h"
 
 
-class Shine;
-struct GameDataShine {
-    sead::BufferedSafeString mStageName;
-    unsigned char gap1[0x80];
-    sead::BufferedSafeString mObjId;
-    unsigned char gap2[0x80];
-    const char* sVar2;
-    sead::BufferedSafeString mObjectName;
-    unsigned char gap3[0x40];
-    sead::Vector3f mHintTrans;
-    sead::Vector3f mTrans;
-    unsigned char gap4[0x20];
-    int mMainScenarioNo;
-    int mWorldId;
-    bool mIsMoonRock;
-    bool mIsGot;
-    bool mIsAchievementShine;
-    bool mIsGrand;
-    bool mIsShopShine;
-    int iVar2;
-    int mHintStatus;
-    int iVar4;
-    sead::DateTime mGetTime;
-    int mUniqueId;
-    sead::SafeString mOptionalId;
-    unsigned char gap5[0x28];
-    unsigned int mProgressBitFlag;
-    bool mDisableHintById;
-    bool bVar3;
-};
-
-struct GameDataShineList {
-    GameDataShine mShineData[1024];
-};
-
 class GameDataHolder;
 class ChangeStageInfo;
 class ShineInfo;
@@ -78,23 +43,56 @@ public:
     int calcGetShineNumByObjectNameOrOptionalId(const char *, int);
     void calcShineIndexTableNameUnlockable(int* table, int* count, int worldId);
 
+    class HintInfo {
+    public:
+        sead::BufferedSafeString mStageName;
+        unsigned char gap1[0x80];
+        sead::BufferedSafeString mObjId;
+        unsigned char gap2[0x80];
+        const char* sVar2;
+        sead::BufferedSafeString mObjectName;
+        unsigned char gap3[0x40];
+        sead::Vector3f mHintTrans;
+        sead::Vector3f mTrans;
+        unsigned char gap4[0x20];
+        int mMainScenarioNo;
+        int mWorldId;
+        bool mIsMoonRock;
+        bool mIsGot;
+        bool mIsAchievementShine;
+        bool mIsGrand;
+        bool mIsShopShine;
+        int iVar2;
+        int mHintStatus;
+        int iVar4;
+        sead::DateTime mGetTime;
+        int mUniqueId;
+        sead::SafeString mOptionalId;
+        unsigned char gap5[0x28];
+        unsigned int mProgressBitFlag;
+        bool mDisableHintById;
+        bool bVar3;
+    };
+
     ShineInfo* mShineInfo1;
     void* gap1;
     ShineInfo* mLatestGetShineInfo;
     int* mShopShine;
-    int* piVar1;
+    int* mQuest;
     int iVar2;
     sead::FixedSafeString<128> sVar1;
     sead::FixedSafeString<128> sVar2;
     sead::FixedSafeString<128> sVar3;
     sead::FixedSafeString<128> mCheckpointName;
-    sead::FixedSafeString<128> sVar4;
+    sead::FixedSafeString<128> mWorldStageName;
     sead::FixedSafeString<128> mStageNameCurrent;
-    sead::FixedSafeString<128> sVar5;
+    sead::FixedSafeString<128> mStageNamePrevious;
     bool bVar1;
     bool bVar2;
     bool* mWorldWarpHoleThrough;
-    unsigned char gap9[0x20];
+    sead::DateTime mLastUpdateTime;
+    sead::DateTime mSaveTime;
+    unsigned char gap9[0x10];
     UniqObjInfo** uVar1;
     sead::FixedSafeString<128> sVar6;
     unsigned char gap10[0x18];
@@ -118,7 +116,7 @@ public:
     bool bVar3;
     bool* mSessionMemberNum;
     int mSessionEventProgress;
-    bool mIsPayCoinToSphinx;
+    bool mIsPayCoinToSphinx; // jaxi
     SphinxQuizData* mSphinxQuizData;
     bool* mTalkLocalLanguage;
     bool mIsHintNpcFirstTalk;
@@ -143,10 +141,10 @@ public:
     SequenceDemoSkipData* mSequenceDemoSkipData;
     HintPhotoData* mHintPhotoData;
     ulong mPlayTimeTotal;
-    sead::SafeString* psVar1;
-    sead::SafeString* psVar2;
-    sead::SafeString* psVar3;
-    sead::SafeString* psVar4;
+    sead::SafeString* psVar1; // bought outfits/caps
+    sead::SafeString* psVar2; // bought caps/outfits
+    sead::SafeString* mBoughtStickers;
+    sead::SafeString* mBoughtSouvenirs;
     sead::FixedSafeString<64> mCurrentClothName;
     sead::FixedSafeString<64> mCurrentCapName;
     bool mIsCostumeRandom;
@@ -155,8 +153,9 @@ public:
     bool mIsRideSphinx;
     bool mIsRideMotorcycle;
     int* mScenarioNo;
-    sead::PtrArray<RaceRecord> arr1;
-    unsigned char gap18[0x8];
+    sead::PtrArray<RaceRecord> mRaceRecords;
+    int iVar3;
+    int iVar4;
     int mJumpingRopeBestCount;
     int iVar1;
     bool mIsExistRecordJumpingRope;
@@ -170,8 +169,7 @@ public:
     void* gap19;
     bool mIsKidsMode;
     unsigned char gap20[0x7];
-    int iVar3;
-    void* gap21;
+    sead::PtrArrayImpl arr4;
     bool mIsTalkKakku;
     bool mIsTalkWorldTravelingPeach;
     bool mIsTalkCollectBgmNpc;
@@ -183,9 +181,9 @@ public:
     sead::FixedSafeString<128> mStageNameNext;
     bool mIsStageHakoniwa;
     bool bVar5;
-    int iVar4;
+    int iVar10;
     sead::FixedSafeString<128> sVar9;
-    GameDataShineList* mShineList;
+    HintInfo (*mShineList)[1024];
     sead::PtrArrayImpl arr2;
     int iVar5;
     int** ppiVar1;
@@ -205,13 +203,15 @@ public:
     bool bVar10;
     int* mShinesPreMoonRock;
     int* mShinesPostMoonRock;
-    unsigned char gap25[0xc];
+    int mAchievementShines;
+    unsigned char gap25[0x8];
     bool bVar11;
     ChangeStageInfo* uVar4;
     ChangeStageInfo* uVar5;
     bool bVar12;
     bool bVar13;
-    unsigned char gap26[0xa];
+    unsigned char gap26[0x6];
+    int mWonRace;
     int mRaceRivalLevel;
     int mLastRaceRanking;
     void* gap27;
@@ -220,27 +220,27 @@ public:
     bool mShowExplainCheckpointFlag;
     unsigned char gap29[0x8];
     sead::Vector3f mHomeTrans;
-    bool bVar14;
-    sead::Vector3f vVar2;
-    bool bVar15;
-    sead::Vector3f vVar3;
-    bool bVar16;
-    sead::Vector3f vVar4;
-    bool bVar17;
-    sead::Vector3f vVar5;
-    bool bVar18;
+    bool mIsExistHome;
+    sead::Vector3f mRaceStartNpcTrans;
+    bool mIsExistRaceStartNpc;
+    sead::Vector3f mRaceStartTrans;
+    bool mIsExistRaceStart;
+    sead::Vector3f mRaceGoalTrans;
+    bool mIsExistRaceGoal;
+    sead::Vector3f mHintNpcTrans;
+    bool mIsExistHintNpc;
     sead::Vector3f vVar6;
     bool bVar19;
-    sead::Vector3f vVar7;
-    bool bVar20;
-    sead::Vector3f vVar8;
-    bool bVar21;
-    sead::Vector3f vVar9;
-    bool bVar22;
+    sead::Vector3f mJangoTrans;
+    bool mIsExistJango;
+    sead::Vector3f mAmiiboNpcTrans;
+    bool mIsExistAmiiboNpc;
+    sead::Vector3f mTimeBalloonNpcTrans;
+    bool mIsExistTimeBalloonNpc;
     sead::Vector3f mPoetterTrans;
     bool mIsExistPoetter;
-    sead::Vector3f vVar10;
-    bool bVar24;
+    sead::Vector3f mMoonRockTrans;
+    bool mIsExistMoonRock;
     sead::Vector3f vVar11;
     bool bVar25;
     void* gap30;

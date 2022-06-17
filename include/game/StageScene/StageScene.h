@@ -150,7 +150,7 @@ class StageScene : public al::Scene
     sead::SafeString *capName;
 	sead::SafeString *newCapName;
     unsigned char gap_280[0x50];
-    GameDataHolderAccessor *mDataHolderBase;
+    GameDataHolderAccessor *mDataHolder;
 	al::PlacementInfo *mPlacementInfo;// 2D8
 	al::LayoutTextureRenderer *mLayoutTextureRenderer; //2E0
 	PlayGuideSkip *mPlayGuideSkip;

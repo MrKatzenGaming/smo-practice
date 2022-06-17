@@ -1,5 +1,6 @@
 #pragma once
 
+#include "al/actor/WaterSurfaceFinder.h"
 #include "al/nerve/NerveStateBase.h"
 #include "PlayerAnimator.h"
 #include "PlayerConst.h"
@@ -10,9 +11,6 @@
 #include "game/Player/PlayerWallActionHistory.h"
 #include "sead/math/seadVector.h"
 
-namespace al {
-class WaterSurfaceFinder;
-}
 class IUsePlayerCeilingCheck;
 class IUsePlayerCollision;
 class PlayerActionDiveInWater;

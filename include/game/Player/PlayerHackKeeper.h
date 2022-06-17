@@ -4,6 +4,8 @@
 
 class PlayerHackKeeper {
 public:
+    const char* getCurrentHackName() const;
+
     char padding[0x68];
     al::LiveActor* mCurrentHackActor;
 };

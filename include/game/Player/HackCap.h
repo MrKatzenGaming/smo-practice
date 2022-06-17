@@ -5,6 +5,7 @@
 * Vtable loc: 1D75520
 */
 
+#include "al/actor/WaterSurfaceFinder.h"
 #include "al/LiveActor/LiveActor.h"
 #include "game/Player/PlayerCapActionHistory.h"
 #include "game/Player/PlayerInput.h"
@@ -15,7 +16,6 @@
 #define HACKSIZE sizeof(al::LiveActor)
 
 namespace al {
-class WaterSurfaceFinder;
 class PadRumbleKeeper;
 }
 class IUsePlayerCollision;

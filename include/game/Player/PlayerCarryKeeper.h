@@ -53,8 +53,8 @@ public:
 
     PlayerActorHakoniwa* mPlayer;
     PlayerAnimator* mAnimator;
-    al::HitSensor* uVar1;
-    al::HitSensor* uVar2;
+    al::HitSensor* mSensorPlayer;
+    al::HitSensor* mSensorHeld;
     IPlayerModelChanger* mModelChanger;
     IUsePlayerCeilingCheck* mCeilingCheck;
     PlayerJointParamHandLegAngle* mJointParamHandLegAngle;

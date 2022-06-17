@@ -1,5 +1,6 @@
 #pragma once
 
+#include "al/actor/WaterSurfaceFinder.h"
 #include "al/LiveActor/LiveActor.h"
 #include "al/LiveActor/LiveActorGroup.h"
 #include "al/iuse/ISceneObj.h"
@@ -12,7 +13,6 @@
 
 namespace al {
 class CameraTicket;
-class WaterSurfaceFinder;
 class WipeSimple;
 class CameraSubTargetBase;
 class SimpleLayoutAppearWaitEnd;

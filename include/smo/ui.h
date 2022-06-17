@@ -11,23 +11,25 @@
 #include "al/scene/Scene.h"
 #include "al/LiveActor/LiveActorKit.h"
 #include "al/util.hpp"
-#include "debugMenu.hpp"
+
+#include "game/Actors/GiantWanderBoss.h"
+#include "game/Actors/GrowPlantSeed.h"
 #include "game/Actors/JugemFishing.h"
 #include "game/Actors/Killer.h"
 #include "game/Actors/KuriboHack.h"
-#include "game/Actors/GiantWanderBoss.h"
 #include "game/GameData/GameDataFile.h"
 #include "game/GameData/GameDataFunction.h"
+#include "game/Player/PlayerActorHakoniwa.h"
 #include "game/Player/PlayerConst.h"
 #include "game/Player/PlayerState.h"
+#include "game/StageScene/StageScene.h"
 #include "game/WorldEndBorderKeeper.h"
 #include "rs/util.hpp"
-#include "sead/prim/seadSafeString.h"
-#include "debugMenu.hpp"
-#include <game/Player/PlayerActorHakoniwa.h>
-#include <game/StageScene/StageScene.h>
+
 #include <sead/math/seadQuat.h>
 #include <sead/math/seadVector.h>
+#include <sead/prim/seadSafeString.h>
+#include "debugMenu.hpp"
 
 #define NUMSAVES 16
 #define MAXDEPTH 16
@@ -54,6 +56,7 @@ private:
     size_t demangledSize;
     int cxaStatus;
     al::LiveActor* currentHack;
+    al::HitSensor* currentCarry;
     int heldDirFrames = 0;
 
     bool hideShineCounter = false;
@@ -91,7 +94,9 @@ public:
         bool noDamageLife = false;
         bool disableTriggerL = true;
         bool lockHack = false;
+        bool lockCarry = false;
         bool disableShineNumUnlock = false;
+        bool showOddSpace = false;
     } options;
 
     struct {
@@ -104,6 +109,7 @@ public:
         bool showHitInfoWall = false;
         bool showHitInfoCeil = false;
         bool showHitInfoArray = false;
+        bool showCRC = false;
         al::AreaObjGroup* curAreaGroup = nullptr;
         al::AreaObj* curArea = nullptr;
         sead::Vector3f nearestEdgePoint;
@@ -125,11 +131,13 @@ public:
         Options, OptionsMvmt, OptionsMoon, OptionsSave, OptionsCamera,
         OptionsTeleport, OptionsTeleportSettings, OptionsRenderer,
         Stage, Misc,
-        Info, InfoMoon, InfoHack,
+        Info, InfoMoon, InfoHack, InfoCappy,
         Tas, Modes, Debug,
         Test, TestWallAction, TestCapActionHistory,
         TestLiveActorKit, TestObjectList, TestAreaList, TestExecute,
-        TestGameDataFile, TestTalkatoo, TestOther, TestLoadingZones
+        TestNatureDirector,
+        TestGameDataHolder, TestGameDataFile, TestGameDataShine,
+        TestTalkatoo, TestOther, TestLoadingZones
     };
 
     Page curPage = Menu;
@@ -151,6 +159,7 @@ public:
     s8 curDepth = 0;
     s8 cursorHistory[MAXDEPTH] = { 0 };
     bool movingPage = false;
+    bool quatRot = false;
 };
 
 }

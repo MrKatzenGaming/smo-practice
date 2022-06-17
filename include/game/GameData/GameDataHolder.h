@@ -96,7 +96,8 @@ public:
     bool bVar1;
     bool bVar2;
     sead::BufferedSafeString mLanguage;
-    unsigned char gap3[0x28];
+    unsigned char gap3[0x20];
+    ulong mPlayTimeAcrossFile;
     sead::Heap* mHeap;
     void* gap8;
     GameConfigData* mGameConfigData;

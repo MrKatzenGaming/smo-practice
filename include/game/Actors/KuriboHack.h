@@ -1,11 +1,8 @@
 #pragma once
 
+#include "al/actor/WaterSurfaceFinder.h"
 #include "al/LiveActor/LiveActor.h"
 #include <sead/container/seadListImpl.h>
-
-namespace al {
-class WaterSurfaceFinder;
-}
 
 class CapTargetInfo;
 class EnemyStateSwoon;

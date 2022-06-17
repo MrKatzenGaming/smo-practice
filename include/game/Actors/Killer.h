@@ -15,12 +15,12 @@ public:
     KillerStateHack* mStateHack;
     int iVar1;
     float mAliveCount;
-    int iVar2;
-    sead::Vector3f vVar1;
-    float fVar1;
+    int mHackCooldown;
+    sead::Vector3f mFacing;
+    float mTurnVel;
     bool bVar1;
     bool bVar2;
-    bool bVar3;
+    bool mIsMagnum;
     bool bVar4;
     bool bVar5;
     bool bVar6;

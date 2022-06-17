@@ -6,35 +6,36 @@
 *  Vtable loc: 1D780C0
 */
 
-#include "PlayerActorBase.h"
 #include "al/sensor/HitSensor.h"
 #include "al/actor/ActorDimensionKeeper.h"
+#include "al/actor/WaterSurfaceFinder.h"
 #include "game/Interfaces/IUseDimension.h"
-#include "PlayerInput.h"
-#include "PlayerTrigger.h"
-#include "PlayerAnimator.h"
-#include "HackCap.h"
-#include "PlayerModelKeeper.h"
-#include "PlayerRecoverySafetyPoint.h"
-#include "PlayerDamageKeeper.h"
-#include "PlayerHackKeeper.h"
-#include "PlayerJudge.h"
-#include "PlayerState.h"
-#include "PlayerEquipmentUser.h"
-#include "PlayerConst.h"
-#include "PlayerWallActionHistory.h"
-#include "PlayerCapActionHistory.h"
-#include "PlayerCounter.h"
-#include "PlayerStainControl.h"
-#include "game/Player/PlayerCollider.h"
+#include "game/Player/HackCap.h"
+#include "game/Player/PlayerActorBase.h"
+#include "game/Player/PlayerAnimator.h"
+#include "game/Player/PlayerBindKeeper.h"
+#include "game/Player/PlayerCapActionHistory.h"
 #include "game/Player/PlayerCarryKeeper.h"
+#include "game/Player/PlayerCollider.h"
+#include "game/Player/PlayerConst.h"
+#include "game/Player/PlayerCounter.h"
+#include "game/Player/PlayerDamageKeeper.h"
+#include "game/Player/PlayerEquipmentUser.h"
+#include "game/Player/PlayerHackKeeper.h"
+#include "game/Player/PlayerInput.h"
+#include "game/Player/PlayerJudge.h"
+#include "game/Player/PlayerModelKeeper.h"
+#include "game/Player/PlayerRecoverySafetyPoint.h"
+#include "game/Player/PlayerStainControl.h"
+#include "game/Player/PlayerState.h"
+#include "game/Player/PlayerTrigger.h"
+#include "game/Player/PlayerWallActionHistory.h"
 #include "game/WorldEndBorderKeeper.h"
 #include "types.h"
 
 #define PACTORSIZE sizeof(PlayerActorBase)
 
 namespace al {
-class WaterSurfaceFinder;
 class FootPrintHolder;
 }
 class PlayerPuppet;
@@ -42,7 +43,6 @@ class PlayerDemoActionFlag;
 class PlayerCapManHeroEyesControl;
 class PlayerContinuousJump;
 class PlayerContinuousLongJump;
-class PlayerBindKeeper;
 class PlayerFormSensorCollisionArranger;
 class PlayerJumpMessageRequest;
 class PlayerSandSinkAffect;
@@ -88,7 +88,7 @@ class PlayerActorHakoniwa : public PlayerActorBase , public IUseDimension {
         PlayerAnimator* mAnimator;
         PlayerColliderHakoniwa* mColliderHakoniwa;
         PlayerPuppet* mPuppet;
-        PlayerJudgeInWater* mJudgeInWater;
+        PlayerAreaChecker* mAreaChecker;
         al::WaterSurfaceFinder* mWaterSurfaceFinder;
         void* gap1;
         PlayerDamageKeeper* mDamageKeeper;

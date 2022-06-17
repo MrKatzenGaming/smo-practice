@@ -1,17 +1,19 @@
 #pragma once
 
+#include "al/LiveActor/LiveActor.h"
+#include "al/actor/WaterSurfaceFinder.h"
 #include "game/Interfaces/IJudge.h"
-#include <sead/math/seadVector.h>
+#include "game/Player/PlayerCollider.h"
 #include "game/Player/PlayerConst.h"
 #include "game/Player/PlayerCounter.h"
-#include "al/LiveActor/LiveActor.h"
 #include "game/Player/PlayerExternalVelocity.h"
 #include "game/Player/PlayerInput.h"
 #include "game/Player/PlayerTrigger.h"
+#include <sead/math/seadVector.h>
 
 class IPlayerModelChanger;
 class PlayerCarryKeeper;
-class IUsePlayerCollision;
+class PlayerAreaChecker;
 
 class PlayerJudgeAbyssDeadStatus;
 class PlayerJudgeActiveCameraSubjective;
@@ -35,7 +37,21 @@ class PlayerJudgeForceRolling;
 class PlayerJudgeForceSlopeSlide;
 class PlayerJudgeGrabCeil;
 class PlayerJudgeInvalidateInputFall;
-class PlayerJudgeInWater;
+
+class PlayerJudgeInWater : public IJudge {
+public:
+    al::LiveActor* mActor;
+    PlayerConst* mPlayerConst;
+    IUsePlayerCollision* mCollider;
+    PlayerAreaChecker* mAreaChecker;
+    al::WaterSurfaceFinder* mWaterSurfaceFinder;
+    IUsePlayerHeightCheck* mHeightCheck;
+    PlayerCounterForceRun* mCounterForceRun;
+    bool bVar1;
+    bool bVar2;
+    bool bVar3;
+};
+
 class PlayerJudgeIsNerve;
 class PlayerJudgeNormalFall;
 class PlayerJudgeOr;
