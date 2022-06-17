@@ -204,6 +204,8 @@ namespace al {
 
     void calcFrontDir(sead::Vector3f *result, al::LiveActor const *actor);
 
+    void rotateVectorQuat(sead::Vector3f*, sead::Quatf const&);
+
     // velocity stuff
 
     void addVelocity(al::LiveActor *,sead::Vector3f const&);

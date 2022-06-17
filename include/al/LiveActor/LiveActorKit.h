@@ -5,7 +5,10 @@
 #include "al/camera/CameraDirector.h"
 #include "al/collision/CollisionDirector.h"
 #include "al/execute/ExecuteDirector.h"
+#include "al/execute/ExecuteAsyncExecutor.h"
 #include "al/hio/HioNode.h"
+#include "al/nature/NatureDirector.h"
+#include "al/switch/SwitchAreaDirector.h"
 #include "game/System/GameSystemInfo.h"
 #include "LiveActorGroup.h"
 
@@ -16,16 +19,13 @@ class ActorResourceHolder;
 class GravityHolder;
 class GraphicsSystemInfo;
 class ModelDrawBufferUpdater;
-class ExecuteAsyncExecutor;
 class ModelDisplayListController;
 class ClippingDirector;
 class HitSensorDirector;
 class ScreenPointDirector;
 class ShadowDirector;
 class StageSwitchDirector;
-class SwitchAreaDirector;
 class PadRumbleDirector;
-class NatureDirector;
 class ModelGroup;
 
 class LiveActorKit : public al::HioNode { // 0xf8

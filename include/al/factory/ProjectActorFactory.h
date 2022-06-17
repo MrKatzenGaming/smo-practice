@@ -4,6 +4,6 @@
 #include "ActorFactoryEntries100.h"
 
 class ProjectActorFactory : public al::ActorFactory {
-    public:
-        ProjectActorFactory();
+public:
+    ProjectActorFactory();
 };

@@ -67,7 +67,7 @@ namespace al
     class WobbleMapParts;
 } // namespace al
 
-static al::FactoryEntry<al::createActor> actorEntries[] = {
+static al::NameToCreator<al::createActor> actorEntries[] = {
     {"AchievementNpc", &al::createActorFunction<class AchievementNpc>},
     {"AirBubble", &al::createActorFunction<class AirBubble>},
     {"AirBubbleGenerator", &al::createActorFunction<class AirBubbleGenerator>},
