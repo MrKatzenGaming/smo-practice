@@ -1,10 +1,9 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "thread/seadAtomic.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/thread/seadAtomic.h>
 
-namespace sead
-{
+namespace sead {
 class CriticalSection;
 
 namespace hostio

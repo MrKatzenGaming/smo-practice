@@ -1,10 +1,9 @@
 #pragma once
 
-#include "heap/seadDisposer.h"
-#include "random/seadRandom.h"
+#include <sead/heap/seadDisposer.h>
+#include <sead/random/seadRandom.h>
 
-namespace sead
-{
+namespace sead {
 class GlobalRandom : public Random
 {
     SEAD_SINGLETON_DISPOSER(GlobalRandom)

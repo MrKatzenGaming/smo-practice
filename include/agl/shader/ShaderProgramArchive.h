@@ -9,8 +9,7 @@
 #include <sead/heap/seadHeap.h>
 #include <sead/hostio/seadHostIONode.h>
 
-namespace agl
-{
+namespace agl {
     class ResBinaryShaderArchive;
     class ResShaderArchive;
     class ResShaderProgram;

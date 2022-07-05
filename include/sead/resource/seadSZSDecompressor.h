@@ -6,8 +6,7 @@
 #include <sead/resource/seadResource.h>
 #include <sead/resource/seadResourceMgr.h>
 
-namespace sead
-{
+namespace sead {
 class SZSDecompressor : public Decompressor
 {
 public:

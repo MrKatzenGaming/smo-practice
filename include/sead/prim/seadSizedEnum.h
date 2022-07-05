@@ -2,8 +2,7 @@
 
 #include <type_traits>
 
-namespace sead
-{
+namespace sead {
 /// For storing an enum with a particular storage size when specifying the underlying type of the
 /// enum is not an option.
 template <typename Enum, typename Storage>

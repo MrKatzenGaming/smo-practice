@@ -1,13 +1,12 @@
 #pragma once
 
 #include <algorithm>
-#include "sead/basis/seadNew.h"
-#include "sead/basis/seadRawPrint.h"
-#include "sead/container/seadFreeList.h"
-#include "sead/container/seadPtrArray.h"
+#include <sead/basis/seadNew.h>
+#include <sead/basis/seadRawPrint.h>
+#include <sead/container/seadFreeList.h>
+#include <sead/container/seadPtrArray.h>
 
-namespace sead
-{
+namespace sead {
 /// An ObjArray is a container that allocates elements using a FreeList and also keeps an array of
 /// pointers for fast access to each element.
 template <typename T>

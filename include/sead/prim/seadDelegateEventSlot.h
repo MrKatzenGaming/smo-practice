@@ -7,8 +7,7 @@
 #include <sead/prim/seadDelegate.h>
 #include <sead/prim/seadStorageFor.h>
 
-namespace sead
-{
+namespace sead {
 /// Manages signal and slots for an event.
 template <typename T>
 class DelegateEvent

@@ -8,8 +8,7 @@
 #include "types.h"
 #include "../util/Float2.h"
 
-namespace nn
-{
+namespace nn {
     namespace ui2d
     {
         class Layout;

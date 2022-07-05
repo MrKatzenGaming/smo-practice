@@ -1,11 +1,9 @@
 #pragma once
 
-#include "sead/prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
-namespace al
-{
-    class HtmlViewer
-    {
+namespace al {
+    class HtmlViewer {
     public:
         void call(const char *, sead::BufferedSafeString *) const;
     };

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "container/seadSafeArray.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadSafeArray.h>
 
-namespace sead
-{
+namespace sead {
 class StackTraceBase
 {
 public:

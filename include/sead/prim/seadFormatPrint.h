@@ -1,11 +1,10 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "prim/seadSafeString.h"
-#include "stream/seadBufferStream.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/prim/seadSafeString.h>
+#include <sead/stream/seadBufferStream.h>
 
-namespace sead
-{
+namespace sead {
 class PrintFormatter;
 class StreamSrc;
 

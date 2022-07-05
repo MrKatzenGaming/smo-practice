@@ -8,12 +8,12 @@ namespace sead {
     class Projection;
 }
 
-#include "sead/math/seadVector.h"
-#include "sead/prim/seadSafeString.h"
-#include "sead/heap/seadHeap.h"
-#include "sead/basis/seadNew.hpp"
-#include "sead/gfx/seadContext.h"
-#include "sead/math/seadQuat.h"
+#include <sead/math/seadVector.h>
+#include <sead/prim/seadSafeString.h>
+#include <sead/heap/seadHeap.h>
+#include <sead/basis/seadNew.hpp>
+#include <sead/gfx/seadContext.h>
+#include <sead/math/seadQuat.h>
 
 #include "al/scene/Scene.h"
 #include "al/PlayerHolder/PlayerHolder.h"
@@ -30,9 +30,9 @@ namespace sead {
 
 #include "game/Player/PlayerActorHakoniwa.h"
 
-#include "agl/DrawContext.h"
+#include <agl/DrawContext.h>
 
-#include "nn/ui2d/Texture.h"
+#include <nn/ui2d/Texture.h>
 
 #include "types.h"
 
@@ -392,8 +392,21 @@ namespace al {
     void makeMtxRT(sead::Matrix34<float> *,al::LiveActor const*);
     void makeMtxR(sead::Matrix34<float> *,al::LiveActor const*);
 
+    void normalize(sead::Vector3f*);
     float normalize(float, float, float);
 
     bool trySyncStageSwitchAppearAndKill(al::LiveActor *);
 
+}
+
+namespace alCollisionUtil {
+    al::LiveActor* getCollisionHitActor(al::HitInfo const*);
+    al::HitSensor* getCollisionHitSensor(al::HitInfo const*);
+    sead::Vector3f* getCollisionHitNormal(al::HitInfo const*);
+    sead::Vector3f* getCollisionHitPos(al::HitInfo const*);
+    al::CollisionParts* getCollisionHitParts(al::HitInfo const*);
+
+    al::ICollisionPartsKeeper* getCollisionPartsKeeper(al::IUseCollision const*);
+
+    bool getFirstPolyOnArrow(al::IUseCollision const*, sead::Vector3f*, al::Triangle*, sead::Vector3f const&, al::CollisionPartsFilterBase const*, al::TriangleFilterBase const*);
 }

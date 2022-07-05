@@ -8,10 +8,9 @@
 #include "buffer.h"
 #include "key.h"
 #include "RootObject.h"
-#include "sead/critical.h"
+#include <sead/critical.h>
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class EncryptionAlgorithm : public nn::nex::RootObject

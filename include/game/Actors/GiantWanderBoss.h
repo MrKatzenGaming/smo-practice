@@ -7,9 +7,9 @@
 #include "game/Interfaces/IUseDemoSkip.h"
 #include "game/Interfaces/IUsePlayerCollision.h"
 #include "game/Actors/Shine.h"
-#include "sead/math/seadMatrix.h"
-#include "sead/math/seadQuat.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadMatrix.h>
+#include <sead/math/seadQuat.h>
+#include <sead/math/seadVector.h>
 
 namespace al {
 class CameraTicket;

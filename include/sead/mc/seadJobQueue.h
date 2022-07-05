@@ -1,19 +1,18 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "container/seadBuffer.h"
-#include "container/seadSafeArray.h"
-#include "framework/seadProcessMeterBar.h"
-#include "hostio/seadHostIONode.h"
-#include "mc/seadCoreInfo.h"
-#include "mc/seadJob.h"
-#include "prim/seadEnum.h"
-#include "prim/seadNamable.h"
-#include "thread/seadAtomic.h"
-#include "thread/seadEvent.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadBuffer.h>
+#include <sead/container/seadSafeArray.h>
+#include <sead/framework/seadProcessMeterBar.h>
+#include <sead/hostio/seadHostIONode.h>
+#include <sead/mc/seadCoreInfo.h>
+#include <sead/mc/seadJob.h>
+#include <sead/prim/seadEnum.h>
+#include <sead/prim/seadNamable.h>
+#include <sead/thread/seadAtomic.h>
+#include <sead/thread/seadEvent.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 class Worker;
 

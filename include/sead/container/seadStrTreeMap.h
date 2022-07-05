@@ -1,13 +1,12 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "container/seadFreeList.h"
-#include "container/seadTreeMap.h"
-#include "prim/seadDelegate.h"
-#include "prim/seadSafeString.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadFreeList.h>
+#include <sead/container/seadTreeMap.h>
+#include <sead/prim/seadDelegate.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 /// Sorted associative container with fixed-length string keys.
 /// This is essentially std::map<char[MaxKeyLength], Value>
 template <size_t MaxKeyLength, typename Value>
@@ -80,21 +79,6 @@ inline StrTreeMap<N, Value>::~StrTreeMap()
 
     clear();
     freeBuffer();
-}
-
-template <size_t N, typename Value>
-inline void StrTreeMap<N, Value>::allocBuffer(s32 node_max, Heap* heap, s32 alignment)
-{
-    SEAD_ASSERT(mFreeList.work() == nullptr);
-    if (node_max <= 0)
-    {
-        SEAD_ASSERT_MSG(false, "node_max[%d] must be larger than zero", node_max);
-        AllocFailAssert(heap, node_max * sizeof(Node), alignment);
-    }
-
-    void* work = AllocBuffer(node_max * sizeof(Node), heap, alignment);
-    if (work)
-        setBuffer(node_max, work);
 }
 
 template <size_t N, typename Value>

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "stream/seadStream.h"
-#include "stream/seadStreamSrc.h"
+#include <sead/stream/seadStream.h>
+#include <sead/stream/seadStreamSrc.h>
 
-namespace sead
-{
+namespace sead {
 class BufferReadStreamSrc : public StreamSrc
 {
 public:

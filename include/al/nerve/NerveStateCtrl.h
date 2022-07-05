@@ -3,17 +3,14 @@
 #include "al/nerve/Nerve.h"
 #include "al/nerve/NerveStateBase.h"
 
-namespace al
-{
-    struct State
-    {
+namespace al {
+    struct State {
         al::NerveStateBase* mStateBase;
         const al::Nerve* mNerve;
         const char* mName;
     };
 
-    class NerveStateCtrl
-    {
+    class NerveStateCtrl {
     public:
         NerveStateCtrl(int);
 

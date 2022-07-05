@@ -1,9 +1,8 @@
 #pragma once
 
-#include "nn/util/util_AccessorBase.h"
+#include <nn/util/util_AccessorBase.h>
 
-namespace nn
-{
+namespace nn {
     namespace g3d
     {
         struct ResFileData

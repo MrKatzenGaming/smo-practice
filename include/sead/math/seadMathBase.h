@@ -2,8 +2,7 @@
 
 #include <array>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 struct BaseVec2
 {

@@ -14,8 +14,7 @@
 #include <sead/math/seadMatrixCalcCommon.h>
 #endif
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 void Matrix22CalcCommon<T>::makeIdentity(Base& o)
 {

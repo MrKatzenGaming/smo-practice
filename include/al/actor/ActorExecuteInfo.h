@@ -1,11 +1,9 @@
 #pragma once
 
-namespace al
-{
+namespace al {
     class ExecutorActorExecuteBase;
 
-    class ActorExecuteInfo
-    {
+    class ActorExecuteInfo {
     public:
         void addUpdater(al::ExecutorActorExecuteBase *);
     };

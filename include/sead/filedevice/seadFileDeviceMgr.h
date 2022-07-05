@@ -5,15 +5,14 @@
 #include <cafe.h>
 #endif  // cafe
 
-#include "sead/basis/seadTypes.h"
-#include "sead/container/seadTList.h"
-#include "sead/filedevice/seadFileDevice.h"
-#include "sead/filedevice/seadMainFileDevice.h"
-#include "sead/heap/seadDisposer.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadTList.h>
+#include <sead/filedevice/seadFileDevice.h>
+#include <sead/filedevice/seadMainFileDevice.h>
+#include <sead/heap/seadDisposer.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class FileDeviceMgr
 {
     SEAD_SINGLETON_DISPOSER(FileDeviceMgr)

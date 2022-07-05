@@ -8,7 +8,7 @@
 #include <sead/heap/seadHeap.h>
 #include <sead/hostio/seadHostIONode.h>
 // #include <sead/prim/seadSafeString.h>
-// #include "sead/xml.h"
+// #include <sead/xml.h>
 
 namespace sead {
 class XmlDocument;
@@ -18,8 +18,7 @@ class FileInfo;
 }
 }
 
-namespace agl
-{
+namespace agl {
     namespace detail
     {
         class FileIOMgr : public sead::hostio::Node

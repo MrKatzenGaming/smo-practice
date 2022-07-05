@@ -2,8 +2,7 @@
 
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class Base64
 {
 public:

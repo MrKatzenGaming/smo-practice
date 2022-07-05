@@ -3,12 +3,10 @@
 #include "al/hio/HioNode.h"
 #include <sead/container/seadPtrArray.h>
 
-namespace al
-{
+namespace al {
 class LiveActor;
 
-class LiveActorGroup : public al::HioNode
-{
+class LiveActorGroup : public al::HioNode {
 public:
     LiveActorGroup(const char *, int);
 

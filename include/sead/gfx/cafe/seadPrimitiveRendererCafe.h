@@ -3,14 +3,13 @@
 
 #include <cafe.h>
 
-#include <gfx/seadPrimitiveRenderer.h>
-#include <gfx/seadPrimitiveRendererUtil.h>
-#include <math/seadMatrix.h>
-#include <math/seadVector.h>
-#include <prim/seadSafeString.h>
+#include <sead/gfx/seadPrimitiveRenderer.h>
+#include <sead/gfx/seadPrimitiveRendererUtil.h>
+#include <sead/math/seadMatrix.h>
+#include <sead/math/seadVector.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 class Camera;
 class Projection;

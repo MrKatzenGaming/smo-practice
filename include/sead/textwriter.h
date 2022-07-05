@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "../types.h"
+#include <sead/basis/seadTypes.h>
 #include <sead/gfx/seadContext.h>
 #include <sead/gfx/seadProjection.h>
 #include <sead/math/seadBoundBox.h>
@@ -15,10 +15,8 @@
 #include <sead/devenv/seadFontBase.h>
 #include <sead/gfx/seadColor.h>
 
-namespace sead
-{
-    class TextWriter
-    {
+namespace sead {
+    class TextWriter {
         public:
             virtual ~TextWriter();
 

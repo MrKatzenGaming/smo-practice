@@ -1,10 +1,9 @@
 #pragma once
 
-#include "prim/seadDelegate.h"
-#include "prim/seadDelegateEventSlot.h"
+#include <sead/prim/seadDelegate.h>
+#include <sead/prim/seadDelegateEventSlot.h>
 
-namespace sead
-{
+namespace sead {
 class AssertConfig
 {
 public:

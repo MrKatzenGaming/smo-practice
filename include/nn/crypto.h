@@ -7,8 +7,7 @@
 
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace crypto
     {
         class Sha256Context;

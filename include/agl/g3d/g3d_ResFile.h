@@ -2,8 +2,7 @@
 
 #include <nn/g3d.h>
 
-namespace agl
-{
+namespace agl {
     namespace g3d
     {
         class ResFile

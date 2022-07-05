@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sead/basis/seadRawPrint.h"
-#include "sead/basis/seadTypes.h"
-#include "sead/prim/seadBitUtil.h"
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/prim/seadBitUtil.h>
 
-namespace sead
-{
+namespace sead {
 /// A fast non-cryptographically secure pseudorandom number generator based on Xorshift128.
 class Random
 {

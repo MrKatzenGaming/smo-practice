@@ -6,11 +6,10 @@
 #pragma once
 
 #include "types.h"
-#include "agl/gpu.h"
-#include "sead/heap/seadHeap.h"
+#include <agl/gpu.h>
+#include <sead/heap/seadHeap.h>
 
-namespace agl
-{
+namespace agl {
     class DisplayList
     {
     public:

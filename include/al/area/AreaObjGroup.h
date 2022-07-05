@@ -1,8 +1,7 @@
 #pragma once
 
 #include "al/area/AreaObj.h"
-namespace al
-{
+namespace al {
 class AreaObjGroup {
 public:
     const char* mGroupName;

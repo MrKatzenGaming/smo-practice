@@ -9,8 +9,7 @@
 #include "Heap.h"
 
 // this class is massive
-namespace nn
-{
+namespace nn {
     namespace vfx
     {
         class System

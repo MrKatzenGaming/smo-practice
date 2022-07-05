@@ -3,8 +3,7 @@
 
 #include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class INamable
 {
 public:

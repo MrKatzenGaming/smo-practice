@@ -2,10 +2,9 @@
 
 #include <nn/os.h>
 
-#include "sead/basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class ThreadLocalStorage
 {
 public:
@@ -25,7 +24,7 @@ private:
 
 #define SEAD_THREAD_THREAD_LOCAL_STORAGE_H_
 #ifdef NNSDK
-#include "thread/nin/seadThreadLocalStorageNin.hpp"
+#include <sead/thread/nin/seadThreadLocalStorageNin.hpp>
 #else
 #endif
 #undef SEAD_THREAD_THREAD_LOCAL_STORAGE_H_

@@ -3,8 +3,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/math/seadMathPolicies.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 struct Quat : public Policies<T>::QuatBase
 {

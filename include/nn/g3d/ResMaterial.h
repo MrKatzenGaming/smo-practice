@@ -6,11 +6,10 @@
 #pragma once
 
 #include "types.h"
-#include "nn/gfx/api.h"
-#include "nn/gfx/device.h"
+#include <nn/gfx/api.h>
+#include <nn/gfx/device.h>
 
-namespace nn
-{
+namespace nn {
     namespace g3d
     {
         typedef void* TextureRef;

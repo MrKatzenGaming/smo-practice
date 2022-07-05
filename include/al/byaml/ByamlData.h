@@ -2,10 +2,8 @@
 
 #include "al/byaml/ByamlHashPair.h"
 
-namespace al
-{
-    enum DataType : unsigned char
-    {
+namespace al {
+    enum DataType : unsigned char {
         TYPE_STRING = 0xA0,
         TYPE_BINARY = 0xA1,
         TYPE_ARRAY = 0xC0,
@@ -21,8 +19,7 @@ namespace al
         TYPE_NULL = 0xFF
     };
 
-    class ByamlData
-    {
+    class ByamlData {
     public:
         ByamlData();
 

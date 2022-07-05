@@ -1,7 +1,6 @@
 #pragma once
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class ScopedLock
 {

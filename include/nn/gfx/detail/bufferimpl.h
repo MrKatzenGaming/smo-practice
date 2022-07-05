@@ -5,11 +5,10 @@
 
 #pragma once
 
-#include "nn/gfx/api.h"
-#include "nn/gfx/buffer.h"
+#include <nn/gfx/api.h>
+#include <nn/gfx/buffer.h>
 
-namespace nn
-{
+namespace nn {
     namespace gfx
     {
         class GpuAddress;

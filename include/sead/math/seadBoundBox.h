@@ -2,8 +2,7 @@
 
 #include <sead/math/seadVector.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 struct BoundBox2
 {

@@ -5,8 +5,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/prim/seadBitUtil.h>
 
-namespace sead
-{
+namespace sead {
 class Endian
 {
 public:

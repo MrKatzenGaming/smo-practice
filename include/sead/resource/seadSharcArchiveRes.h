@@ -8,8 +8,7 @@
 #include <sead/prim/seadSafeString.h>
 #include <sead/resource/seadArchiveRes.h>
 
-namespace sead
-{
+namespace sead {
 class SharcArchiveRes : public ArchiveRes
 {
     SEAD_RTTI_OVERRIDE(SharcArchiveRes, ArchiveRes)

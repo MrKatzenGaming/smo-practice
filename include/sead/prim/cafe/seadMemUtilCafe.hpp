@@ -4,11 +4,10 @@
 #include <string.h>
 
 #ifndef SEAD_PRIM_MEM_UTIL_H_
-#include <prim/seadMemUtil.h>
+#include <sead/prim/seadMemUtil.h>
 #endif
 
-namespace sead
-{
+namespace sead {
 inline void* MemUtil::fill(void* ptr, u8 c, size_t size)
 {
     return OSBlockSet(ptr, c, size);

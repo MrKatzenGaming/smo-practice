@@ -1,13 +1,12 @@
 #pragma once
 
-#include "basis/seadRawPrint.h"
-#include "container/seadFreeList.h"
-#include "prim/seadBitUtil.h"
-#include "prim/seadDelegate.h"
-#include "prim/seadSafeString.h"
+#include <sead/basis/seadRawPrint.h>
+#include <sead/container/seadFreeList.h>
+#include <sead/prim/seadBitUtil.h>
+#include <sead/prim/seadDelegate.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 template <typename Key>
 class TreeMapNode;
 
@@ -493,21 +492,6 @@ inline TreeMap<Key, Value>::~TreeMap()
 
     clear();
     freeBuffer();
-}
-
-template <typename Key, typename Value>
-inline void TreeMap<Key, Value>::allocBuffer(s32 node_max, Heap* heap, s32 alignment)
-{
-    SEAD_ASSERT(mFreeList.work() == nullptr);
-    if (node_max <= 0)
-    {
-        SEAD_ASSERT_MSG(false, "node_max[%d] must be larger than zero", node_max);
-        AllocFailAssert(heap, node_max * sizeof(Node), alignment);
-    }
-
-    void* work = AllocBuffer(node_max * sizeof(Node), heap, alignment);
-    if (work)
-        setBuffer(node_max, work);
 }
 
 template <typename Key, typename Value>

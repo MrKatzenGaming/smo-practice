@@ -8,8 +8,7 @@
 #include <sead/prim/seadBitUtil.h>
 #include <type_traits>
 
-namespace sead
-{
+namespace sead {
 template <>
 const MathCalcCommon<float>::SinCosSample MathCalcCommon<float>::cSinCosTbl[];
 

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "seadMessageQueue.h"
-#include "seadThread.h"
+#include <sead/thread/seadMessageQueue.h>
+#include <sead/thread/seadThread.h>
 
-namespace sead
-{
+namespace sead {
 template <typename A1, typename A2>
 class IDelegate2;
 

@@ -3,8 +3,7 @@
 #include "al/iuse/IUseAreaObj.h"
 #include "al/area/AreaObjGroup.h"
 
-namespace al
-{
+namespace al {
 class AreaObjFactory;
 class AreaObjMtxConnecterHolder;
 

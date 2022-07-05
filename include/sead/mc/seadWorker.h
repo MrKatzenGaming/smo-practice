@@ -1,15 +1,14 @@
 #pragma once
 
-#include "container/seadRingBuffer.h"
-#include "mc/seadJobQueue.h"
-#include "prim/seadEnum.h"
-#include "prim/seadSafeString.h"
-#include "thread/seadEvent.h"
-#include "thread/seadThread.h"
-#include "time/seadTickTime.h"
+#include <sead/container/seadRingBuffer.h>
+#include <sead/mc/seadJobQueue.h>
+#include <sead/prim/seadEnum.h>
+#include <sead/prim/seadSafeString.h>
+#include <sead/thread/seadEvent.h>
+#include <sead/thread/seadThread.h>
+#include <sead/time/seadTickTime.h>
 
-namespace sead
-{
+namespace sead {
 class WorkerMgr;
 
 SEAD_ENUM(JobQueuePushType, cForward, cBackward)

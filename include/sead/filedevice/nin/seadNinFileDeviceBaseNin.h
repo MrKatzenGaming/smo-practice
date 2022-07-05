@@ -1,11 +1,10 @@
 #pragma once
 
 #include <nn/fs.h>
-#include "filedevice/seadFileDevice.h"
-#include "prim/seadSafeString.h"
+#include <sead/filedevice/seadFileDevice.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class NinFileDeviceBase : public FileDevice
 {
     SEAD_RTTI_OVERRIDE(NinFileDeviceBase, FileDevice)

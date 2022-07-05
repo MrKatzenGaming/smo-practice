@@ -1,9 +1,7 @@
 #pragma once
 
-namespace al
-{
-    class EffectInfo
-    {
+namespace al {
+    class EffectInfo {
     public:
         
     };

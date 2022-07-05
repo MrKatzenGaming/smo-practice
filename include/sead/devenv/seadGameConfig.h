@@ -1,11 +1,10 @@
 #pragma once
 
-#include "heap/seadDisposer.h"
-#include "hostio/seadHostIONode.h"
-#include "prim/seadSafeString.h"
+#include <sead/heap/seadDisposer.h>
+#include <sead/hostio/seadHostIONode.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class GameConfig : public hostio::Node
 {
     SEAD_SINGLETON_DISPOSER(GameConfig)

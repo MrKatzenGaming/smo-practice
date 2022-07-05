@@ -24,8 +24,7 @@
 
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class Color4f
 {
 public:

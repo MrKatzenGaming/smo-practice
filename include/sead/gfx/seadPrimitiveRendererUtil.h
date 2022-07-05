@@ -5,8 +5,7 @@
 #include <sead/gfx/seadColor.h>
 #include <sead/math/seadVector.h>
 
-namespace sead
-{
+namespace sead {
 namespace PrimitiveRendererUtil
 {
 class Vertex

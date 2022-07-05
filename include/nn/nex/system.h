@@ -8,8 +8,7 @@
 #include "reference.h"
 #include "string.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class SystemComponent : public nn::nex::RefCountedObject

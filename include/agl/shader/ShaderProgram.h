@@ -5,13 +5,12 @@
 
 #pragma once
 
-#include "agl/DisplayList.h"
+#include <agl/DisplayList.h>
 #include <sead/heap/seadHeap.h>
 #include <sead/prim/seadSafeString.h>
 #include "Shader.h"
 
-namespace agl
-{
+namespace agl {
     class ShaderProgram
     {
     public:

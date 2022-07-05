@@ -1,9 +1,8 @@
 #pragma once
 
-#include "heap/seadHeap.h"
+#include <sead/heap/seadHeap.h>
 
-namespace sead
-{
+namespace sead {
 class FrameHeap : public Heap
 {
     SEAD_RTTI_OVERRIDE(FrameHeap, Heap)

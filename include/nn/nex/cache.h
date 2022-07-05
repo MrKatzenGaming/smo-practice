@@ -7,8 +7,7 @@
 
 #include "string.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class BasicCache;

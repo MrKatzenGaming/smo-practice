@@ -1,9 +1,8 @@
 #pragma once
 
-#include "sead/basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 // from Wii U-decomp, not adjusted to switch
 class ControllerDefine
 {

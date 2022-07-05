@@ -1,14 +1,13 @@
 #pragma once
 
 #include <algorithm>
-#include "basis/seadNew.h"
-#include "basis/seadRawPrint.h"
-#include "basis/seadTypes.h"
-#include "container/seadFreeList.h"
-#include "container/seadListImpl.h"
+#include <sead/basis/seadNew.h>
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadFreeList.h>
+#include <sead/container/seadListImpl.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class ObjList : public ListImpl
 {

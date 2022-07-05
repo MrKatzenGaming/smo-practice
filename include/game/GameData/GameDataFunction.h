@@ -5,9 +5,9 @@
 
 #pragma once
 
-#include <al/LiveActor/LiveActor.h>
+#include "al/LiveActor/LiveActor.h"
 #include "al/layout/LayoutActor.h"
-#include <game/StageScene/ChangeStageInfo.h>
+#include "game/StageScene/ChangeStageInfo.h"
 #include "GameDataHolderAccessor.h"
 #include "GameDataHolderWriter.h"
 #include "GameDataHolder.h"

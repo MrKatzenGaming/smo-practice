@@ -15,8 +15,7 @@
 #include <sead/prim/seadSafeString.h>
 #include <sead/thread/seadCriticalSection.h>
 
-namespace sead
-{
+namespace sead {
 class Thread;
 class WriteStream;
 

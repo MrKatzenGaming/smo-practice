@@ -8,8 +8,7 @@
 #include <sead/heap/seadHeap.h>
 #include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class Resource;
 class DirectResource;
 class ResourceFactory;

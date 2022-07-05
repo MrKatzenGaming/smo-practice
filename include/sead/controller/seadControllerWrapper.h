@@ -1,9 +1,8 @@
 #pragma once
 
-#include "sead/controller/seadControllerWrapperBase.h"
+#include <sead/controller/seadControllerWrapperBase.h>
 
-namespace sead
-{
+namespace sead {
 class ControllerWrapper : public ControllerWrapperBase
 {
     SEAD_RTTI_OVERRIDE(ControllerWrapper, ControllerWrapperBase)

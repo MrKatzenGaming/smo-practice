@@ -2,8 +2,7 @@
 
 #include "al/LiveActor/LiveActor.h"
 
-class PlayerFunction
-{
+class PlayerFunction {
     public:
         static int getPlayerInputPort(const al::LiveActor *);
 };

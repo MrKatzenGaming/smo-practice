@@ -2,8 +2,7 @@
 
 #include <sead/math/seadMathBase.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class Policies
 {

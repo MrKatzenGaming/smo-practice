@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sead/basis/seadTypes.h"
-#include "sead/time/seadCalendarTime.h"
-#include "sead/time/seadDateSpan.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/time/seadCalendarTime.h>
+#include <sead/time/seadDateSpan.h>
 
-namespace sead
-{
+namespace sead {
 class DateTimeUtc;
 
 class DateTime

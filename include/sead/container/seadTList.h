@@ -3,8 +3,7 @@
 
 #include <sead/container/seadListImpl.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class TListNode;
 

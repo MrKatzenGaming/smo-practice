@@ -7,8 +7,7 @@
 #include <sead/heap/seadHeapMgr.h>
 #include <sead/thread/seadCriticalSection.h>
 
-namespace sead
-{
+namespace sead {
 class DelegateThread;
 class Framework;
 class Heap;

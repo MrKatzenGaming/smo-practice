@@ -3,8 +3,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/time/seadCalendarSpan.h>
 
-namespace sead
-{
+namespace sead {
 class DateSpan
 {
 public:

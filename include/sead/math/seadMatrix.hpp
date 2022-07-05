@@ -5,8 +5,7 @@
 #include <sead/math/seadMatrix.h>
 #endif
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 inline Matrix22<T>::Matrix22(T a00, T a01, T a10, T a11)
 {

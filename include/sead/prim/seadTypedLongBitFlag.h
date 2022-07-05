@@ -7,8 +7,7 @@
 #include <sead/basis/seadRawPrint.h>
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 template <s32 N, typename Enum, typename Storage = std::underlying_type_t<Enum>>
 class TypedLongBitFlag
 {

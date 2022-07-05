@@ -8,8 +8,7 @@
 #include <sead/prim/seadRuntimeTypeInfo.h>
 #include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class CafeFSAFileDevice : public FileDevice
 {
     SEAD_RTTI_OVERRIDE(CafeFSAFileDevice, FileDevice)

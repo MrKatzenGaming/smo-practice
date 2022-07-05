@@ -2,10 +2,8 @@
 
 #include "al/rail/RailRider.h"
 
-namespace al
-{
-    class RailKeeper
-    {
+namespace al {
+    class RailKeeper {
     public:
         virtual al::RailRider* getRailRider() const;
 

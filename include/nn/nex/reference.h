@@ -6,8 +6,7 @@
 
 #include "RootObject.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class RefCountedObject : public nn::nex::RootObject

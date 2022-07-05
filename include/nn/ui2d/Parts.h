@@ -7,8 +7,7 @@
 
 #include "Pane.h"
 
-namespace nn
-{
+namespace nn {
     namespace ui2d
     {
         struct BuildArgSet;

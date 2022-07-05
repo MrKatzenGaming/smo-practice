@@ -1,13 +1,11 @@
 #pragma once
 
-#include "sead/math/seadMatrix.h"
-#include "sead/math/seadQuat.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadMatrix.h>
+#include <sead/math/seadQuat.h>
+#include <sead/math/seadVector.h>
 
-namespace al
-{
-    class ActorPoseKeeperBase
-    {
+namespace al {
+    class ActorPoseKeeperBase {
     public:
         ActorPoseKeeperBase();
 
@@ -39,8 +37,7 @@ namespace al
         static const sead::Vector3<float> sDefaultVelocity;
     };
 
-    class ActorPoseKeeperTRSV : public ActorPoseKeeperBase
-    {
+    class ActorPoseKeeperTRSV : public ActorPoseKeeperBase {
     public:
         virtual const sead::Vector3<float>& getRotate() const;
         virtual const sead::Vector3<float>& getScale() const;

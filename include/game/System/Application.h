@@ -1,11 +1,17 @@
 #pragma once
 
-#include "GameFrameWorkNx.h"
+#include "al/system/AccountHolder.h"
+#include "al/system/SystemKit.h"
+#include "game/System/GameFrameworkNx.h"
+#include <sead/heap/seadDisposer.h>
 
-class Application {
+class Application : public sead::IDisposer {
 public:
-    static const Application *sInstance;
-    unsigned char padding_28[0x28];
+    static const Application* sInstance;
+
+    al::SystemKit* mSystemKit;
     al::GameFrameworkNx *mFramework;
+    void* gap1;
+    al::AccountHolder* mAccountHolder;
 };
 // const Application *Application::sInstance;

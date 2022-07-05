@@ -8,8 +8,7 @@
 #include "types.h"
 #include "MemoryPool.h"
 
-namespace agl
-{
+namespace agl {
     class GPUMemBlockBase;
 
     namespace detail

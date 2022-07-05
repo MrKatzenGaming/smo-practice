@@ -1,7 +1,6 @@
 #pragma once
 
-class MapLayout
-{
+class MapLayout {
 public:
     bool isEnableCheckpointWarp() const;
 };

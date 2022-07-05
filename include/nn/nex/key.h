@@ -8,8 +8,7 @@
 #include "RootObject.h"
 #include "string.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class Key : public nn::nex::RootObject

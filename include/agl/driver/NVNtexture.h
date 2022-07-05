@@ -10,8 +10,7 @@
 class NVNtextureView;
 class NVNtexture;
 
-namespace agl
-{
+namespace agl {
     namespace driver
     {
         class NVNtexture_

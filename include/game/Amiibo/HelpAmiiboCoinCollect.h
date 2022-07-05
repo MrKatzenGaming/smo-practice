@@ -1,7 +1,6 @@
 #pragma once
 
-class HelpAmiiboCoinCollect
-{
+class HelpAmiiboCoinCollect {
 public:
     void activate();
     void execute();

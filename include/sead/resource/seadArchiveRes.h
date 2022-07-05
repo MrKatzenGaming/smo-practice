@@ -9,8 +9,7 @@
 #include <sead/prim/seadSafeString.h>
 #include <sead/resource/seadResource.h>
 
-namespace sead
-{
+namespace sead {
 class ArchiveRes : public DirectResource
 {
     SEAD_RTTI_OVERRIDE(ArchiveRes, DirectResource)

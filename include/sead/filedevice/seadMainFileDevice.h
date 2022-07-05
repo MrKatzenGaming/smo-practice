@@ -1,13 +1,12 @@
 #ifndef SEAD_MAIN_FILEDEVICE_H_
 #define SEAD_MAIN_FILEDEVICE_H_
 
-#include "sead/basis/seadTypes.h"
-#include "sead/filedevice/seadFileDevice.h"
-#include "sead/prim/seadRuntimeTypeInfo.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/filedevice/seadFileDevice.h>
+#include <sead/prim/seadRuntimeTypeInfo.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class MainFileDevice : public FileDevice
 {
     SEAD_RTTI_OVERRIDE(MainFileDevice, FileDevice)

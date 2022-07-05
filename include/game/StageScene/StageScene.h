@@ -4,15 +4,14 @@
 #include "game/StageScene/StageSceneLayout.h"
 #include "game/StageScene/StageSceneState.h"
 #include <sead/math/seadVector.h>
-#include "sead/prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 #include "types.h"
 #include "al/LiveActor/LiveActor.h"
 
 //#define INHERITSIZE sizeof(al::Scene)
 
 /*
-class StageScene : public al::Scene
-{
+class StageScene : public al::Scene {
     public:
 
         bool isPause() const;
@@ -100,8 +99,7 @@ class CollectBgmRegister;
 class BgmAnimeSyncDirector;
 class HelpAmiiboDirector;
 
-class StageScene : public al::Scene
-{
+class StageScene : public al::Scene {
     public:
     // al::Scene has a size of D8
 

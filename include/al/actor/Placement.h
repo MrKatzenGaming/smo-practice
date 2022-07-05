@@ -1,12 +1,10 @@
 #pragma once
 
 #include "al/byaml/ByamlIter.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
-namespace al
-{
-    class PlacementInfo
-    {
+namespace al {
+    class PlacementInfo {
     public:
         PlacementInfo();
 
@@ -16,8 +14,7 @@ namespace al
         al::ByamlIter mZoneIter;
     };
 
-    class PlacementId
-    {
+    class PlacementId {
     public:
         PlacementId();
         PlacementId(const char *, const char *, const char *);

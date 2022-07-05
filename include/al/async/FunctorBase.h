@@ -1,7 +1,6 @@
 #pragma once
 
-namespace al
-{
+namespace al {
 class FunctorBase {
 public:
     virtual void operator()(void) const {return;};

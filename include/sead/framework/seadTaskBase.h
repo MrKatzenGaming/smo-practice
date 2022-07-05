@@ -11,8 +11,7 @@
 #include <sead/prim/seadNamable.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 class FaderTaskBase;
 class MethodTreeNode;
 class TaskEvent;

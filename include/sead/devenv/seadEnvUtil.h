@@ -1,9 +1,8 @@
 #pragma once
 
-#include "prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class EnvUtil
 {
 public:

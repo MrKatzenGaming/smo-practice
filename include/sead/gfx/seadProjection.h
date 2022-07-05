@@ -6,8 +6,7 @@
 #include <sead/math/seadVector.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 namespace Graphics
 {
 enum DevicePosture

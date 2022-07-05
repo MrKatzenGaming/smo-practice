@@ -2,8 +2,7 @@
 
 #include "deviceimpl.h"
 
-namespace nn
-{
+namespace nn {
     namespace gfx
     {
         struct MemoryPoolInfo;

@@ -7,8 +7,7 @@
 
 #include "TextureData.h"
 
-namespace agl
-{
+namespace agl {
     class RenderTargetColor : agl::TextureData
     {
     public:

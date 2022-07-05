@@ -1,20 +1,17 @@
 #pragma once
 
 #include "FunctorBase.h"
-#include "sead/basis/seadNew.hpp"
+#include <sead/basis/seadNew.hpp>
 #include "types.h"
 #include "nn.h"
 
-namespace sead
-{
-    namespace system
-    {
+namespace sead {
+    namespace system {
         void DeleteImpl(void* ptr);
     }  // namespace system
 }  // namespace sead
 
-namespace al
-{
+namespace al {
     template <class T, class F>
     class FunctorV0M : public al::FunctorBase {
         

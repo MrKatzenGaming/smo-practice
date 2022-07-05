@@ -7,8 +7,7 @@
 #include <sead/thread/seadAtomic.h>
 #include <sead/thread/seadCriticalSection.h>
 
-namespace sead
-{
+namespace sead {
 class HeapMgr
 {
 public:
@@ -28,6 +27,9 @@ public:
 
     using RootHeaps = FixedPtrArray<Heap, 4>;
     using IndependentHeaps = FixedPtrArray<Heap, 4>;
+
+    class AllocFailedCallbackArg;
+
 
 private:
     friend class ScopedCurrentHeapSetter;

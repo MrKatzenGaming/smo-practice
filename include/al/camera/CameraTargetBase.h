@@ -1,6 +1,5 @@
 #pragma once
 
-namespace al
-{
+namespace al {
     class CameraTargetBase {};
 };

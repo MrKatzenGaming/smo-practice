@@ -9,8 +9,7 @@
 
 class NVNsampler;
 
-namespace agl
-{
+namespace agl {
     namespace driver
     {
         class NVNsampler_

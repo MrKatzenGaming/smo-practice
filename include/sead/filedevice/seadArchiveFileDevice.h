@@ -1,9 +1,8 @@
 #pragma once
 
-#include "seadFileDevice.h"
+#include <sead/filedevice/seadFileDevice.h>
 
-namespace sead
-{
+namespace sead {
 class ArchiveRes;
 
 class ArchiveFileDevice : public FileDevice

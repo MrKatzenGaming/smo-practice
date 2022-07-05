@@ -8,8 +8,7 @@
 #include <types.h>
 #include <sead/math/seadVector.h>
 
-namespace sead
-{
+namespace sead {
     class Viewport
     {
     public:

@@ -1,18 +1,17 @@
 #pragma once
 
 #include <array>
-#include "container/seadBuffer.h"
-#include "framework/seadInfLoopChecker.h"
-#include "heap/seadDisposer.h"
-#include "hostio/seadHostIONode.h"
-#include "mc/seadCoreInfo.h"
-#include "mc/seadJobQueue.h"
-#include "mc/seadWorker.h"
-#include "time/seadTickSpan.h"
-#include "time/seadTickTime.h"
+#include <sead/container/seadBuffer.h>
+#include <sead/framework/seadInfLoopChecker.h>
+#include <sead/heap/seadDisposer.h>
+#include <sead/hostio/seadHostIONode.h>
+#include <sead/mc/seadCoreInfo.h>
+#include <sead/mc/seadJobQueue.h>
+#include <sead/mc/seadWorker.h>
+#include <sead/time/seadTickSpan.h>
+#include <sead/time/seadTickTime.h>
 
-namespace sead
-{
+namespace sead {
 class WorkerMgr : public hostio::Node
 {
 public:

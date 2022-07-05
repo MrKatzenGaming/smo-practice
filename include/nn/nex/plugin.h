@@ -7,8 +7,7 @@
 
 #include "RootObject.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class PluginObject : public nn::nex::RootObject { };

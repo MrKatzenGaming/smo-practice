@@ -8,8 +8,7 @@
 #include <sead/resource/seadResource.h>
 #include <sead/resource/seadResourceMgr.h>
 
-namespace sead
-{
+namespace sead {
 class Decompressor : public TListNode<Decompressor*>, public IDisposer
 {
 public:

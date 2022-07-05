@@ -1,11 +1,10 @@
 #pragma once
 
-#include "agl/DrawContext.h"
-#include "sead/gfx/seadFrameBuffer.h"
+#include <agl/DrawContext.h>
+#include <sead/gfx/seadFrameBuffer.h>
 
 // seems to be a static class for managing agl::fctr::GPUStressChecker
-namespace al
-{
+namespace al {
     class GpuPerf {
         public:
             GpuPerf(void);

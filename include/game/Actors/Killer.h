@@ -3,7 +3,7 @@
 #include "al/LiveActor/LiveActor.h"
 #include "al/nerve/NerveStateBase.h"
 #include "al/sensor/SensorMsg.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadVector.h>
 
 class KillerStateHack : public al::ActorStateBase {
 

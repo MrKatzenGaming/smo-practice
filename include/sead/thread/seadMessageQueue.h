@@ -1,9 +1,8 @@
 #pragma once
 
-#include "nn/os.h"
+#include <nn/os.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 class MessageQueue

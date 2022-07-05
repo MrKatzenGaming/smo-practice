@@ -25,8 +25,7 @@
 
 #include <sead/basis/seadNew.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 /// Interface of a delegate for a member function with no argument.

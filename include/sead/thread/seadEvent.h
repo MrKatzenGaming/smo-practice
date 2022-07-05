@@ -4,11 +4,10 @@
 #include <nn/os.h>
 #endif
 
-#include "heap/seadDisposer.h"
-#include "time/seadTickSpan.h"
+#include <sead/heap/seadDisposer.h>
+#include <sead/time/seadTickSpan.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 class Event : public IDisposer

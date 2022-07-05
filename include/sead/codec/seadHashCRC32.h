@@ -3,8 +3,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class HashCRC32
 {
 public:

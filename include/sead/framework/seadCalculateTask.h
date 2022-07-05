@@ -1,10 +1,9 @@
 #pragma once
 
-#include "sead/framework/seadMethodTree.h"
-#include "sead/framework/seadTaskBase.h"
+#include <sead/framework/seadMethodTree.h>
+#include <sead/framework/seadTaskBase.h>
 
-namespace sead
-{
+namespace sead {
 class CalculateTask : public TaskBase
 {
     SEAD_RTTI_OVERRIDE(CalculateTask, TaskBase)

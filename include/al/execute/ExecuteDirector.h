@@ -16,10 +16,19 @@ public:
 };
 }
 
-// TODO: ExecuteTableHolderUpdate entry names:
 
 
-/* ExecuteTableHolderDraw entry names:
+/*
+ * ExecuteTableHolderUpdate execute order:
+ * 1:   update                  更新
+ * 2:   view update (core 1)    ビュー更新(コア1)
+ * 3:   view update (core 2)    ビュー更新(コア2)
+ * 4:   snapshot                スナップショット
+ */
+
+
+/*
+ * ExecuteTableHolderDraw execute order:
  * 1:  3D (culling)                             ３D（カリング）
  * 2:  3D (depth shadow)                        ３D（デプスシャドウ）
  * 3:  3D (depth shadow player)                 ３D（デプスシャドウプレイヤー）

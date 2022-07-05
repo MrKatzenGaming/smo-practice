@@ -1,15 +1,13 @@
 #pragma once
 
-#include "GameFrameWorkNx.h"
-#include "GameDrawInfo.h"
+#include "GameFrameworkNx.h"
+#include "al/system/DrawSystemInfo.h"
 
-namespace aal
-{
+namespace aal {
     struct IAudioFrameProcess;
 } // namespace aal
 
-namespace al
-{
+namespace al {
     struct NetworkSystem;
     struct HtmlViewer;
     struct EffectSystem;
@@ -33,7 +31,7 @@ class GameSystemInfo {
         al::NetworkSystem *mNetworkSys;
         al::AudioSystem *mAudioSys;
         al::GamePadSystem *mGamePadSys;
-        al::GameDrawInfo *mDrawInfo;
+        al::DrawSystemInfo *mDrawSystemInfo;
         ProjectNfpDirector *mProjNfpDirector;
         al::HtmlViewer *mHtmlViewer;
         ApplicationMessageReceiver *mMessageReciever;

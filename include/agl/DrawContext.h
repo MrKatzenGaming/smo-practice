@@ -11,8 +11,7 @@
 #include <sead/gfx/seadContext.h>
 #include <sead/thread/seadCriticalSection.h>
 
-namespace agl
-{
+namespace agl {
     class DrawContext : public sead::DrawContext
     {
     public:

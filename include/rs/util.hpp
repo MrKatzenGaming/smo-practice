@@ -4,17 +4,15 @@
 #include "game/GameData/GameDataHolder.h"
 #include "game/Interfaces/IJudge.h"
 #include "game/Player/PlayerActorHakoniwa.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadVector.h>
 #include "al/iuse/IUseSceneObjHolder.h"
 
-namespace al
-{
+namespace al {
     class LiveActor;
     class SensorMsg;
 }
 
-namespace rs
-{
+namespace rs {
     uint32_t getStageShineAnimFrame(const al::LiveActor *, const char *);
 
     al::LiveActor* getPlayerActor(const al::Scene *);

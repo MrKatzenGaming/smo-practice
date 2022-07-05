@@ -8,8 +8,7 @@
 #include "mem.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace init
     {
         void InitializeAllocator(void *addr, u64 size);

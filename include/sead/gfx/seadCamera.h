@@ -5,8 +5,7 @@
 #include <sead/math/seadVector.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 class Camera
 {
     SEAD_RTTI_BASE(Camera)

@@ -1,9 +1,7 @@
 #pragma once
 
-namespace al
-{
-    class ByamlHeader
-    {
+namespace al {
+    class ByamlHeader {
     public:
         short getTag() const;
         bool isInvertOrder() const;
@@ -12,8 +10,7 @@ namespace al
         int getStringTableOffset() const;
         int getDataOffset() const;
 
-        union
-        {
+        union {
             int _0;
             unsigned short mTag, mVersion;
         };

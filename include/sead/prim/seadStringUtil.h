@@ -8,8 +8,7 @@
 #include <sead/container/seadBuffer.h>
 #include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 namespace StringUtil
 {
 struct Char16Pair

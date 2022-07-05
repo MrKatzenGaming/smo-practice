@@ -1,7 +1,6 @@
 #pragma once
 
-namespace nn
-{
+namespace nn {
     namespace util
     {
         template<typename T>

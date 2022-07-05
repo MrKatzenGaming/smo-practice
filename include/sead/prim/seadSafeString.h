@@ -5,8 +5,7 @@
 #include <sead/basis/seadRawPrint.h>
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 template <typename T>

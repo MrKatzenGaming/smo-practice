@@ -10,8 +10,7 @@
 #include <sead/math/seadMathCalcCommon.h>
 #include <sead/prim/seadPtrUtil.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 template <typename T>

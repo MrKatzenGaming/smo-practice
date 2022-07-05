@@ -6,13 +6,12 @@
 #pragma once
 
 #include "types.h"
-#include "agl/util.h"
+#include <agl/util.h>
 
 class NVNtextureBuilder;
 class NVNtexture;
 
-namespace agl
-{
+namespace agl {
     namespace detail
     {
         struct SurfaceBase;

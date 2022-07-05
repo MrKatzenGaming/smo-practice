@@ -6,8 +6,7 @@
 #include <sead/math/seadMathNumbers.h>
 #include <type_traits>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class MathCalcCommon
 {

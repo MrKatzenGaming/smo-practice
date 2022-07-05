@@ -2,10 +2,8 @@
 
 #include "al/nerve/Nerve.h"
 
-namespace al
-{
-    class NerveAction : public al::Nerve
-    {
+namespace al {
+    class NerveAction : public al::Nerve {
     public:
         NerveAction();
 
@@ -15,10 +13,8 @@ namespace al
     };
 };
 
-namespace alNerveFunction
-{
-    class NerveActionCollector
-    {
+namespace alNerveFunction {
+    class NerveActionCollector {
     public:
         NerveActionCollector();
 

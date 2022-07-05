@@ -1,9 +1,8 @@
 #pragma once
 
-#include "math/seadQuat.h"
+#include <sead/math/seadQuat.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 struct QuatCalcCommon
 {
@@ -12,5 +11,5 @@ struct QuatCalcCommon
 }  // namespace sead
 
 #define SEAD_MATH_QUAT_CALC_COMMON_H_
-#include "math/seadQuatCalcCommon.hpp"
+#include <sead/math/seadQuatCalcCommon.hpp>
 #undef SEAD_MATH_QUAT_CALC_COMMON_H_

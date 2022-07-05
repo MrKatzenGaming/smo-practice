@@ -6,8 +6,7 @@
 #include <sead/container/seadListImpl.h>
 #include <sead/prim/seadPtrUtil.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class OffsetList : public ListImpl
 {

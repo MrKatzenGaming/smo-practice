@@ -7,14 +7,14 @@
 #include "al/switch/StageSwitchKeeper.h"
 #include "al/iuse/IUseStageSwitch.h"
 #include "al/hio/HioNode.h"
-#include "sead/math/seadMatrix.h"
+#include <sead/math/seadMatrix.h>
 
 namespace al {
 
 class AreaObj : al::IUseStageSwitch, al::IUseSceneObjHolder, al::HioNode {
 public:
     AreaObj(char const *);
-    char* getName() const;
+    const char* getName() const;
     al::SceneObjHolder* getSceneObjHolder() const;
     al::StageSwitchKeeper* getStageSwitchKeeper() const;
     //void init(al::AreaInitInfo const &);

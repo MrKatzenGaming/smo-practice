@@ -13,8 +13,7 @@ namespace sead {
 template <typename T> class AnyDelegate1Const;
 }
 
-namespace agl
-{
+namespace agl {
     namespace shtxt
     {
         class Clause;

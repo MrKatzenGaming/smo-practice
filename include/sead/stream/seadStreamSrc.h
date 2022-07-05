@@ -1,9 +1,8 @@
 #pragma once
 
-#include "basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class StreamSrc
 {
 public:

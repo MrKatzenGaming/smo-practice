@@ -1,9 +1,8 @@
 #pragma once
 
-#include "heap/seadDisposer.h"
+#include <sead/heap/seadDisposer.h>
 
-namespace sead
-{
+namespace sead {
 class ProcessMeterBarBase;
 
 // FIXME

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "al/area/AreaObjDirector.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadVector.h>
 
 namespace al {
 class CameraAngleVerticalRequester {

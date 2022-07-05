@@ -2,8 +2,7 @@
 
 #include "al/LiveActor/LiveActor.h"
 
-namespace al
-{
+namespace al {
     template<typename T>
     al::LiveActor *createActorFunction(const char *actorName);
 

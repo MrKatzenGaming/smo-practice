@@ -1,7 +1,7 @@
 #pragma once
 
-// #include "sead/heap/seadHeap.h"
-#include "seadFontBase.h"
+// #include <sead/heap/seadHeap.h>
+#include <sead/devenv/seadFontBase.h>
 #include "types.h"
 
 namespace sead {

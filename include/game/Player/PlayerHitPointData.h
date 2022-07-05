@@ -1,7 +1,6 @@
 #pragma once
 
-class PlayerHitPointData
-{
+class PlayerHitPointData {
 public:
     void getMaxUpItem();
     void recover();

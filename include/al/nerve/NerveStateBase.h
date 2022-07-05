@@ -3,10 +3,8 @@
 #include "al/nerve/NerveExecutor.h"
 #include "al/LiveActor/LiveActor.h"
 
-namespace al
-{
-    class NerveStateBase : public NerveExecutor
-    {
+namespace al {
+    class NerveStateBase : public NerveExecutor {
     public:
         NerveStateBase(const char *);
 

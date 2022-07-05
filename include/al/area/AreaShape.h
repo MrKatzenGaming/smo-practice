@@ -1,9 +1,9 @@
 #pragma once
 
 #include "al/hio/HioNode.h"
-#include "sead/math/seadBoundBox.h"
-#include "sead/math/seadMatrix.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadBoundBox.h>
+#include <sead/math/seadMatrix.h>
+#include <sead/math/seadVector.h>
 
 namespace al {
 

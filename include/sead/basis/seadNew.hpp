@@ -4,10 +4,9 @@
 #include <cstddef>
 #include <new>
 
-#include "seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 void AllocFailAssert(Heap* heap, size_t size, u32 alignment);

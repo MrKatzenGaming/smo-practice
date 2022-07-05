@@ -16,8 +16,7 @@ class IUseSceneObjHolder;
 class SceneObjHolder;
 }
 
-class GameDataHolderAccessor : public GameDataHolderWriter
-{
+class GameDataHolderAccessor : public GameDataHolderWriter {
     public:
         GameDataHolderAccessor(al::IUseSceneObjHolder const *);
         GameDataHolderAccessor(al::SceneObjHolder const *);

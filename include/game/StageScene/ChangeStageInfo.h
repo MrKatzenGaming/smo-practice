@@ -1,13 +1,12 @@
 #pragma once
 
 #include "al/actor/Placement.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
 class GameDataHolder;
 class ChangeStageInfo {
 public:
-    struct SubScenarioType
-    {
+    struct SubScenarioType {
         u32 type;
     };
     ChangeStageInfo(const GameDataHolder*, const al::PlacementInfo&);

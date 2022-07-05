@@ -1,10 +1,9 @@
 #ifndef SEAD_PATH_H_
 #define SEAD_PATH_H_
 
-#include <prim/seadSafeString.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class Path
 {
 public:

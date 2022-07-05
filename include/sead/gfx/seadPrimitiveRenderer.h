@@ -1,7 +1,7 @@
 #ifndef SEAD_PRIMITIVE_RENDERER_H_
 #define SEAD_PRIMITIVE_RENDERER_H_
 
-#include "sead/math/seadBoundBox.h"
+#include <sead/math/seadBoundBox.h>
 #include <sead/gfx/seadColor.h>
 #include <sead/gfx/seadContext.h>
 #include <sead/heap/seadDisposer.h>

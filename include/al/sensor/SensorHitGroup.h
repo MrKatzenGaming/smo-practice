@@ -1,11 +1,9 @@
 #pragma once
 
-namespace al
-{
+namespace al {
     class HitSensor;
 
-    class SensorHitGroup
-    {
+    class SensorHitGroup {
     public:
         SensorHitGroup(int, const char *);
 

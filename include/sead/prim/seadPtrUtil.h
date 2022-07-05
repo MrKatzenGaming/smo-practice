@@ -1,10 +1,9 @@
 #pragma once
 
-#include "../basis/seadTypes.h"
-#include "../basis/seadRawPrint.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/basis/seadRawPrint.h>
 
-namespace sead
-{
+namespace sead {
 class PtrUtil
 {
 public:

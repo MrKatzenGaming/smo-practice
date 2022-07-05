@@ -8,8 +8,7 @@
 #include <sead/prim/seadSafeString.h>
 #include "types.h"
 
-namespace agl
-{
+namespace agl {
     namespace shtxt
     {
         class Clause

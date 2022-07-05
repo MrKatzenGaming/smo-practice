@@ -3,8 +3,7 @@
 #include <sead/basis/seadRawPrint.h>
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 /// A lightweight std::array like wrapper for a C style array.
 template <typename T, s32 N>
 class SafeArray

@@ -7,8 +7,7 @@
 
 #include "RootObject.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class DynamicRunTimeInterface : public nn::nex::RootObject

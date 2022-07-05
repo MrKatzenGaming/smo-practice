@@ -4,8 +4,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/heap/seadHeapMgr.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 class HeapArray

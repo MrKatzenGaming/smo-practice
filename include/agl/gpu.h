@@ -6,14 +6,13 @@
 #pragma once
 
 #include "types.h"
-#include "agl/detail/MemoryPool.h"
-#include "agl/detail/MemoryPoolHeap.h"
-#include "nn/gfx/api.h"
-#include "nn/gfx/memory.h"
-#include "sead/heap/seadHeap.h"
+#include <agl/detail/MemoryPool.h>
+#include <agl/detail/MemoryPoolHeap.h>
+#include <nn/gfx/api.h>
+#include <nn/gfx/memory.h>
+#include <sead/heap/seadHeap.h>
 
-namespace agl
-{
+namespace agl {
     typedef u64 GPUMemVoidAddr;
 
     class GPUMemBlockBase

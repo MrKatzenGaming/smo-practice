@@ -2,12 +2,11 @@
 
 #include <nn/os.h>
 
-#include "sead/basis/seadTypes.h"
-#include "sead/prim/seadBitFlag.h"
-#include "sead/prim/seadEnum.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/prim/seadBitFlag.h>
+#include <sead/prim/seadEnum.h>
 
-namespace sead
-{
+namespace sead {
 #line 46
 SEAD_ENUM(CoreId, cMain, cSub1, cSub2, cSub3, cSub4, cSub5, cSub6, cSub7, cSub8, cSub9, cSub10,
           cSub11, cSub12, cSub13, cSub14, cSub15, cSub16, cSub17, cSub18, cSub19, cSub20, cSub21,

@@ -1,7 +1,6 @@
 #pragma once
 
-namespace sead
-{
+namespace sead {
     class FontBase {
         // no clue whats in this
     };

@@ -5,10 +5,9 @@
 
 #pragma once
 
-#include "nn/gfx/device.h"
+#include <nn/gfx/device.h>
 
-namespace nn
-{
+namespace nn {
     namespace gfx
     {
         namespace detail

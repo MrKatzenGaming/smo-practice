@@ -6,8 +6,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/container/seadListImpl.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 class IDisposer

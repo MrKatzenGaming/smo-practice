@@ -10,8 +10,7 @@
 #include <sead/resource/seadDecompressor.h>
 #include <sead/resource/seadResourceMgr.h>
 
-namespace sead
-{
+namespace sead {
 class Resource
 {
 public:

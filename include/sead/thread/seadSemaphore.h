@@ -4,10 +4,9 @@
 #include <nn/os.h>
 #endif
 
-#include "heap/seadDisposer.h"
+#include <sead/heap/seadDisposer.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 class Semaphore : public IDisposer

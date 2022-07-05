@@ -2,11 +2,10 @@
 
 #include <new>
 
-#include "sead/basis/seadRawPrint.h"
-#include "sead/basis/seadTypes.h"
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class FreeList
 {
 public:

@@ -5,11 +5,9 @@
 namespace al {
     
     template<int T>
-    class StringTmp : public sead::BufferedSafeString
-    {
+    class StringTmp : public sead::BufferedSafeString {
     public:
-        inline StringTmp() : sead::BufferedSafeString(this->mTop, T)
-        {
+        inline StringTmp() : sead::BufferedSafeString(this->mTop, T) {
             assureTerminationImpl_();
         }
     };

@@ -8,8 +8,7 @@
 #include <sead/prim/seadSafeString.h>
 #endif
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 inline typename SafeStringBase<T>::token_iterator& SafeStringBase<T>::token_iterator::operator++()
 {

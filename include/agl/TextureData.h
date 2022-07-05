@@ -7,10 +7,9 @@
 
 #include "detail/Surface.h"
 #include "driver/NVNtexture.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
-namespace agl
-{
+namespace agl {
     class TextureData
     {
     public:

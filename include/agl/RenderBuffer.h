@@ -9,11 +9,10 @@
 #include "DrawContext.h"
 #include "RenderTargetColor.h"
 #include "RenderTargetDepth.h"
-#include "sead/math/seadBoundBox.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadBoundBox.h>
+#include <sead/math/seadVector.h>
 
-namespace agl
-{
+namespace agl {
     class RenderBuffer// : public sead::FrameBuffer
     {/*
     public:

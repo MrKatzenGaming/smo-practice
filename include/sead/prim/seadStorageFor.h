@@ -1,10 +1,9 @@
 #pragma once
 
 #include <utility>
-#include "sead/basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 struct InitializeTag
 {
 };

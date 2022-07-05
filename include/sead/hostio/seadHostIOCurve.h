@@ -1,9 +1,9 @@
 #pragma once
 
 #include <array>
-#include "basis/seadRawPrint.h"
-#include "basis/seadTypes.h"
-#include "math/seadVector.h"
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
+#include <sead/math/seadVector.h>
 
 namespace sead::hostio
 {

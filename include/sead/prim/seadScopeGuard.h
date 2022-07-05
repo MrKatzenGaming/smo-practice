@@ -3,8 +3,7 @@
 #include <optional>
 #include <utility>
 
-namespace sead
-{
+namespace sead {
 template <typename Function>
 class ScopeGuard final
 {

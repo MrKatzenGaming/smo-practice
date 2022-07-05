@@ -5,8 +5,7 @@
 
 #pragma once
 
-namespace nn
-{
+namespace nn {
     namespace gfx
     {
         // passes both ApiType<4> and ApiVersion<8>

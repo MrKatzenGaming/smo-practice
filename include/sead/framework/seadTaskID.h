@@ -3,8 +3,7 @@
 
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class HeapArray;
 class TaskBase;
 class TaskMgr;

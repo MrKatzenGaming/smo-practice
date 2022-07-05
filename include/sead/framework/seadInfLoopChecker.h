@@ -1,12 +1,11 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "framework/seadCalculateTask.h"
-#include "framework/seadTaskMgr.h"
-#include "thread/seadAtomic.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/framework/seadCalculateTask.h>
+#include <sead/framework/seadTaskMgr.h>
+#include <sead/thread/seadAtomic.h>
 
-namespace sead
-{
+namespace sead {
 class InfLoopChecker : public CalculateTask
 {
     SEAD_TASK_SINGLETON(InfLoopChecker)

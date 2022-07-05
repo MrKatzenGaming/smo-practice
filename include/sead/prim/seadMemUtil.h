@@ -1,10 +1,9 @@
 #ifndef SEAD_MEM_UTIL_H_
 #define SEAD_MEM_UTIL_H_
 
-#include "../basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 class MemUtil
 {
 public:
@@ -26,7 +25,7 @@ public:
 }  // namespace sead
 
 #define SEAD_PRIM_MEM_UTIL_H_
-#include "../prim/nin/seadMemUtilNin.hpp"
+#include <sead/prim/nin/seadMemUtilNin.hpp>
 #undef SEAD_PRIM_MEM_UTIL_H_
 
 #endif  // SEAD_MEM_UTIL_H_

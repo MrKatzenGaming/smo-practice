@@ -6,10 +6,9 @@
 #pragma once
 
 #include "types.h"
-#include "sead/runtime.h"
+#include <sead/runtime.h>
 
-namespace nn
-{
+namespace nn {
     namespace ui2d
     {
         class AnimTransform;

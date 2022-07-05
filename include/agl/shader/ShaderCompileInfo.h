@@ -11,8 +11,7 @@
 #include "Shader.h"
 #include "types.h"
 
-namespace agl
-{
+namespace agl {
     class ShaderCompileInfo : public sead::hostio::Node
     {
         // this value is used as an index to a table of version lists

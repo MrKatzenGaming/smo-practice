@@ -9,8 +9,7 @@
 #include <sead/prim/seadRuntimeTypeInfo.h>
 #include <sead/prim/seadStorageFor.h>
 
-namespace sead
-{
+namespace sead {
 class CriticalSection;
 
 template <typename T, typename U>

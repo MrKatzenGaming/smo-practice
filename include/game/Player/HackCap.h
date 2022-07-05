@@ -10,7 +10,7 @@
 #include "game/Player/PlayerCapActionHistory.h"
 #include "game/Player/PlayerInput.h"
 #include "game/Player/PlayerWallActionHistory.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadVector.h>
 #include "types.h"
 
 #define HACKSIZE sizeof(al::LiveActor)

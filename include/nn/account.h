@@ -5,12 +5,11 @@
 
 #pragma once
 
-#include "nn/os.hpp"
+#include <nn/os.hpp>
 #include "os.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace account
     {
         struct Nickname

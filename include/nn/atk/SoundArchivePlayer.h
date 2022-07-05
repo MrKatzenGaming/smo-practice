@@ -11,8 +11,7 @@
 #include "detail/StreamSoundRuntime.h"
 #include "detail/WaveSoundRuntime.h"
 
-namespace nn
-{
+namespace nn {
     namespace atk
     {
         class SoundArchivePlayer

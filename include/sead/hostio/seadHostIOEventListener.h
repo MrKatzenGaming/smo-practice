@@ -2,14 +2,13 @@
 
 #include <type_traits>
 
-#include "sead/basis/seadTypes.h"
-#include "sead/heap/seadDisposer.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/heap/seadDisposer.h>
 #ifdef SEAD_DEBUG
-#include "sead/prim/seadStorageFor.h"
+#include <sead/prim/seadStorageFor.h>
 #endif
 
-namespace sead
-{
+namespace sead {
 namespace hostio
 {
 class NodeEvent;

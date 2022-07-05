@@ -9,8 +9,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/heap/seadDisposer.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 class Mutex : public IDisposer

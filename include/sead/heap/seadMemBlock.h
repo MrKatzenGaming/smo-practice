@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sead/basis/seadTypes.h"
-#include "sead/container/seadListImpl.h"
-#include "sead/container/seadOffsetList.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/container/seadListImpl.h>
+#include <sead/container/seadOffsetList.h>
 
-namespace sead
-{
+namespace sead {
 class MemBlock
 {
 public:

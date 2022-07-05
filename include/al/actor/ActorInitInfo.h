@@ -10,8 +10,7 @@
 #include "game/GameData/GameDataHolderBase.h"
 #include "al/scene/SceneObjHolder.h"
 
-namespace al
-{
+namespace al {
 class ClippingDirector;
 class DemoDirector;
 class GravityHolder;
@@ -23,8 +22,7 @@ class SceneStopCtrl;
 class SceneMsgCtrl;
 class SceneCoverCtrl;
 
-class ActorInitInfo
-{
+class ActorInitInfo {
 public:
     LiveActorGroup* mGroup1;
     // const al::PlacementInfo& mPlacementInfo;

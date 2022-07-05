@@ -8,8 +8,7 @@
 #include "types.h"
 #include "util.h"
 
-namespace nn
-{
+namespace nn {
     namespace hid
     {
         struct NpadHandheldState;

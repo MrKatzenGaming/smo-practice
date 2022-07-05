@@ -9,8 +9,7 @@
 #include <sead/prim/seadRuntimeTypeInfo.h>
 #include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class FileDevice;
 
 using HandleBuffer = SafeArray<u8, 32>;

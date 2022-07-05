@@ -3,10 +3,8 @@
 #include "al/nerve/Nerve.h"
 #include "al/nerve/NerveKeeper.h"
 
-namespace al
-{
-    class NerveExecutor : public IUseNerve
-    {
+namespace al {
+    class NerveExecutor : public IUseNerve {
     public:
         NerveExecutor(const char *);
 

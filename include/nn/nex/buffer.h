@@ -8,8 +8,7 @@
 #include "string.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         // todo

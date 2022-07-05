@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sead/container/seadOffsetList.h"
-#include "sead/controller/seadControllerBase.h"
-#include "sead/controller/seadControllerDefine.h"
+#include <sead/container/seadOffsetList.h>
+#include <sead/controller/seadControllerBase.h>
+#include <sead/controller/seadControllerDefine.h>
 
-namespace sead
-{
+namespace sead {
 class ControllerAddon;
 class ControllerMgr;
 class ControllerWrapperBase;

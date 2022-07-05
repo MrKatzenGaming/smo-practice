@@ -2,10 +2,9 @@
 
 #include <cstdarg>
 
-#include "prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 template <typename T>
 class StringBuilderBase

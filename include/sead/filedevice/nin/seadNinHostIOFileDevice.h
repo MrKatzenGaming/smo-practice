@@ -1,9 +1,8 @@
 #pragma once
 
-#include "filedevice/nin/seadNinFileDeviceBaseNin.h"
+#include <sead/filedevice/nin/seadNinFileDeviceBaseNin.h>
 
-namespace sead
-{
+namespace sead {
 class NinHostIOFileDevice : public NinFileDeviceBase
 {
     SEAD_RTTI_OVERRIDE(NinHostIOFileDevice, NinFileDeviceBase)

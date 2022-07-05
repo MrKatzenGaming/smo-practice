@@ -3,11 +3,10 @@
 
 #include <climits>
 
-#include "sead/basis/seadRawPrint.h"
-#include "sead/basis/seadTypes.h"
+#include <sead/basis/seadRawPrint.h>
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 /// A TickSpan represents a number of ticks.
 class TickSpan
 {

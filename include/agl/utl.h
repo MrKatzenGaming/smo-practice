@@ -7,9 +7,9 @@
 
 #include "../types.h"
 #include "DrawContext.h"
-#include "sead/math/seadVector.h"
-#include "sead/math/seadMatrix.h"
-#include "sead/gfx/seadColor.h"
+#include <sead/math/seadVector.h>
+#include <sead/math/seadMatrix.h>
+#include <sead/gfx/seadColor.h>
 
 namespace agl {
     namespace utl {

@@ -8,8 +8,7 @@
 #include "os.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace vi
     {
         class Display;

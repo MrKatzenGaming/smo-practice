@@ -55,8 +55,7 @@
     } while (0)
 #endif
 
-namespace sead
-{
+namespace sead {
 namespace system
 {
 namespace detail

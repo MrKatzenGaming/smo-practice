@@ -1,9 +1,7 @@
 #pragma once
 
-namespace al
-{
-    class ScreenPointKeeper
-    {
+namespace al {
+    class ScreenPointKeeper {
     public:
         
     };

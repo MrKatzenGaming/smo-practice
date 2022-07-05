@@ -4,8 +4,7 @@
 #include <sead/prim/seadSafeString.h>
 #include <sead/time/seadCalendarTime.h>
 
-namespace sead
-{
+namespace sead {
 class CalendarSpan;
 
 namespace DateUtil

@@ -5,8 +5,7 @@
 #include <sead/math/seadQuat.h>
 #include <sead/math/seadVector.h>
 
-namespace sead
-{
+namespace sead {
 template <typename T>
 class Matrix22;
 

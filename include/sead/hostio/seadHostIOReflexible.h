@@ -1,11 +1,10 @@
 #pragma once
 
-#include "seadHostIOEventListener.h"
-#include "sead/prim/seadBitFlag.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/hostio/seadHostIOEventListener.h>
+#include <sead/prim/seadBitFlag.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 
 namespace hostio

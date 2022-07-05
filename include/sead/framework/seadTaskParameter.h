@@ -1,9 +1,8 @@
 #pragma once
 
-#include "sead/prim/seadRuntimeTypeInfo.h"
+#include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 class TaskParameter
 {
     SEAD_RTTI_BASE(TaskParameter)

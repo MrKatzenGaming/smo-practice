@@ -1,10 +1,9 @@
 #pragma once
 
-#include "thread/seadAtomic.h"
-#include "thread/seadSemaphore.h"
+#include <sead/thread/seadAtomic.h>
+#include <sead/thread/seadSemaphore.h>
 
-namespace sead
-{
+namespace sead {
 class Thread;
 
 class ReadWriteLock

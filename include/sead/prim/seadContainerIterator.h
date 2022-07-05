@@ -6,10 +6,9 @@
 #include <iterator>
 #include <type_traits>
 #include <utility>
-#include "basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 namespace detail
 {
 template <typename T>

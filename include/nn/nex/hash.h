@@ -5,12 +5,11 @@
 
 #pragma once
 
-#include "nn/crypto.h"
+#include <nn/crypto.h>
 #include "RootObject.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class MD5 : public nn::crypto::detail::Md5Impl, public nn::nex::RootObject

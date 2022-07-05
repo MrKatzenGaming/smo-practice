@@ -6,10 +6,10 @@ class ActorInitInfo;
 
 class ISceneObj {
 public:
-    virtual const char* getSceneObjName() const;
+    virtual const char* getSceneObjName() const = 0;
     virtual ~ISceneObj();
-    virtual void initAfterPlacementSceneObj(ActorInitInfo const&);
-    virtual void initSceneObj();
+    virtual void initAfterPlacementSceneObj(ActorInitInfo const&) = 0;
+    virtual void initSceneObj() = 0;
 };
 
 }

@@ -7,8 +7,7 @@
 
 #include "types.h"
 
-namespace agl
-{
+namespace agl {
     namespace driver
     {
         class NVNimage_

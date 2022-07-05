@@ -7,8 +7,7 @@
 
 #include "types.h"
 
-namespace agl
-{
+namespace agl {
     enum ShaderType
     {
         ShaderType_Vertex = 0,

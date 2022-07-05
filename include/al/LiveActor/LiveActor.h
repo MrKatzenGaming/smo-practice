@@ -26,8 +26,7 @@
 // vtable for LiveActor: 1C4EB58
 
 
-namespace al
-{
+namespace al {
     class ActorPoseKeeperBase;
     class ActorExecuteInfo;
     class ActorActionKeeper;
@@ -46,8 +45,7 @@ namespace al
     class SensorMsg;
     class ScreenPointer;
     class ScreenPointTarget;
-    class LiveActor : public al::IUseNerve, public al::IUseEffectKeeper, public al::IUseAudioKeeper, public al::IUseStageSwitch, public al::IUseSceneObjHolder, public al::IUseAreaObj, public al::IUseCamera, public al::IUseCollision, public al::IUseRail, public al::IUseHioNode
-    {
+    class LiveActor : public al::IUseNerve, public al::IUseEffectKeeper, public al::IUseAudioKeeper, public al::IUseStageSwitch, public al::IUseSceneObjHolder, public al::IUseAreaObj, public al::IUseCamera, public al::IUseCollision, public al::IUseRail, public al::IUseHioNode {
     public:
         LiveActor(const char *);
 

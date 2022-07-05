@@ -1,8 +1,7 @@
 #ifndef SEAD_RUNTIMETYPEINFO_H_
 #define SEAD_RUNTIMETYPEINFO_H_
 
-namespace sead
-{
+namespace sead {
 namespace RuntimeTypeInfo
 {
 class Interface

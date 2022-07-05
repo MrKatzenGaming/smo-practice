@@ -5,8 +5,7 @@
 
 #pragma once
 
-namespace nn
-{
+namespace nn {
     namespace vfx
     {
         class Config

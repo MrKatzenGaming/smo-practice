@@ -7,8 +7,7 @@
 #include <sead/basis/seadTypes.h>
 #include <sead/time/seadTickSpan.h>
 
-namespace sead
-{
+namespace sead {
 /// A TickTime represents an instant in time.
 class TickTime
 {

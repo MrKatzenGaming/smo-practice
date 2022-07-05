@@ -1,12 +1,11 @@
 #pragma once
 
-#include "sead/gfx/seadColor.h"
-#include "sead/math/seadBoundBox.h"
-#include "sead/math/seadVector.h"
-#include "sead/prim/seadRuntimeTypeInfo.h"
+#include <sead/gfx/seadColor.h>
+#include <sead/math/seadBoundBox.h>
+#include <sead/math/seadVector.h>
+#include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 class DrawContext;
 class DisplayBuffer;
 

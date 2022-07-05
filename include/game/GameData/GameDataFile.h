@@ -6,8 +6,8 @@
 #pragma once
 
 #include "game/Player/PlayerHitPointData.h"
-#include "sead/math/seadVector.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/math/seadVector.h>
+#include <sead/prim/seadSafeString.h>
 #include <sead/container/seadPtrArray.h>
 #include <sead/time/seadDateTime.h>
 #include "types.h"

@@ -4,8 +4,7 @@
 #include <atomic>
 #endif
 
-namespace sead
-{
+namespace sead {
 template <class T>
 struct AtomicBase
 {

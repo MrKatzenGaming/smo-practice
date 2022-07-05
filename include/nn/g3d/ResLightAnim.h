@@ -2,8 +2,7 @@
 
 #include "BindFuncTable.h"
 
-namespace nn
-{
+namespace nn {
     namespace g3d
     {
         class ResLightAnim

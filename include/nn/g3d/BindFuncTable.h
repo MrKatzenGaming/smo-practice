@@ -2,8 +2,7 @@
 
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace g3d
     {
         struct BindFuncTable

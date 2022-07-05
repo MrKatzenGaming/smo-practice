@@ -1,7 +1,6 @@
 #pragma once
 
-namespace al
-{
+namespace al {
     class Projection {
         public:
             float getFovy(void);

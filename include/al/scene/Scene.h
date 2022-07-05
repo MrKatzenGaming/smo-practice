@@ -10,10 +10,9 @@
 #include "al/iuse/IUseCamera.h"
 #include "al/iuse/IUseSceneObjHolder.h"
 #include "SceneInitInfo.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/prim/seadSafeString.h>
 
-namespace al
-{
+namespace al {
     class LiveActorKit;
     class StageResourceKeeper;
     class LayoutKit;
@@ -21,8 +20,7 @@ namespace al
     class SceneMsgCtrl;
     class SceneCoverCtrl;
 
-    class Scene : public al::NerveExecutor, public al::IUseAudioKeeper, public al::IUseCamera, public al::IUseSceneObjHolder
-    {
+    class Scene : public al::NerveExecutor, public al::IUseAudioKeeper, public al::IUseCamera, public al::IUseSceneObjHolder {
     public:
         Scene(const char *);
 

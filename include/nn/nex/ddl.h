@@ -8,8 +8,7 @@
 #include "RootObject.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class DDLDeclarations : public nn::nex::RootObject

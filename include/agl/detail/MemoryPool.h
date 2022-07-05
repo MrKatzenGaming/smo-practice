@@ -7,8 +7,7 @@
 
 #include "types.h"
 
-namespace agl
-{
+namespace agl {
     typedef s32 MemoryAttribute;
 
     namespace detail

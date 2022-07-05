@@ -8,8 +8,7 @@
 #include "settings.h"
 #include "types.h"
 
-namespace nn
-{
+namespace nn {
     namespace oe
     {
         typedef s32 FocusHandlingMode;

@@ -13,8 +13,8 @@
 #include "al/message/MessageSystem.h"
 #include "game/StageScene/ChangeStageInfo.h"
 #include "game/WorldList/WorldList.h"
-#include "sead/container/seadPtrArray.h"
-#include "sead/prim/seadSafeString.h"
+#include <sead/container/seadPtrArray.h>
+#include <sead/prim/seadSafeString.h>
 
 class TempSaveData;
 class CapMessageBossData;
@@ -25,19 +25,27 @@ class MapDataHolder;
 class QuestInfoHolder;
 class GameSequenceInfo;
 
+namespace al {
+class ActorInitInfo;
+}
+
 class GameDataHolder : public al::ISceneObj, public al::IUseMessageSystem {
 public:
     GameDataHolder(al::MessageSystem const *);
     GameDataHolder();
 
     void setPlayingFileId(s32 file);
-    void intitalizeData();
-    void initialzeDataCommon();
+    void initializeData();
+    void initializeDataCommon();
     void resetTempSaveData(bool);
     void initializeDataId(s32);
     void readByamlData(s32, char const *);
     s32 tryFindEmptyFileId() const;
     al::MessageSystem* getMessageSystem() const override;
+
+    virtual const char* getSceneObjName() const override;
+    virtual void initAfterPlacementSceneObj(al::ActorInitInfo const&) override;
+    virtual void initSceneObj() override;
 
     bool isRequireSave() const;
     void setRequireSave();

@@ -2,8 +2,7 @@
 
 #include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 /// A CalendarSpan represents a duration in terms of days, hours, minutes and seconds.
 class CalendarSpan
 {

@@ -2,10 +2,8 @@
 
 #include "al/byaml/ByamlData.h"
 
-namespace al
-{
-    class ByamlIter
-    {
+namespace al {
+    class ByamlIter {
     public:
         ByamlIter();
         ByamlIter(const unsigned char *);

@@ -1,9 +1,7 @@
 #pragma once
 
-namespace al
-{
-    class ByamlStringTableIter
-    {
+namespace al {
+    class ByamlStringTableIter {
     public:
         ByamlStringTableIter();
         ByamlStringTableIter(const unsigned char *, bool);

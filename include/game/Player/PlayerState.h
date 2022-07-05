@@ -9,7 +9,7 @@
 #include "al/sensor/HitSensor.h"
 #include "game/Player/PlayerJudge.h"
 #include "game/Player/PlayerWallActionHistory.h"
-#include "sead/math/seadVector.h"
+#include <sead/math/seadVector.h>
 
 class IUsePlayerCeilingCheck;
 class IUsePlayerCollision;

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "prim/seadDelegate.h"
-#include "prim/seadNamable.h"
+#include <sead/prim/seadDelegate.h>
+#include <sead/prim/seadNamable.h>
 
-namespace sead
-{
+namespace sead {
 class Job : public INamable
 {
 public:

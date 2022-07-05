@@ -6,10 +6,9 @@
 #pragma once
 
 #include "types.h"
-#include "nn/atk/SoundPlayer.h"
+#include <nn/atk/SoundPlayer.h>
 
-namespace nn
-{
+namespace nn {
     namespace atk
     {
         class SoundActor;

@@ -6,8 +6,7 @@
 
 #include "system.h"
 
-namespace nn
-{
+namespace nn {
     namespace nex
     {
         class Credentials;

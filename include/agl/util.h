@@ -5,8 +5,7 @@
 
 #pragma once
 
-namespace agl
-{
+namespace agl {
     enum TextureType
     {
         TYPELESS = 0,

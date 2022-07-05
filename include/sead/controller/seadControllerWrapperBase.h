@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sead/controller/seadController.h"
-#include "sead/heap/seadDisposer.h"
-#include "sead/prim/seadRuntimeTypeInfo.h"
+#include <sead/controller/seadController.h>
+#include <sead/heap/seadDisposer.h>
+#include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 class Controller;
 
 class ControllerWrapperBase : public ControllerBase, public IDisposer

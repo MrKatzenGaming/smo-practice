@@ -2,10 +2,9 @@
 
 #include <cstring>
 
-#include "../basis/seadTypes.h"
+#include <sead/basis/seadTypes.h>
 
-namespace sead
-{
+namespace sead {
 // This does not actually seem to exist in Nintendo's sead, but for convenience reasons and to
 // easily avoid UB let's pretend this exists.
 namespace BitUtil

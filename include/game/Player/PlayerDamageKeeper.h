@@ -1,7 +1,6 @@
 #pragma once
 
-class PlayerDamageKeeper
-{
+class PlayerDamageKeeper {
 public:
     void activatePreventDamage();
     void dead();

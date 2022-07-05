@@ -3,12 +3,10 @@
 #include "al/nerve/Nerve.h"
 #include "al/iuse/IUseNerve.h"
 
-namespace al
-{
+namespace al {
     class NerveStateCtrl;
 
-    class NerveKeeper
-    {
+    class NerveKeeper {
     public:
         NerveKeeper(al::IUseNerve *, const al::Nerve *, int);
 

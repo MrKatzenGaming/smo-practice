@@ -1,11 +1,10 @@
 #pragma once
 
-#include "sead/heap/seadHeap.h"
-#include "sead/heap/seadMemBlock.h"
-#include "sead/prim/seadSizedEnum.h"
+#include <sead/heap/seadHeap.h>
+#include <sead/heap/seadMemBlock.h>
+#include <sead/prim/seadSizedEnum.h>
 
-namespace sead
-{
+namespace sead {
 class ExpHeap : public Heap
 {
     SEAD_RTTI_OVERRIDE(ExpHeap, Heap)

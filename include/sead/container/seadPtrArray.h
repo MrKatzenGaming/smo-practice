@@ -7,8 +7,7 @@
 #include <sead/prim/seadMemUtil.h>
 #include <sead/random/seadRandom.h>
 
-namespace sead
-{
+namespace sead {
 class Heap;
 class Random;
 

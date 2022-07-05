@@ -1,16 +1,15 @@
 #pragma once
 
-#include "sead/container/seadOffsetList.h"
-#include "sead/container/seadPtrArray.h"
-#include "sead/controller/seadController.h"
-#include "sead/framework/seadCalculateTask.h"
-#include "sead/framework/seadTaskMgr.h"
-#include "sead/framework/seadTaskParameter.h"
-#include "sead/heap/seadDisposer.h"
-#include "sead/prim/seadRuntimeTypeInfo.h"
+#include <sead/container/seadOffsetList.h>
+#include <sead/container/seadPtrArray.h>
+#include <sead/controller/seadController.h>
+#include <sead/framework/seadCalculateTask.h>
+#include <sead/framework/seadTaskMgr.h>
+#include <sead/framework/seadTaskParameter.h>
+#include <sead/heap/seadDisposer.h>
+#include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 
 class ControlDevice;
 class Controller;

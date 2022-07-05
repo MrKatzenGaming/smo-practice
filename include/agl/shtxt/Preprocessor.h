@@ -9,8 +9,7 @@
 #include <sead/heap/seadExpHeap.h>
 #include <sead/prim/seadSafeString.h>
 
-namespace agl
-{
+namespace agl {
     namespace shtxt
     {
         class Clause;

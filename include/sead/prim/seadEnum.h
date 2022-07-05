@@ -7,8 +7,7 @@
 #include <sead/prim/seadScopedLock.h>
 #include <sead/thread/seadCriticalSection.h>
 
-namespace sead
-{
+namespace sead {
 class EnumUtil
 {
 public:

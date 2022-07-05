@@ -1,11 +1,10 @@
 #pragma once
 
-#include "basis/seadTypes.h"
-#include "prim/seadEndian.h"
-#include "prim/seadSafeString.h"
+#include <sead/basis/seadTypes.h>
+#include <sead/prim/seadEndian.h>
+#include <sead/prim/seadSafeString.h>
 
-namespace sead
-{
+namespace sead {
 class StreamSrc;
 
 class StreamFormat

@@ -8,8 +8,7 @@
 #include "account.h"
 #include "os.h"
 
-namespace nn
-{
+namespace nn {
     namespace friends
     {
         typedef char Url[0xA0];

@@ -8,8 +8,7 @@
 #include <sead/heap/seadHeap.h>
 #include "types.h"
 
-namespace agl
-{
+namespace agl {
     namespace shtxt
     {
         class Clause;

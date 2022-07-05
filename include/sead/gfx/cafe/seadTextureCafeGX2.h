@@ -7,8 +7,7 @@
 #include <sead/gfx/seadTexture.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
 
-namespace sead
-{
+namespace sead {
 class TextureCafeGX2 : public Texture
 {
     SEAD_RTTI_OVERRIDE(TextureCafeGX2, Texture)

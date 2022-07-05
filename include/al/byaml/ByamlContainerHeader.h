@@ -1,9 +1,7 @@
 #pragma once
 
-namespace al
-{
-    class ByamlContainerHeader
-    {
+namespace al {
+    class ByamlContainerHeader {
     public:
         int getType() const;
         int getCount(bool) const;
