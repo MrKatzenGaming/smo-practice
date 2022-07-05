@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nn/mem.h"
+#include <nn/mem.h>
 #include <stddef.h>
 #include <nn/init.h>
 

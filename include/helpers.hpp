@@ -1,7 +1,7 @@
 #include <string>
 #include <cstring>
-#include "sead/math/seadVector.h"
-#include "sead/math/seadQuat.h"
+#include <sead/math/seadVector.h>
+#include <sead/math/seadQuat.h>
 #include "types.h"
 
 

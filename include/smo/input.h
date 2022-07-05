@@ -1,6 +1,6 @@
 #pragma once
 
-#include "sead/math/seadVector.h"
+#include <sead/math/seadVector.h>
 
 sead::Vector2f* fgetLeftStick(int port);
 sead::Vector2f* fgetRightStick(int port);

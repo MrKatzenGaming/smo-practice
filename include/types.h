@@ -39,8 +39,7 @@ typedef unsigned long    undefined8;
 #define CONTROLLER_AUTO -1 // automatically get first controller port
 #define CURRENT_SCENARIO -1
 
-enum SocketLogState
-{
+enum SocketLogState {
     SOCKET_LOG_UNINITIALIZED    = 0,
     SOCKET_LOG_CONNECTED        = 1,
     SOCKET_LOG_UNAVAILABLE      = 2
@@ -63,16 +62,14 @@ typedef u32 Result;
 typedef u32 Handle;
 typedef void (*ThreadFunc)(void*);
 
-enum Direction
-{
+enum Direction {
     RIGHT = 0,
     LEFT  = 1,
     UP    = 2,
     DOWN  = 3
 };
 
-struct Rect
-{
+struct Rect {
 	float left;
 	float bottom;
 	float right;

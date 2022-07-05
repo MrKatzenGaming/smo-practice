@@ -1,12 +1,11 @@
 #pragma once
 
-#include "nn/os.hpp"
-#include <smo/packet.h>
+#include <nn/os.hpp>
+#include "smo/packet.h"
 #include <nn/socket.h>
 #include <types.h>
 
-namespace smo
-{
+namespace smo {
     class OutPacket;
     enum OutPacketType : u8;
     class Server

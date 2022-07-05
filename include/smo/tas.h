@@ -2,8 +2,7 @@
 
 #include <sead/math/seadVector.h>
 
-namespace smo
-{
+namespace smo {
     struct TasFrame
     {
         sead::Vector2f leftStick = sead::Vector2f(0, 0);

@@ -4,11 +4,10 @@
 #include <sead/math/seadQuat.h>
 #include <sead/math/seadVector.h>
 #include <sead/prim/seadSafeString.h>
-#include <smo/server.h>
+#include "smo/server.h"
 #include <types.h>
 
-namespace smo
-{
+namespace smo {
     class Server;
     // negative numbers for outgoing, positive for incoming
     enum OutPacketType : u8
