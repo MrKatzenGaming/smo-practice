@@ -1,5 +1,4 @@
-#ifndef SEAD_SHARC_ARCHIVE_RES_H_
-#define SEAD_SHARC_ARCHIVE_RES_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/container/seadBuffer.h>
@@ -81,4 +80,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_SHARC_ARCHIVE_RES_H_
+

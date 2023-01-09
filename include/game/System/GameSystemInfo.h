@@ -1,7 +1,6 @@
 #pragma once
 
-#include "GameFrameworkNx.h"
-#include "al/system/DrawSystemInfo.h"
+#include "al/gfx/DrawSystemInfo.h"
 
 namespace aal {
     struct IAudioFrameProcess;
@@ -23,18 +22,18 @@ struct ApplicationMessageReceiver;
 struct Application;
 
 class GameSystemInfo {
-    public:
-        void *gap1;
-        al::EffectSystem *mEffectSys;
-        al::LayoutSystem *mLayoutSys;
-        al::MessageSystem *mMessageSys;
-        al::NetworkSystem *mNetworkSys;
-        al::AudioSystem *mAudioSys;
-        al::GamePadSystem *mGamePadSys;
-        al::DrawSystemInfo *mDrawSystemInfo;
-        ProjectNfpDirector *mProjNfpDirector;
-        al::HtmlViewer *mHtmlViewer;
-        ApplicationMessageReceiver *mMessageReciever;
-        al::WaveVibrationHolder *mWaveVibrationHolder;
-        void *gap2;
+public:
+    void *gap1;
+    al::EffectSystem *mEffectSys;
+    al::LayoutSystem *mLayoutSys;
+    al::MessageSystem *mMessageSys;
+    al::NetworkSystem *mNetworkSys;
+    al::AudioSystem *mAudioSys;
+    al::GamePadSystem *mGamePadSys;
+    al::DrawSystemInfo *mDrawSystemInfo;
+    ProjectNfpDirector *mProjNfpDirector;
+    al::HtmlViewer *mHtmlViewer;
+    ApplicationMessageReceiver *mMessageReciever;
+    al::WaveVibrationHolder *mWaveVibrationHolder;
+    void *gap2;
 };

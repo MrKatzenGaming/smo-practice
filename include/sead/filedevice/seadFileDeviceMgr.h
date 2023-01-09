@@ -1,5 +1,4 @@
-#ifndef SEAD_FILEDEVICEMGR_H_
-#define SEAD_FILEDEVICEMGR_H_
+#pragma once
 
 #ifdef cafe
 #include <cafe.h>
@@ -77,4 +76,4 @@ private:
 
 }  // namespace sead
 
-#endif  // SEAD_FILEDEVICEMGR_H_
+

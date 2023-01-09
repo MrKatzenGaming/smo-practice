@@ -1,5 +1,4 @@
-#ifndef SEAD_PRIMITIVE_RENDERER_UTIL_H_
-#define SEAD_PRIMITIVE_RENDERER_UTIL_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/gfx/seadColor.h>
@@ -32,4 +31,4 @@ void setCylinderVertex(Vertex* vtx, u16* idx, s32 div);
 }  // namespace PrimitiveRendererUtil
 }  // namespace sead
 
-#endif  // SEAD_PRIMITIVE_RENDERER_UTIL_H_
+

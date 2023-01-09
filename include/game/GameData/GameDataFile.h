@@ -5,16 +5,21 @@
 
 #pragma once
 
+#include "al/iuse/IUseSceneObjHolder.h"
+#include "game/GameData/GameProgressData.h"
 #include "game/Player/PlayerHitPointData.h"
+#include "game/StageScene/ChangeStageInfo.h"
 #include <sead/math/seadVector.h>
 #include <sead/prim/seadSafeString.h>
 #include <sead/container/seadPtrArray.h>
+#include <sead/stream/seadStream.h>
 #include <sead/time/seadDateTime.h>
 #include "types.h"
-#include "game/StageScene/ChangeStageInfo.h"
-#include "GameProgressData.h"
 
 
+namespace al {
+class ByamlWriter;
+}
 class GameDataHolder;
 class ChangeStageInfo;
 class ShineInfo;
@@ -32,47 +37,326 @@ class SequenceDemoSkipData;
 class HintPhotoData;
 class ShopTalkData;
 class RaceRecord;
+class CollectBgm;
+class QuestInfo;
+
+enum SessionMusicianType {
+    Drums = 0,
+    Bass,
+    Guitar,
+    Trumpet,
+    Invalid
+};
+
+class ShopItem {
+public:
+    class ItemInfo;
+};
+
 class GameDataFile {
 public:
-    void wearCostume(char const *);
-    void wearCap(char const *);
-    void changeNextStage(ChangeStageInfo const*, int);
-    PlayerHitPointData* getPlayerHitPointData() const;
-    bool isGotShine(const ShineInfo*) const;
-    void setGotShine(const ShineInfo*);
-    int calcGetShineNumByObjectNameOrOptionalId(const char *, int);
-    void calcShineIndexTableNameUnlockable(int* table, int* count, int worldId);
+    class CoinCollectInfo {
+
+    };
 
     class HintInfo {
     public:
-        sead::BufferedSafeString mStageName;
-        unsigned char gap1[0x80];
-        sead::BufferedSafeString mObjId;
-        unsigned char gap2[0x80];
+        sead::FixedSafeString<128> mStageName;
+        sead::FixedSafeString<128> mObjId;
         const char* sVar2;
-        sead::BufferedSafeString mObjectName;
-        unsigned char gap3[0x40];
+        sead::FixedSafeString<64> mObjectName;
         sead::Vector3f mHintTrans;
         sead::Vector3f mTrans;
         unsigned char gap4[0x20];
         int mMainScenarioNo;
         int mWorldId;
         bool mIsMoonRock;
-        bool mIsGot;
+        bool mIsGet;
         bool mIsAchievementShine;
         bool mIsGrand;
         bool mIsShopShine;
         int iVar2;
         int mHintStatus;
-        int iVar4;
+        int mStatus;
         sead::DateTime mGetTime;
         int mUniqueId;
-        sead::SafeString mOptionalId;
-        unsigned char gap5[0x28];
+        sead::FixedSafeString<32> mOptionalId;
         unsigned int mProgressBitFlag;
         bool mDisableHintById;
         bool bVar3;
     };
+
+    enum CountType {
+
+    };
+
+    GameDataFile(GameDataHolder*);
+
+    void addCoin(int);
+    void addCoinCollect(al::PlacementId const*);
+    void addGrowFlowerGrowLevel(al::PlacementId const*, unsigned int);
+    void addHackDictionary(const char*);
+    void addKey(int);
+    void addOpenDoorLockNum(int);
+    void addPayShine(int);
+    void addPayShineCurrentAll();
+    void addPlayerJumpCount();
+    void addPlayerThrowCapCount();
+    void addPlayTime(int, al::IUseSceneObjHolder const*);
+    void addSessionMember(SessionMusicianType const&);
+    void answerCorrectSphinxQuiz();
+    void answerCorrectSphinxQuizAll();
+    void buyDefaultItem();
+    void buyItem(ShopItem::ItemInfo const*, bool);
+    void buyItemAll();
+    int calcAllShineNumByObjectNameOrOptionalId(const char*) const;
+    int calcCheckpointIndexInScenario(int) const;
+    int calcGetCheckpointNum() const;
+    int calcGetShineNumByObjectNameOrOptionalId(const char*, CountType) const;
+    int calcGetShineNumByObjectNameWithWorldId(const char*, int) const;
+    int calcGetShineByStageName(const char*) const;
+    int calcHaveCapNum() const;
+    int calcHaveClothNum() const;    
+    int calcHaveGiftNum() const;
+    int calcHaveStickerNum() const;
+    int calcHintMoonRockNum() const;
+    sead::Vector3f* calcHintMoonRockTrans(int) const;   
+    sead::Vector3f* calcHintTrans(int) const;
+    sead::Vector3f* calcHintTransMostEasy() const; 
+    bool calcIsGetMainShineAll(al::IUseSceneObjHolder const*) const;
+    bool calcIsGetShineAllInWorld(int) const;
+    int calcLinkedShineNum(al::ActorInitInfo const&) const;
+    int calcMiniGameNum() const;
+    int calcNextScenarioNo() const;
+    int calcRestHintNum() const;
+    int calcRestShineInStageWithWorldProgress(const char*) const;
+    void calcShineIndexTableNameAvailable(int*, int*, int);
+    void calcShineIndexTableNameUnlockable(int* table, int* count, int worldId);
+    int calcShineNumInOneShine(int, int) const;
+    int calcShopNum() const;
+    int calcWorldWarpHoleThroughNum() const;
+    void changeNextSceneByGotCheckpoint(int);
+    void changeNextSceneByHome();
+    void changeNextSceneByWarp();
+    void changeNextStage(ChangeStageInfo const*, int);
+    void changeNextStageWithDemoWorldWarp(const char*);
+    void changeNextStageWithWorldWarpHole(const char*);
+    void changeWipeType(const char*);
+    bool checkAchievementShine(int, int) const;
+    bool checkGotShine(const char*) const;
+    bool checkIsHomeStage(const char*) const;
+    void clearStartId();
+    void disableHintById(int);
+    void enableHintById(int);
+    void endStage();
+    void enteredStage();
+    const char* findGrowFlowerPotIdFromSeedId(al::PlacementId const*);
+    HintInfo* findHint(int) const;
+    HintInfo* findHintInfoMostEasy() const;
+    HintInfo* findHintMoonRock(int) const;
+    RaceRecord* findRaceRecord(const char*) const;
+    HintInfo* findShine(int, int) const;
+    int findUnlockShineNumCurrentWorld(bool*) const;
+    void generateSaveDataIdForPrepo();
+    void generateSaveDataIdForPrepoForWrite();
+    void getAchievement(const char*);
+    int getCheckpointNumMaxInWorld() const;
+    sead::Vector3f* getCheckpointTransInWorld(const char*) const;
+    int getCoinCollectGotNum() const;
+    int getCoinCollectGotNum(int) const;
+    int getCoinCollectNum() const;
+    CollectBgm* getCollectBgmByIndex(int) const;
+    int getCollectBgmMaxNum() const;
+    int getCollectedBgmNum() const;
+    int getGrowFlowerGrowLevel(al::PlacementId const*) const;
+    ulong getGrowFlowerTime(al::PlacementId const*) const;
+    int getKeyNum() const;
+    ulong getLastUpdateTime() const;
+    int getMainScenarioNo(int) const;
+    int getMainScenarioNoCurrent() const;
+    const char* getMiniGameName(int) const;
+    int getMiniGameNumMax() const;
+    sead::Vector3f* getMiniGameTrans(int) const;
+    int getPayShineNum(int) const;
+    PlayerHitPointData* getPlayerHitPointData() const;
+    int getPlayerJumpCount() const;
+    const char* getPlayerStartId() const;
+    int getPlayerThrowCapCount() const;
+    ulong getPlayTimeTotal() const;
+    sead::Vector3f* getPoetterTrans() const;
+    int getRaceLostCount(int) const;
+    int getScenarioNo(int) const;
+    int getScenarioNo() const;
+    int getScenarioNoPlacement() const;
+    int getShineNum() const;
+    int getShineNum(int) const;
+    int getShopNpcIconNumMax() const;
+    sead::Vector3f* getShopNpcTrans(int) const;
+    const char* getStageNameCurrent() const;
+    const char* getStageNameNext() const;
+    int getStartShineNextIndex() const;
+    sead::Vector3f* getTimeBalloonNpcTrans() const;
+    int getTokimekiMayorNpcFavorabilityRating() const;
+    int getTotalPayShineNum() const;
+    int getTotalShineNum() const;
+    int getTotalShopShineNum() const;
+    int getWorldTotalShineNum(int) const;
+    int getWorldTotalShineNumMax(int) const;
+    const char* getWorldTravelingStatus() const;
+    int getWorldWarpHoleThroughNumMax() const;
+    void incrementRaceLoseCount(int);
+    void initializeCheckpointTable();
+    void initializeCoinCollectList();
+    void initializeData();
+    void initializeHintList();
+    bool isAlreadyGoWorld(int) const;
+    bool isAlreadyShowExplainCheckpointFlag() const;
+    bool isAnswerCorrectSphinxQuiz(int) const;
+    bool isAnswerCorrectSphinxQuizAll(int) const;
+    bool isBuyItem(ShopItem::ItemInfo const*) const;
+    bool isBuyItem(const char*, sead::FixedSafeString<64> const*) const;
+    bool isClearWorldMainScenario(int) const;
+    bool isCollectBgm(const char*, const char*) const;
+    bool isEmpty() const;
+    bool isEnableOpenMoonRock(int) const;
+    bool isEnableUnlockHint() const;
+    bool isExistInHackDictionary(const char*) const;
+    bool isExistJango() const;
+    bool isExistPoetter() const;
+    bool isExistSessionMember(SessionMusicianType const&) const;
+    bool isExistTimeBalloonNpc() const;
+    bool isFirstNetwork() const;
+    bool isFirstTimeNextWorld() const;
+    bool isFirstWorldTravelingStatus() const;
+    bool isFlagOnTalkMessageInfo(int) const;
+    bool isGameClear() const;
+    bool isGotCheckpoint(al::PlacementId*) const;
+    bool isGotCheckpointInWorld(int) const;
+    bool isGotCoinCollect(al::PlacementId const*) const;
+    bool isGoToCeremonyFromInsideHomeShip() const;
+    bool isGotShine(ShineInfo const*) const;
+    bool isGotShine(int) const;
+    bool isGotShine(int, int) const;
+    bool isKidsMode() const;
+    bool isLatestGetMainShine(ShineInfo const*) const;
+    bool isMainShine(int) const;
+    bool isNextMainShine(QuestInfo const*) const;
+    bool isNextMainShine(int) const;
+    bool isOpenMoonRock(int) const;
+    bool isOpenShineName(int, int) const;
+    bool isPayCoinToSphinx() const;
+    bool isPayShineAllInAllWorld() const;
+    bool isPlayDemoPlayerDownForBattleKoopaAfter() const;
+    bool isPlayScenarioCamera(QuestInfo const*) const;
+    bool isRaceStart() const;
+    bool isShopSellout(int) const;
+    bool isStartedObj(al::PlacementId const*, const char*) const;
+    bool isStartedObj(const char*, const char*) const;
+    bool isStartWorldTravelingPeach() const;
+    bool isTalkAlreadyLocalLanguage() const;
+    bool isTalkCollectBgmNpc() const;
+    bool isTalkKakku() const;
+    bool isTalkWorldTravelingPeach() const;
+    bool isUnlockAchievementShineName() const;
+    bool isUnlockedWorld(int) const;
+    bool isUsedGrowFlowerSeed(al::PlacementId const*) const;
+    bool isUseMissRestartInfo() const;
+    void missAndRestartStage() const;
+    void noFirstNetwork();
+    void noPlayDemoWorldWarp();
+    void payCoinToSphinx();
+    bool readFromStream(sead::ReadStream*, unsigned char*);
+    void registerCheckpointTrans(al::PlacementId const*, sead::Vector3f const&);
+    void registerShineInfo(ShineInfo const*, sead::Vector3f const&);
+    void resetHintTrans(int);
+    void resetMapIcon();
+    void resetSaveDataIdForPrepoForWrite();
+    void resetTempData();
+    void restartStage();
+    void returnPrevStage();
+    void saveWorldTravelingStatus(const char*);
+    void setActivateHome();
+    void setAmiiboNpcTrans(sead::Vector3f const&);
+    void setCheckpointId(al::PlacementId const*);
+    void setFlagOnTalkMessageInfo(int);
+    void setGameClear();
+    void setGotShine(ShineInfo const*);
+    void setGotShine(int);
+    void setGotShine(HintInfo const*);
+    void setGrowFlowerTime(al::PlacementId const*, al::PlacementId const*, unsigned long);
+    void setGrowFlowerTime(al::PlacementId const*, unsigned long);
+    void setHintTrans(int, sead::Vector3f const&);
+    void setJumpingRopeBestCount(int);
+    void setKidsMode(bool);
+    void setMainScenarioNo(int);
+    void setMiniGameInfo(sead::Vector3f const&, const char*);
+    void setMissRestartInfo(al::PlacementInfo const&);
+    void setMoonRockTrans(sead::Vector3f const&);
+    void setOriginalHintTrans(int);
+    void setPoetterTrans(sead::Vector3f const&);
+    void setRestartPointId(al::PlacementId const*);
+    void setSaveObjS32(al::PlacementId const*, int);
+    void setShopNpcTrans(sead::Vector3f const&, const char*, int);
+    void setStartedObj(al::PlacementId const*);
+    void setStartShine(ShineInfo const*);
+    void setTimeBalloonNpcTrans(sead::Vector3f const&);
+    void setTokimekiMayorNpcFavorabilityRating(int);
+    void setUpdateJumpingRopeScoreFlag();
+    void setUpdateVolleyballScoreFlag();
+    void setVolleyballBestCount(int);
+    void showExplainCheckpointFlag();
+    void startDemoStage(const char*);
+    void startRaceManRace();
+    void startStage(const char*, int);
+    void startWorldTravelingPeach();
+    void startYukimaruRace();
+    void startYukimaruRaceTutorial();
+    void talkCollectBgmNpc();
+    void talkKakku();
+    void talkLocalLanguage();
+    void talkWorldTravelingPeach();
+    bool tryFindAndInitShineInfoByOptionalId(ShineInfo*, const char*);
+    int tryFindCoinCollectIndexByUniqueId(int) const;
+    CoinCollectInfo* tryFindCoinCollectInfo(const char*, const char*) const;
+    const char* tryFindExistCoinCollectStageName(int) const;
+    sead::FixedSafeString<64>* tryFindItemList(ShopItem::ItemInfo const*) const;
+    int tryFindLinkedShineIndex(al::ActorInitInfo const&, al::IUseSceneObjHolder const*) const;
+    int tryFindLinkedShineIndex(al::ActorInitInfo const&, int, al::IUseSceneObjHolder const*) const;
+    int tryFindLinkedShineIndexByLinkName(al::IUseSceneObjHolder const*, al::ActorInitInfo const*, const char*) const;
+    HintInfo* tryFindNextMainScenarioInfo() const;
+    UniqObjInfo* tryFindSaveObj32(al::PlacementId const*);
+    int tryFindShineIndex(al::ActorInitInfo const&) const;
+    int tryFindShineIndex(const char*, const char*) const;
+    int tryFindShineIndexByUniqueId(int) const;
+    int tryFindUniqueId(ShineInfo const*) const;
+    bool tryGetNextMainScenarioLabel(sead::BufferedSafeString*, sead::BufferedSafeString*) const;
+    bool tryGetNextMainScenarioPos(sead::Vector3f*) const;
+    const char* tryGetRestartPointIdString() const;
+    const char* tryGetStageNameCurrent() const;
+    bool tryReadByamlData(unsigned char const*);
+    bool tryReadByamlDataFromStream(sead::ReadStream*, unsigned char*, int);
+    bool trySetCollectBgm(const char*, const char*);
+    bool tryUnlockShineName(int, int);
+    bool tryWriteByByaml(sead::WriteStream*, sead::Heap*) const;
+    bool tryWriteByByaml(al::ByamlWriter*) const;
+    void unlockAchivementShineName();
+    void unlockHint();
+    void unlockHintAddByMoonRock();
+    void unlockHintAmiibo();
+    void unlockHintImpl();
+    void unlockWorld(int);
+    void updateSaveInfoForDisp();
+    void updateSaveTime();
+    void updateSaveTimeForDisp();
+    void updateWorldMapIndex();
+    void updateWorldWarpIndex();
+    void useCoinCollect(int);
+    void wearCap(const char*);
+    void wearCostume(const char*);
+    void wearDefault();
+    void winRace();
+    void writeToStream(sead::WriteStream*, sead::Heap*) const;
+
 
     ShineInfo* mShineInfo1;
     void* gap1;
@@ -125,7 +409,7 @@ public:
     int iVar9;
     int mJangoCount;
     TimeBalloonSaveData* mTimeBalloonSaveData;
-    sead::FixedSafeString<64> mWorldTravellingStatus;
+    sead::FixedSafeString<64> mWorldTravelingStatus;
     bool mIsStartWorldTravelingPeach;
     bool mIsPlayAlreadyWorldWarp;
     bool mIsTalkFirstAmiiboNpc;

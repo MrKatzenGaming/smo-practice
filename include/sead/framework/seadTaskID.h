@@ -1,5 +1,4 @@
-#ifndef SEAD_TASK_ID_H_
-#define SEAD_TASK_ID_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 
@@ -49,4 +48,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_TASK_ID_H_
+

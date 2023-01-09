@@ -1,5 +1,4 @@
-#ifndef SEAD_CAMERA_H_
-#define SEAD_CAMERA_H_
+#pragma once
 
 #include <sead/math/seadMatrix.h>
 #include <sead/math/seadVector.h>
@@ -41,4 +40,4 @@ private:
 };
 }  // namespace sead
 
-#endif  // SEAD_CAMERA_H_
+

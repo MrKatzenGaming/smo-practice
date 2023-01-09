@@ -8,45 +8,25 @@
 #include "types.h"
 #include "al/LiveActor/LiveActor.h"
 
-//#define INHERITSIZE sizeof(al::Scene)
-
-/*
-class StageScene : public al::Scene {
-    public:
-
-        bool isPause() const;
-        // 0x88 StageResourceKeeper *
-        // 0x90 LiveActorKit *
-        // 0x98 LayoutKit *
-        // 0xA0 SceneObjHolder *
-        // 0xA8 SceneStopCtrl *
-
-        unsigned char padding_2D0[0x2D0 - INHERITSIZE];
-        GameDataHolderAccessor *mHolder;
-        unsigned char padding_2F8[0x20];
-        StageSceneLayout *stageSceneLayout;
-};
-*/
-
 namespace al {
-    class LiveActorGroup;
-    class Projection;
-    class WipeHolder;
-	class WipeSimple {
-        public:
-        void startOpen(int);
-        void startClose(int);
-    };
-	class WindowConfirm;
-	class HtmlViewer;
-    class SimpleLayoutAppearWaitEnd;
-    class SimpleAudioUser;
-    class CameraTicket;
-    class ParabolicPath;
-    class DemoSyncedEventKeeper;
-    class ChromakeyDrawer;
-    class NfpDirector;
-	class LayoutTextureRenderer;
+class LiveActorGroup;
+class Projection;
+class WipeHolder;
+class WipeSimple {
+    public:
+    void startOpen(int);
+    void startClose(int);
+};
+class WindowConfirm;
+class HtmlViewer;
+class SimpleLayoutAppearWaitEnd;
+class SimpleAudioUser;
+class CameraTicket;
+class ParabolicPath;
+class DemoSyncedEventKeeper;
+class ChromakeyDrawer;
+class NfpDirector;
+class LayoutTextureRenderer;
 }
 
 class StageSceneStateTimeBalloon;
@@ -100,17 +80,12 @@ class BgmAnimeSyncDirector;
 class HelpAmiiboDirector;
 
 class StageScene : public al::Scene {
-    public:
-    // al::Scene has a size of D8
-
+public:
     bool isEnableSave(void) const;
     bool isDefeatKoopaLv1(void) const;
     
-    sead::SafeString *currentStageName;
-    char *currentStageNamePtr;
-    int *worldId;
-    unsigned char gap_E8[0x40];
-    u32 *scenarioNo;
+    sead::FixedSafeString<64> mCurrentStageName;
+    unsigned int scenarioNo;
     
     // States - 0x138 to 0x208
     StageSceneStateWorldMap *mStateWorldMap;
@@ -124,7 +99,7 @@ class StageScene : public al::Scene {
     StageSceneStateMiniGameRanking *mStateMiniGameRanking;
     StageSceneStatePauseMenu *mStatePauseMenu;
     StageSceneStateCloset *mStateCloset;
-    StageSceneStateSkipDemo *mStateSkipDemo; //190
+    StageSceneStateSkipDemo *mStateSkipDemo;
     StageSceneStateCheckpointWarp *mStateCheckpointWarp;
     StageSceneStateCarryMeat *mStateCarryMeat;
     StageSceneStateTimeBalloon *mStateTimeBalloon;
@@ -142,20 +117,16 @@ class StageScene : public al::Scene {
     StageSceneStateWorldIntroCamera *mStateWorldIntroCamera;
     
     ScenarioStartCameraHolder *mScenarioStartCameraHolder;
-    sead::SafeString *costumeName;
-	sead::SafeString *newCostumeName;
-    unsigned char gap_228[0x48];
-    sead::SafeString *capName;
-	sead::SafeString *newCapName;
-    unsigned char gap_280[0x50];
+    sead::FixedSafeString<64> mCostumeName;
+    sead::FixedSafeString<64> mCapName;
+    unsigned char gap1[0x8];
     GameDataHolderAccessor *mDataHolder;
-	al::PlacementInfo *mPlacementInfo;// 2D8
-	al::LayoutTextureRenderer *mLayoutTextureRenderer; //2E0
+	al::PlacementInfo *mPlacementInfo;
+	al::LayoutTextureRenderer *mLayoutTextureRenderer;
 	PlayGuideSkip *mPlayGuideSkip;
     CinemaCaption *mCinemaCaption;
     StageSceneLayout *mStageSceneLayout;
     bool enableLayout;
-	unsigned char gap_301[0x7];
 	al::SimpleLayoutAppearWaitEnd *mLayoutStartScenario;
 	al::SimpleLayoutAppearWaitEnd *mLayoutStartWorld;
 	al::SimpleLayoutAppearWaitEnd *mLayoutStartWorldRegion;

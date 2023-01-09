@@ -1,5 +1,4 @@
-#ifndef SEAD_MAIN_FILEDEVICE_H_
-#define SEAD_MAIN_FILEDEVICE_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/filedevice/seadFileDevice.h>
@@ -108,4 +107,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_MAIN_FILEDEVICE_H_
+

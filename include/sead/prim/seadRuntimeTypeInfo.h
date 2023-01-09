@@ -1,5 +1,4 @@
-#ifndef SEAD_RUNTIMETYPEINFO_H_
-#define SEAD_RUNTIMETYPEINFO_H_
+#pragma once
 
 namespace sead {
 namespace RuntimeTypeInfo
@@ -112,4 +111,4 @@ public:                                                                         
         return getRuntimeTypeInfoStatic();                                                         \
     }
 
-#endif  // SEAD_RUNTIMETYPEINFO_H_
+

@@ -9,7 +9,8 @@
 #include <sead/math/seadMathCalcCommon.h>
 #include <sead/prim/seadPtrUtil.h>
 
-namespace sead {
+namespace sead
+{
 class Heap;
 
 template <typename T>
@@ -101,7 +102,7 @@ public:
                 mBuffer = buffer;
                 mHead = mSize = 0;
                 mCapacity = capacity;
-                SEAD_ASSERT_MSG(PtrUtil::isAlignedPow2(mBuffer, sead::abs(alignment)),
+                SEAD_ASSERT_MSG(PtrUtil::isAlignedPow2(mBuffer, sead::Mathi::abs(alignment)),
                                 "don't set alignment for a class with destructor");
                 return true;
             }
@@ -122,7 +123,7 @@ public:
                 mBuffer = buffer;
                 mHead = mSize = 0;
                 mCapacity = capacity;
-                SEAD_ASSERT_MSG(PtrUtil::isAlignedPow2(mBuffer, sead::abs(alignment)),
+                SEAD_ASSERT_MSG(PtrUtil::isAlignedPow2(mBuffer, sead::Mathi::abs(alignment)),
                                 "don't set alignment for a class with destructor");
                 return true;
             }

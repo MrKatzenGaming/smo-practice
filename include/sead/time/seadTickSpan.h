@@ -1,5 +1,4 @@
-#ifndef SEAD_TICKSPAN_H_
-#define SEAD_TICKSPAN_H_
+#pragma once
 
 #include <climits>
 
@@ -91,4 +90,4 @@ private:
 
 }  // namespace sead
 
-#endif  // SEAD_TICKSPAN_H_
+

@@ -1,5 +1,4 @@
-#ifndef SEAD_CAFE_FSA_FILEDEVICE_H_
-#define SEAD_CAFE_FSA_FILEDEVICE_H_
+#pragma once
 
 #include <sead/cafe.h>
 
@@ -61,4 +60,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_CAFE_FSA_FILEDEVICE_H_
+

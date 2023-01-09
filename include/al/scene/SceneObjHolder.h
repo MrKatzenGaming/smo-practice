@@ -84,7 +84,7 @@ public:
  * 0x3a - ShineChipWatcherHolder
  * 0x3b - SphinxQuizRouteKillExecutor
  * 0x3c - al::StageSyncCounter
- * 0x3d - UNUSED, but seems like it was meant to be al::registSupportFreezeSyncGroup (based on ClockMapParts::init + 0x6c)
+ * 0x3d - UNUSED, seems to be TalkMessageInfoDirector (from TalkMessageFunction::GetTalkMessageInfoDirector). thought it was al::registSupportFreezeSyncGroup (based on ClockMapParts::init + 0x6c)
  * 0x3e - TalkNpcParamHolder
  * 0x3f - TalkNpcSceneEventSwitcher
  * 0x40 - TestStageTimeDirector

@@ -1,5 +1,4 @@
-#ifndef SEAD_TASKBASE_H_
-#define SEAD_TASKBASE_H_
+#pragma once
 
 #include <sead/container/seadTList.h>
 #include <sead/container/seadTreeNode.h>
@@ -99,4 +98,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_TASKBASE_H_
+

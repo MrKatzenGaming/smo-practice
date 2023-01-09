@@ -1,5 +1,4 @@
-#ifndef SEAD_PROJECTION_H_
-#define SEAD_PROJECTION_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/math/seadMatrix.h>
@@ -50,4 +49,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_PROJECTION_H_
+

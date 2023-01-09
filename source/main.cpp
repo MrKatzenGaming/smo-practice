@@ -1,16 +1,26 @@
+#include "al/dither/ActorDitherAnimator.h"
+#include "al/dither/FarDistanceDitherAnimator.h"
+#include "al/camera/CameraPoserFix.h"
+#include "al/gfx/GraphicsSystemInfo.h"
 #include "al/input/JoyPadAccelPoseAnalyzer.h"
+#include "al/model/ModelMaterialCategory.h"
+#include "al/model/ModelOcclusionQuery.h"
 #include "al/nerve/Nerve.h"
+#include "al/pose/ActorPoseKeeper.h"
 #include "al/rail/RailRider.h"
+#include "al/string/StringTmp.h"
 #include "al/util.hpp"
-#include "smo/input.h"
-#include "smo/tas.h"
+#include "game/Actors/Megane.h"
 #include "game/Layouts/MapLayout.h"
 #include "game/Player/PlayerHitPointData.h"
 #include "game/Player/PlayerJointControl.h"
 #include "rs/util.hpp"
-#include "sead/math/seadVector.h"
-#include <smo/ui.h>
-#include <smo/server.h>
+#include <sead/math/seadVector.h>
+#include <cstring>
+#include "smo/input.h"
+#include "smo/server.h"
+#include "smo/tas.h"
+#include "smo/ui.h"
 #include <nn/init.h>
 #include <mem.h>
 
@@ -27,13 +37,7 @@ void stageSceneControlHook() {
 
 void stageSceneKillHook() {
     smo::PracticeUI& ui = smo::PracticeUI::instance();
-    ui.renderer.curArea = nullptr;
-    ui.renderer.curAreaGroup = nullptr;
-    ui.renderer.nearestEdgePoint = sead::Vector3f::zero;
-
-    ui.actorIndex = 0;
-    ui.areaGroupIndex = 0;
-    ui.areaIndex = 0;
+    ui.kill();
     
     __asm("MOV X0, X19");
 }
@@ -62,38 +66,68 @@ void setPlayerJointUpdate(PlayerJointControlKeeper* keeper)
         keeper->update();
 }
 
-int fgetPadAccelerationDeviceNum(int port)
-{
+
+void executeTableHolderDrawCtor(al::ExecuteTableHolderDraw* table) {
+    table->debug_Enabled = true;
+    // __asm("STR X23, [X0, #0x88]");
+    // memset(&table->mListAll, 0, 0x68);
+    __asm("ADD X0, X0, #0x18");
+}
+
+void executeTableHolderDrawExecute(al::ExecuteTableHolderDraw* table) {
+    if (table->arr1.size() <= 0 || !table->debug_Enabled) return;
+    int idx = 0;
+    while (idx < table->arr1.size()) {
+        table->arr1[idx]->executeList();
+        idx++;
+    }
+}
+
+void shineListLayoutListHook(ShineListLayout* lyt) {
+    if (al::isFirstStep(lyt))
+        al::startAction(lyt, "Wait", nullptr);
+    
+    if (lyt->mRollParts->isJustChangeRoll()) {
+        lyt->mWorldIdx = lyt->mRollParts->iVar1;
+        lyt->updateWorldInfo();
+    }
+
+    lyt->mTopIndices[lyt->getSelectedWorldId()] = lyt->mVerticalList->mTopIdx;
+    lyt->mCursorIndices[lyt->getSelectedWorldId()] = lyt->mVerticalList->mCursorIdx;
+
+    int input = lyt->mInput;
+    if (input < 3) {
+        
+    }
+
+
+}
+
+int fgetPadAccelerationDeviceNum(int port) {
     return smo::TasHolder::instance().isRunning ? 2 : al::getPadAccelerationDeviceNum(port);
 }
 
-bool isGotShineVar(GameDataHolderAccessor accessor, const ShineInfo* shineInfo)
-{
+bool isGotShineVar(GameDataHolderAccessor accessor, const ShineInfo* shineInfo) {
     return smo::PracticeUI::instance().options.gotShineRefresh ? false : accessor.mPlayingFile->isGotShine(shineInfo);
 }
 
-bool isEnableCheckpointWarpVar(MapLayout* layout)
-{
+bool isEnableCheckpointWarpVar(MapLayout* layout) {
     return smo::PracticeUI::instance().options.alwaysWarp ? true : layout->isEnableCheckpointWarp();
 }
 
-bool isEnableSaveVar(StageScene* stageScene)
-{
+bool isEnableSaveVar(StageScene* stageScene) {
     return smo::PracticeUI::instance().options.disableAutoSave ? false : stageScene->isEnableSave();
 }
 
-bool isDefeatKoopaLv1Var(StageScene* stageScene)
-{
+bool isDefeatKoopaLv1Var(StageScene* stageScene) {
     return smo::PracticeUI::instance().options.skipBowser ? true : stageScene->isDefeatKoopaLv1();
 }
 
-bool isTriggerRollingRestartSwingVar(PlayerInput* playerInput)
-{
+bool isTriggerRollingRestartSwingVar(PlayerInput* playerInput) {
     return smo::PracticeUI::instance().options.buttonMotionRoll ? true : playerInput->isTriggerRollingRestartSwing();
 }
 
-void setLoadDataSelectingCurrentVar()
-{
+void setLoadDataSelectingCurrentVar() {
     __asm ("LDR W20, [X8, #0x3C]");
 
     GameDataHolder* holder;
@@ -104,32 +138,28 @@ void setLoadDataSelectingCurrentVar()
     __asm ("MOV X0, %[input]" : [input] "=r" (fileId));
 }
 
-void setLoadDataSelectingConfirmVar()
-{
+void setLoadDataSelectingConfirmVar() {
     if (smo::PracticeUI::instance().options.loadFileConfirm)
         __asm ("ADD X9, X8, #0x78");
     else
         __asm ("ADD X9, X8, #0x70");
 }
 
-void setRepeatCapBounceVar()
-{
+void setRepeatCapBounceVar() {
     if (smo::PracticeUI::instance().options.repeatCapBounce)
         __asm ("MOV W8, #1");
     else
         __asm ("LDRB W8, [X8, #0x38]");
 }
 
-void setRepeatRainbowSpinVar()
-{
+void setRepeatRainbowSpinVar() {
     if (smo::PracticeUI::instance().options.repeatRainbowSpin)
         __asm ("MOV W8, #1");
     else
         __asm ("LDRB W8, [X8, #0x39]");
 }
 
-void setWallJumpCapBounceVar()
-{
+void setWallJumpCapBounceVar() {
     if (smo::PracticeUI::instance().options.wallJumpCapBounce)
         __asm ("MOV W8, WZR");
     else
@@ -160,53 +190,57 @@ void nerveKeeperUpdateVar() {
     __asm ("MOV X19, %[input]" : [input] "=r" (nerveKeeper));
 }
 
-bool isTriggerSnapShotModeVar(const al::IUseSceneObjHolder* objHolder)
-{
+bool setPlayerEnableToSeeOddSpaceVar(al::LiveActor const* actor) {
+    smo::PracticeUI& ui = smo::PracticeUI::instance();
+    if (ui.options.showOddSpace)
+        return true;
+    
+    PlayerActorHakoniwa* player = al::getPlayerActor(actor, 0);
+    PlayerHackKeeper* hackKeeper = player->getPlayerHackKeeper();
+    if (!hackKeeper || !al::isEqualString(hackKeeper->getCurrentHackName(), "Megane"))
+        return false;
+    
+    Megane* megane = static_cast<Megane*>(hackKeeper->mCurrentHackActor);
+    return megane->isWearingGlasses();
+}
+
+bool isTriggerSnapShotModeVar(const al::IUseSceneObjHolder* objHolder) {
     return (inputEnabled && showMenu) || smo::TasHolder::instance().isRunning ? false : rs::isTriggerSnapShotMode(objHolder);
 }
 
-bool isTriggerAmiiboModeVar(const al::IUseSceneObjHolder* objHolder)
-{
+bool isTriggerAmiiboModeVar(const al::IUseSceneObjHolder* objHolder) {
     return inputEnabled && showMenu ? false : rs::isTriggerAmiiboMode(objHolder);
 }
 
-bool fisModeDiverOrJungleGymRom()
-{
+bool fisModeDiverOrJungleGymRom() {
     return smo::PracticeUI::instance().modes.isModeDiverOrJungleGymRom;
 }
 
-bool fisModeDiverRom()
-{
+bool fisModeDiverRom() {
     return smo::PracticeUI::instance().modes.isModeDiverRom;
 }
 
-bool fisModeJungleGymRom()
-{
+bool fisModeJungleGymRom() {
     return smo::PracticeUI::instance().modes.isModeJungleGymRom;
 }
 
-bool fisModeE3LiveRom()
-{
+bool fisModeE3LiveRom() {
     return smo::PracticeUI::instance().modes.isModeE3LiveRom;
 }
 
-bool fisModeE3MovieRom()
-{
+bool fisModeE3MovieRom() {
     return smo::PracticeUI::instance().modes.isModeE3MovieRom;
 }
 
-bool fisModeEpdMovieRom()
-{
+bool fisModeEpdMovieRom() {
     return smo::PracticeUI::instance().modes.isModeEpdMovieRom;
 }
 
-bool fisPadTriggerLMotion(int port)
-{
+bool fisPadTriggerLMotion(int port) {
     return smo::TasHolder::instance().isRunning ? false : al::isPadTriggerL(port);
 }
 
-void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
-{
+void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis) {
     if (!smo::TasHolder::instance().isRunning) {dis->update(); return;}
     smo::TasHolder& h = smo::TasHolder::instance();
     int controllerPort;
@@ -215,10 +249,8 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
     else controllerPort = al::getPlayerControllerPort(dis->mControllerPort);
     dis->mAccelDeviceNum = al::getPadAccelerationDeviceNum(controllerPort);
 
-    if (fisPadTriggerL(controllerPort))
-    {
-        if (h.oldMotion)
-        {
+    if (fisPadTriggerL(controllerPort)) {
+        if (h.oldMotion) {
             dis->mSwingLeft = false;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -227,8 +259,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryRight.hist0 = 1.4f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else if (fisPadTriggerUp(controllerPort))
-        {
+        else if (fisPadTriggerUp(controllerPort)) {
             dis->mSwingLeft = false;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -237,8 +268,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryRight.hist0 = 1.4f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else if (fisPadTriggerDown(controllerPort))
-        {
+        else if (fisPadTriggerDown(controllerPort)) {
             dis->mSwingLeft = false;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -247,8 +277,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryRight.hist0 = 1.4f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else if (fisPadTriggerLeft(controllerPort))
-        {
+        else if (fisPadTriggerLeft(controllerPort)) {
             dis->mSwingRight = false;
             dis->mSwingLeft = true;
             dis->mSwingAny = true;
@@ -257,8 +286,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryLeft.hist0 = 1.4f;
             dis->mHistoryLeft.hist1 = -0.5f;
         }
-        else if (fisPadTriggerRight(controllerPort))
-        {
+        else if (fisPadTriggerRight(controllerPort)) {
             dis->mSwingRight = true;
             dis->mSwingLeft = false;
             dis->mSwingAny = true;
@@ -267,8 +295,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryRight.hist0 = 1.4f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else
-        {
+        else {
             dis->mSwingLeft = false;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -278,10 +305,8 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryRight.hist1 = -0.5f;
         }
     }
-    else
-    {
-        if (fisPadTriggerUp(controllerPort))
-        {
+    else {
+        if (fisPadTriggerUp(controllerPort)) {
             dis->mSwingLeft = true;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -295,8 +320,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryLeft.hist1 = -0.5f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else if (fisPadTriggerLeft(controllerPort))
-        {
+        else if (fisPadTriggerLeft(controllerPort)) {
             dis->mSwingLeft = true;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -310,8 +334,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryLeft.hist1 = -0.5f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else if (fisPadTriggerRight(controllerPort))
-        {
+        else if (fisPadTriggerRight(controllerPort)) {
             dis->mSwingLeft = true;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -325,8 +348,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryLeft.hist1 = -0.5f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else if (fisPadTriggerDown(controllerPort))
-        {
+        else if (fisPadTriggerDown(controllerPort)) {
             dis->mSwingLeft = true;
             dis->mSwingRight = true;
             dis->mSwingAny = true;
@@ -340,8 +362,7 @@ void motionUpdate(al::JoyPadAccelPoseAnalyzer* dis)
             dis->mHistoryLeft.hist1 = -0.5f;
             dis->mHistoryRight.hist1 = -0.5f;
         }
-        else
-        {
+        else {
             dis->mSwingLeft = false;
             dis->mSwingRight = false;
             dis->mSwingAny = false;

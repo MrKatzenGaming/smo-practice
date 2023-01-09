@@ -1,36 +1,33 @@
 #pragma once
 
 #include <sead/math/seadVector.h>
-
-typedef unsigned short ushort;
-typedef unsigned int uint;
+#include <sead/basis/seadTypes.h>
 
 namespace al {
 class KCPrismData { // triangle
 public:
     float mLength;
-    ushort mPosIndex;
-    ushort mFaceNormalIndex;
-    ushort mEdgeNormalIndex[3];
-    ushort mCollisionType;
-    uint mTriIndex;
+    u16 mPosIndex;
+    u16 mFaceNormalIndex;
+    u16 mEdgeNormalIndex[3];
+    u16 mCollisionType;
+    u32 mTriIndex;
 };
 
 class KCPrismHeader { // model
 public:
-    uint mPositionsOffset;
-    uint mNormalsOffset;
-    uint mTrianglesOffset;
-    uint mOctreeOffset;
+    u32 mPositionsOffset;
+    u32 mNormalsOffset;
+    u32 mTrianglesOffset;
+    u32 mOctreeOffset;
     float mThickness;
     sead::Vector3f mOctreeOrigin;
-    uint mXMask;
-    uint mYMask;
-    uint mZMask;
-    uint mCoordShift;
-    uint mYShift;
-    uint mZShift;
+    u32 mXMask;
+    u32 mYMask;
+    u32 mZMask;
+    u32 mCoordShift;
+    u32 mYShift;
+    u32 mZShift;
     float mHitboxRadiusCap;
 };
-
 }

@@ -1,5 +1,4 @@
-#ifndef SEAD_SZS_DECOMPRESSOR_H_
-#define SEAD_SZS_DECOMPRESSOR_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/resource/seadDecompressor.h>
@@ -76,4 +75,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_SZS_DECOMPRESSOR_H_
+

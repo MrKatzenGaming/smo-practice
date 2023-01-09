@@ -4,20 +4,20 @@
 
 bool enableFadeoff = true;
 
-float calcFadeoff(al::LiveActor const* actor, sead::Vector3f pos2)
+float calcFadeoff(al::LiveActor const* actor, sead::Vector3f const& pos2)
 {
     if (enableFadeoff == false)
         return constants::maxAlpha;
     return (constants::maxDist - al::calcDistance(actor, pos2)) / constants::maxDist * constants::maxAlpha;
 }
 
-void drawAreaObjGroup(sead::PrimitiveRenderer* renderer, al::AreaObjGroup *group, bool isDrawSolid, sead::Color4f wire, sead::Color4f solid, sead::Color4f cyl) {
+void drawAreaObjGroup(sead::PrimitiveRenderer* renderer, al::AreaObjGroup const* group, bool isDrawSolid, sead::Color4f wire, sead::Color4f solid, sead::Color4f cyl) {
     for (int i = 0; i < group->mAreaCount; ++i) {
         drawAreaObj(renderer, group->mAreas[i], isDrawSolid, wire, solid, cyl);
     }
 }
 
-void drawAreaObj(sead::PrimitiveRenderer* renderer, al::AreaObj* area, bool isDrawSolid, sead::Color4f wire, sead::Color4f solid, sead::Color4f cyl) {
+void drawAreaObj(sead::PrimitiveRenderer* renderer, al::AreaObj const* area, bool isDrawSolid, sead::Color4f wire, sead::Color4f solid, sead::Color4f cyl) {
     const char* shapeType;
     al::tryGetAreaObjStringArg(&shapeType, area, "ModelName");
 
@@ -45,20 +45,20 @@ void drawAreaObj(sead::PrimitiveRenderer* renderer, al::AreaObj* area, bool isDr
         renderer->drawWireCube(shapeArea);
     }
     else if (al::isEqualString(shapeType, "AreaCylinder")) {
-        renderer->drawCylinder32(sead::Vector3f(0.0f, scale.y * 500.0f, 0.0f), scale.x * 1000.0f, scale.y * 1000.0f, cyl);
+        renderer->drawCylinder32(sead::Vector3f(0.0f, scale.y * 250.0f, 0.0f), scale.x * 500.0f, scale.y * 500.0f, cyl);
     }
     else if (al::isEqualString(shapeType, "AreaCylinderCenter")) {
-        renderer->drawCylinder32(sead::Vector3f(0.0f, 0.0f, 0.0f), scale.x * 1000.0f, scale.y * 1000.0f, cyl);
+        renderer->drawCylinder32(sead::Vector3f(0.0f, 0.0f, 0.0f), scale.x * 500.0f, scale.y * 500.0f, cyl);
     }
     else if (al::isEqualString(shapeType, "AreaCylinderTop")) {
-        renderer->drawCylinder32(sead::Vector3f(0.0f, -scale.y * 500.0f, 0.0f), scale.x * 1000.0f, scale.y * 1000.0f, cyl);
+        renderer->drawCylinder32(sead::Vector3f(0.0f, -scale.y * 250.0f, 0.0f), scale.x * 500.0f, scale.y * 500.0f, cyl);
     }
     else if (al::isEqualString(shapeType, "AreaSphere")) {
         renderer->drawSphere8x16(sead::Vector3f(0.0f, 0.0f, 0.0f), scale.x * 1000.0f, cyl);
     }
 }
 
-void drawWireTriangle(sead::PrimitiveRenderer* renderer, al::Triangle& tri, sead::Color4f wire, sead::Color4f colorNormal, bool drawNormal) {
+void drawWireTriangle(sead::PrimitiveRenderer* renderer, al::Triangle const& tri, sead::Color4f wire, sead::Color4f colorNormal, bool drawNormal) {
     sead::Vector3f v1 = tri.mVerts[0];
     sead::Vector3f v2 = tri.mVerts[1];
     sead::Vector3f v3 = tri.mVerts[2];
@@ -75,11 +75,28 @@ void drawWireTriangle(sead::PrimitiveRenderer* renderer, al::Triangle& tri, sead
 }
 
 
-void drawHitInfo(sead::PrimitiveRenderer* renderer, al::HitInfo* hitInfo, sead::Color4f wire, sead::Color4f solid) {
+void drawHitInfo(sead::PrimitiveRenderer* renderer, al::HitInfo const* hitInfo, sead::Color4f wire, sead::Color4f solid) {
     drawWireTriangle(renderer, hitInfo->mTri, wire, {1.0f, 0.5f, 0.0f, 0.8f}, true);
 
+    renderer->drawSphere8x16(hitInfo->vVar1, 20.0f, {0.0f, 1.0f, 0.0f, 0.5f});
     renderer->drawSphere8x16(hitInfo->mCollisionHitPos, 15.0f, {1.0f, 0.0f, 0.0f, 0.5f});
-    renderer->drawSphere8x16(hitInfo->vVar1, 15.0f, {0.0f, 1.0f, 0.0f, 0.5f});
-    renderer->drawSphere8x16(hitInfo->vVar2, 15.0f, {0.0f, 0.0f, 1.0f, 0.5f});
+    // renderer->drawSphere8x16(hitInfo->mCollisionMovingReaction, 15.0f, {0.0f, 0.0f, 1.0f, 0.5f});
+}
+
+
+void drawAllCollision(sead::PrimitiveRenderer* renderer, al::LiveActorKit const& liveActorKit) {
+    sead::PtrArray<al::LiveActor> actors = liveActorKit.mAllActors->mActors;
+    
+    for (int actorIdx = 0; actorIdx < actors.capacity(); actorIdx++) {
+        al::LiveActor* actor = actors[actorIdx];
+        al::CollisionParts* collisionParts = actor->mCollisionParts;
+        if (!collisionParts) continue;
+
+        // iterate through TList too?
+
+        al::KCollisionServer* kCollisionServer = collisionParts->mKCollisionServer;
+        al::KCPrismHeader* prismHeader = kCollisionServer->mPrismHeaders[0];
+        // prismHeader->
+    }
 }
 

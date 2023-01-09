@@ -9,6 +9,7 @@
 #include "al/layout/LayoutInitInfo.h"
 #include "game/GameData/GameDataHolderBase.h"
 #include "al/scene/SceneObjHolder.h"
+#include "al/effect/EffectSystemInfo.h"
 
 namespace al {
 class ClippingDirector;
@@ -21,11 +22,21 @@ class PlayerHolder;
 class SceneStopCtrl;
 class SceneMsgCtrl;
 class SceneCoverCtrl;
+class ShadowDirector;
+class ModelGroup;
+class GraphicsSystemInfo;
+class ModelDrawBufferCounter;
+class ActorFactory;
+class ActorResourceHolder;
+class AudioDirector;
+class ExecuteDirector;
+class HitSensorDirector;
+class StageSwitchDirector;
+class ScreenPointDirector;
 
 class ActorInitInfo {
 public:
     LiveActorGroup* mGroup1;
-    // const al::PlacementInfo& mPlacementInfo;
     PlacementInfo* mPlacementInfo;
     LayoutInitInfo* mLayoutInitInfo;
     AreaObjDirector* mAreaObjDirector;
@@ -44,6 +55,19 @@ public:
     SceneStopCtrl* mSceneStopCtrl;
     SceneMsgCtrl* mSceneMsgCtrl;
     SceneCoverCtrl* mSceneCoverCtrl;
+    ShadowDirector* mShadowDirector;
+    ModelGroup* mModelGroup;
+    GraphicsSystemInfo* mGraphicsSystemInfo;
+    ModelDrawBufferCounter* mModelDrawBufferCounter;
+    LiveActorGroup* mGroup2;
+    ActorFactory* mActorFactory;
+    ActorResourceHolder* mActorResourceHolder;
+    AudioDirector* mAudioDirector;
+    EffectSystemInfo* mEffectSystemInfo;
+    ExecuteDirector* mExecuteDirector;
+    HitSensorDirector* mHitSensorDirector;
+    StageSwitchDirector* mStageSwitchDirector;
+    ScreenPointDirector* mScreenPointDirector;
 
 };
 };

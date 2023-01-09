@@ -24,6 +24,7 @@ namespace GameDataFunction {
     // gets current save file's current world id
     // gets next save file's current world id
     s32 getNextWorldId(GameDataHolderAccessor);
+    int getWorldIdForShineList(al::LayoutActor const*, int);
 
 
     s32 calcNextScenarioNo(GameDataHolderAccessor);

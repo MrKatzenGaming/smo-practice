@@ -1,5 +1,4 @@
-#ifndef SEAD_RESOURCE_H_
-#define SEAD_RESOURCE_H_
+#pragma once
 
 #include <sead/basis/seadNew.h>
 #include <sead/basis/seadTypes.h>
@@ -98,4 +97,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_RESOURCE_H_
+

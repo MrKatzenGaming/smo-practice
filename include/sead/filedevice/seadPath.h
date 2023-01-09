@@ -1,5 +1,4 @@
-#ifndef SEAD_PATH_H_
-#define SEAD_PATH_H_
+#pragma once
 
 #include <sead/prim/seadSafeString.h>
 
@@ -18,4 +17,4 @@ public:
 };
 }  // namespace sead
 
-#endif  // SEAD_PATH_H_
+

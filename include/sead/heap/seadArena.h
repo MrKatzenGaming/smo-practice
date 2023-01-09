@@ -1,11 +1,9 @@
-#ifndef SEAD_ARENA_H_
-#define SEAD_ARENA_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 
 namespace sead {
-class Arena
-{
+class Arena {
 public:
     Arena();
     ~Arena();
@@ -16,7 +14,4 @@ public:
     size_t mSize;
     bool mInitWithStartAddress;
 };
-
 }  // namespace sead
-
-#endif  // SEAD_ARENA_H_

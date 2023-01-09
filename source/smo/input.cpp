@@ -1,8 +1,8 @@
 #include "smo/ui.h"
-#include "sead/math/seadVector.h"
-#include <al/util.hpp>
-#include <smo/tas.h>
-#include <smo/input.h>
+#include <sead/math/seadVector.h>
+#include "al/util.hpp"
+#include "smo/tas.h"
+#include "smo/input.h"
 
 #define PADTRIGGER(BUTTON, PNAME) bool fisPadTrigger##BUTTON(int port) {\
                                smo::TasHolder& h = smo::TasHolder::instance();\

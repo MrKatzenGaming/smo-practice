@@ -1,5 +1,4 @@
-#ifndef SEAD_STRING_UTIL_H_
-#define SEAD_STRING_UTIL_H_
+#pragma once
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -75,4 +74,4 @@ void toLowerCapitalFirstCharactor(WBufferedSafeString* str);
 }  // namespace StringUtil
 }  // namespace sead
 
-#endif  // SEAD_STRING_UTIL_H_
+

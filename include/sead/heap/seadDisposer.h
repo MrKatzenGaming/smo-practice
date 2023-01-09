@@ -1,5 +1,4 @@
-#ifndef SEAD_DISPOSER_H_
-#define SEAD_DISPOSER_H_
+#pragma once
 
 //#include <sead/basis/seadNew.h>
 #include <sead/basis/seadRawPrint.h>
@@ -129,4 +128,4 @@ protected:                                                                      
     CLASS* CLASS::sInstance = NULL;                                                                \
     CLASS::SingletonDisposer_* CLASS::SingletonDisposer_::sStaticDisposer = NULL;
 
-#endif  // SEAD_DISPOSER_H_
+

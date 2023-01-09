@@ -1,5 +1,4 @@
-#ifndef SEAD_BUFFER_H_
-#define SEAD_BUFFER_H_
+#pragma once
 
 #include <algorithm>
 #include <type_traits>
@@ -435,4 +434,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_BUFFER_H_
+

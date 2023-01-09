@@ -1,5 +1,4 @@
-#ifndef SEAD_DECOMPRESSOR_H_
-#define SEAD_DECOMPRESSOR_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/container/seadTList.h>
@@ -32,4 +31,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_DECOMPRESSOR_H_
+

@@ -1,5 +1,4 @@
-#ifndef SEAD_RESOURCEMGR_H_
-#define SEAD_RESOURCEMGR_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/container/seadTList.h>
@@ -97,4 +96,4 @@ static_assert(sizeof(ResourceMgr) == 0x60);
 
 }  // namespace sead
 
-#endif  // SEAD_RESOURCEMGR_H_
+

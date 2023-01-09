@@ -1,8 +1,9 @@
 #include "debugMenu.hpp"
 #include "drawer.h"
+#include <sead/math/seadVector.h>
 #include "smo/ui.h"
 #include "rs/util.hpp"
-#include <al/util.hpp>
+#include "al/util.hpp"
 
 // These files must exist in your romfs! they are not there by default, and must be added in order for the debug font to work correctly.
 static const char *DBG_FONT_PATH = "DebugData/Font/nvn_font_jis1.ntx";
@@ -17,7 +18,7 @@ bool inputEnabled = true;
 
 void setupDebugMenu(GameSystem *gSys) {
     sead::Heap *curHeap = al::getCurrentHeap();
-    agl::DrawContext *context = gSys->mSystemInfo->mDrawInfo->mDrawContext;
+    agl::DrawContext *context = gSys->mSystemInfo->mDrawSystemInfo->mDrawContext;
 
     if (curHeap && context) {
         sead::DebugFontMgrJis1Nvn::sInstance = sead::DebugFontMgrJis1Nvn::createInstance(curHeap);
@@ -55,7 +56,7 @@ void drawMainHook(HakoniwaSequence *curSequence, sead::Viewport *viewport, sead:
     int dispHeight = al::getLayoutDisplayHeight();
     gTextWriter->mViewport = viewport;
     gTextWriter->mColor = sead::Color4f(1.f, 1.f, 1.f, 0.8f);
-    al::Scene *curScene = curSequence->curScene;
+    al::Scene *curScene = curSequence->mScene;
 
     smo::PracticeUI& ui = smo::PracticeUI::instance();
 
@@ -84,6 +85,15 @@ void drawMainHook(HakoniwaSequence *curSequence, sead::Viewport *viewport, sead:
 
         PlayerCollider* collider = player->mColliderHakoniwa->mCollider;
         sead::Vector3f* playerTrans = al::getTrans(player);
+        sead::Quatf* playerQuat = al::getQuat(player);
+        sead::Vector3f playerFacing = sead::Vector3f::ez;
+        al::rotateVectorQuat(&playerFacing, *playerQuat);
+
+
+        HackCap* cappy = player->mHackCap;
+        sead::Vector3f* cappyTrans;
+        if (cappy)
+            cappyTrans = al::getTrans(cappy);
 
         // renderer->drawSphere8x16(ui.renderer.actorTrans, 30.0f, {1.0f, 0.0f, 0.0f, 0.8f});
 
@@ -94,35 +104,76 @@ void drawMainHook(HakoniwaSequence *curSequence, sead::Viewport *viewport, sead:
             renderer->drawAxis({0.0f, 0.0f, 0.0f}, 200.0f);
         
         if (ui.renderer.showHitInfoFloor)
-            drawHitInfo(renderer, collider->mHitFloor);
+            drawHitInfo(renderer, collider->mHitFloor, {0.8, 1.0, 1.0, 0.8});
 
         if (ui.renderer.showHitInfoWall)
-            drawHitInfo(renderer, collider->mHitWall);
+            drawHitInfo(renderer, collider->mHitWall, {1.0, 0.8, 1.0, 0.8});
 
         if (ui.renderer.showHitInfoCeil)
-            drawHitInfo(renderer, collider->mHitCeil);
+            drawHitInfo(renderer, collider->mHitCeil, {1.0, 1.0, 0.8, 0.8});
+
+        // drawWireTriangle(renderer, ui.renderer.kclTri, {1.0f, 1.0f, 1.0f, 1.0f}, {0.0f, 0.0f, 1.0f, 1.0f}, true);
 
         if (ui.renderer.showHitInfoArray) {
             for (int i = 0; i < collider->arr4.capacity(); ++i) {
             // for (int i = 0; i < 64; ++i) {
-                drawHitInfo(renderer, collider->arr4.at(i), {0.03f, 0.11f, 0.75f, 0.5f});
+                drawHitInfo(renderer, collider->arr4[i], {0.03f, 0.11f, 0.75f, 0.5f});
+            }
+        }
+
+        if (ui.renderer.showHitSensors && ui.currentActor) {
+            al::HitSensorKeeper* sensorKeeper = ui.currentActor->mHitSensorKeeper;
+            if (sensorKeeper) {
+                sead::PtrArray<al::HitSensor> sensors = sensorKeeper->mSensors;
+                for (int i = 0; i < sensors.size(); ++i) {
+                    al::HitSensor* sensor = sensors[i];
+                    if (!al::isSensorValid(sensor)) continue;
+
+                    sead::Vector3f pos = al::getSensorPos(sensor);
+                    float radius = al::getSensorRadius(sensor);
+                    renderer->drawSphere8x16(pos, radius, {1.0f, 0.8f, 1.0f, 0.7f});
+                }
             }
         }
 
         if (ui.renderer.curArea && ui.renderer.showArea) {
             al::calcNearestAreaObjEdgePos(&ui.renderer.nearestEdgePoint, ui.renderer.curArea, *playerTrans);
-            renderer->drawSphere8x16(ui.renderer.nearestEdgePoint, 15.0f, {0.0f, 1.0f, 0.0f, 1.0f});
+            if (ui.renderer.showAreaPoint)
+                renderer->drawSphere8x16(ui.renderer.nearestEdgePoint, 15.0f, {0.0f, 1.0f, 0.0f, 1.0f});
             drawAreaObj(renderer, ui.renderer.curArea, false, {1.0f, 0.8f, 1.0f, 0.9f}, {1.0f, 0.8f, 1.0f, 0.6f}, {1.0f, 0.8f, 1.0f, 0.6f});
         }
 
         if (ui.renderer.curAreaGroup && ui.renderer.showAreaGroup)
             drawAreaObjGroup(renderer, ui.renderer.curAreaGroup, false, {0.8f, 0.5f, 0.8f, 0.3f}, {0.8f, 0.5f, 0.8f, 0.3f}, {0.8f, 0.5f, 0.8f, 0.3f});
+        
+        if (ui.renderer.showCRC && cappy) {
+            sead::Vector3f difference = *cappyTrans - *playerTrans;
+            sead::Vector3f crc = *playerTrans + sead::dot(difference, playerFacing) * playerFacing;
+
+            renderer->drawLine(*playerTrans, *playerTrans + playerFacing * 50.0f, {0.25f, 0.25f, 1.0f, 1.0f});
+            
+            renderer->drawSphere8x16(crc, 60.0f, {1.0f, 0.25f, 0.25, 0.4f});
+        }
+
+
+        if (ui.testDrawCube) {
+            sead::PrimitiveRenderer::CubeArg shapeArea({20750, 250, 6750}, {500.0, 500.0, 500.0}, {1.0f, 0.0f, 0.0f, 1.0f});
+            renderer->drawCube(shapeArea);
+        }
+
+        if (ui.testDrawSphere) {
+            renderer->drawSphere8x16({20750, 250, 6750}, 250.0f, {0.0f, 1.0f, 0.0f, 1.0f});
+        }
+
+        if (ui.testDrawCylinder) {
+            renderer->drawCylinder32({20750, 250, 6750}, 250.0f, 500.0f, {0.0f, 0.0f, 1.0f, 1.0f});
+        }
+
 
         renderer->end();
 
-
         if (showMenu) {
-            drawBackground(static_cast<agl::DrawContext *>(drawContext));
+            drawBackground(static_cast<agl::DrawContext*>(drawContext));
 
             gTextWriter->beginDraw();
             gTextWriter->setCursorFromTopLeft(sead::Vector2f(10.f, 10.f));

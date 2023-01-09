@@ -1,7 +1,7 @@
 #pragma once
 
 namespace al {
-    class Effect {
+class Effect {
 
-    };
 };
+}

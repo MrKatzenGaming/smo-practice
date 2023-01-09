@@ -2,7 +2,10 @@
 
 class PlayerTrigger {
 public:
-    enum ECollisionTrigger {};
+    enum ECollisionTrigger {
+        cUpperPunch = 0,
+        cPoison = 5
+    };
     enum EAttackSensorTrigger {};
     enum EActionTrigger { var1 = 30 };
     enum EReceiveSensorTrigger {};

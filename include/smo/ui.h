@@ -7,6 +7,7 @@
 #include "al/area/AreaObj.h"
 #include "al/area/AreaObjDirector.h"
 #include "al/area/AreaShape.h"
+#include "al/collision/CollisionParts.h"
 #include "al/nerve/Nerve.h"
 #include "al/scene/Scene.h"
 #include "al/LiveActor/LiveActorKit.h"
@@ -64,13 +65,15 @@ private:
     bool nextFrameNoRightInput = false;
 
     void savePosition(PlayerActorHakoniwa& player, s8 idx);
-    void loadPosition(PlayerActorHakoniwa& player, s8 idx);
+    void loadPositionPlayer(PlayerActorHakoniwa& player, s8 idx);
+    void loadPosition(al::LiveActor* actor, s8 idx);
     void toggleNoclip(PlayerActorHakoniwa& player);
 
 public:
     static inline PracticeUI& instance() {static PracticeUI ui; return ui;}
     void update(StageScene& stageScene);
     void menu(sead::TextWriter& p);
+    void kill();
 
     inline StageScene* getStageScene() {return stageScene;}
 
@@ -114,6 +117,8 @@ public:
         al::AreaObj* curArea = nullptr;
         sead::Vector3f nearestEdgePoint;
         sead::Vector3f actorTrans = sead::Vector3f::zero;
+        al::Triangle kclTri = al::Triangle();
+        bool showHitSensors = false;
     } renderer;
 
     struct {
@@ -134,8 +139,9 @@ public:
         Info, InfoMoon, InfoHack, InfoCappy,
         Tas, Modes, Debug,
         Test, TestWallAction, TestCapActionHistory,
-        TestLiveActorKit, TestObjectList, TestAreaList, TestExecute,
-        TestNatureDirector,
+        TestLiveActorKit, TestObjectList, TestAreaList,
+        TestExecute, TestExecuteDraw,
+        TestNatureDirector, TestCollisionDirector,
         TestGameDataHolder, TestGameDataFile, TestGameDataShine,
         TestTalkatoo, TestOther, TestLoadingZones
     };
@@ -151,7 +157,7 @@ public:
     s32 executeItemIdx = 0;
     s32 itemIdx = 0;
     u8 wallAction = 0;
-    s8 poleClimb = 0;
+    s8 otherPageIdx = 0;
     int talkatooIndex = 0;
     int curWorldId = 0;
     int curScenarioNo = 1;
@@ -160,6 +166,13 @@ public:
     s8 cursorHistory[MAXDEPTH] = { 0 };
     bool movingPage = false;
     bool quatRot = false;
+    al::LinearCurve* linearCurve = nullptr;
+    al::BezierCurve* bezierCurve = nullptr;
+    al::LiveActor* currentActor;
+
+    bool testDrawCube = false;
+    bool testDrawCylinder = false;
+    bool testDrawSphere = false;
 };
 
 }

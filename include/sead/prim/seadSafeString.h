@@ -5,20 +5,27 @@
 #include <sead/basis/seadRawPrint.h>
 #include <sead/basis/seadTypes.h>
 
-namespace sead {
+namespace sead
+{
 class Heap;
 
 template <typename T>
 class BufferedSafeStringBase;
 
 template <typename T>
-class SafeStringBase {
+class SafeStringBase
+{
 public:
-    class iterator {
+    /// Iterates over every character of a string.
+    /// Note that this is extremely inefficient and leads to quadratic time complexity
+    /// because of the redundant calls to calcLength() in operator*.
+    class iterator
+    {
     public:
         explicit iterator(const SafeStringBase* string) : mString(string), mIndex(0) {}
         iterator(const SafeStringBase* string, s32 index) : mString(string), mIndex(index) {}
-        bool operator==(const iterator& rhs) const {
+        bool operator==(const iterator& rhs) const
+        {
             return mString == rhs.mString && mIndex == rhs.mIndex;
         }
         bool operator!=(const iterator& rhs) const { return !(rhs == *this); }
@@ -34,15 +41,22 @@ public:
         s32 mIndex;
     };
 
-    class token_iterator : public iterator {
+    /// Iterates over a string as if it were split by one or several delimiter characters.
+    class token_iterator : public iterator
+    {
     public:
         token_iterator(const SafeStringBase* string, const SafeStringBase& delimiter)
-            : iterator(string), mDelimiter(delimiter) {}
+            : iterator(string), mDelimiter(delimiter)
+        {
+        }
 
         token_iterator(const SafeStringBase* string, s32 index, const SafeStringBase& delimiter)
-            : iterator(string, index), mDelimiter(delimiter) {}
+            : iterator(string, index), mDelimiter(delimiter)
+        {
+        }
 
-        bool operator==(const token_iterator& rhs) const {
+        bool operator==(const token_iterator& rhs) const
+        {
             return static_cast<const iterator&>(*this) == static_cast<const iterator&>(rhs);
         }
         bool operator!=(const token_iterator& rhs) const { return !(rhs == *this); }
@@ -60,7 +74,8 @@ public:
     };
 
     SafeStringBase() : mStringTop(&cNullChar) {}
-    SafeStringBase(const T* str) : mStringTop(str) {
+    SafeStringBase(const T* str) : mStringTop(str)
+    {
         SEAD_ASSERT_MSG(str != nullptr, "str must not be nullptr.");
     }
     SafeStringBase(const SafeStringBase& other) = default;
@@ -75,15 +90,18 @@ public:
     iterator begin() const { return iterator(this, 0); }
     iterator end() const { return iterator(this, calcLength()); }
 
-    token_iterator tokenBegin(const SafeStringBase& delimiter) const {
+    token_iterator tokenBegin(const SafeStringBase& delimiter) const
+    {
         return token_iterator(this, delimiter);
     }
 
-    token_iterator tokenEnd(const SafeStringBase& delimiter) const {
+    token_iterator tokenEnd(const SafeStringBase& delimiter) const
+    {
         return token_iterator(this, calcLength() + 1, delimiter);
     }
 
-    const T* cstr() const {
+    const T* cstr() const
+    {
         assureTerminationImpl_();
         return mStringTop;
     }
@@ -101,8 +119,8 @@ public:
     inline bool include(const SafeStringBase<T>& str) const;
 
     bool isEqual(const SafeStringBase<T>& str) const;
-    inline s32 comparen(const SafeStringBase<T>& str, s32 n) const;
     inline s32 compare(const SafeStringBase<T>& str) const { return comparen(str, cMaximumLength); }
+    inline s32 comparen(const SafeStringBase<T>& str, s32 n) const;
 
     s32 findIndex(const SafeStringBase<T>& str) const;
     s32 findIndex(const SafeStringBase<T>& str, s32 start_pos) const;
@@ -468,3 +486,7 @@ inline bool operator>=(const SafeString& lhs, const SafeString& rhs)
 }
 
 }  // namespace sead
+
+#define SEAD_PRIM_SAFE_STRING_H_
+#include <sead/prim/seadSafeString.hpp>
+#undef SEAD_PRIM_SAFE_STRING_H_

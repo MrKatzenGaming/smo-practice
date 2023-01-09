@@ -1,5 +1,4 @@
-#ifndef SEAD_TEXTURE_H_
-#define SEAD_TEXTURE_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
@@ -19,4 +18,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_TEXTURE_H_
+

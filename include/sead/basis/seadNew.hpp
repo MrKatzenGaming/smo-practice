@@ -1,5 +1,4 @@
-#ifndef SEAD_NEW_H_
-#define SEAD_NEW_H_
+#pragma once
 
 #include <cstddef>
 #include <new>
@@ -66,4 +65,4 @@ void operator delete[](void* ptr, sead::Heap*, s32);
 //     return nullptr;
 // }
 // }  // namespace sead
-#endif  // SEAD_NEW_H_
+

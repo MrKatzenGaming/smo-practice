@@ -1,5 +1,4 @@
-#ifndef SEAD_METHODTREE_H_
-#define SEAD_METHODTREE_H_
+#pragma once
 
 #include <sead/container/seadTreeNode.h>
 #include <sead/heap/seadDisposer.h>
@@ -84,4 +83,4 @@ private:
 
 }  // namespace sead
 
-#endif  // SEAD_METHODTREE_H_
+

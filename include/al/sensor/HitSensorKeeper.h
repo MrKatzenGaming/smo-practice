@@ -1,8 +1,12 @@
 #pragma once
 
+#include "sead/container/seadPtrArray.h"
+
 namespace al {
-    class HitSensorKeeper {
-    public:
-        
-    };
+class HitSensor;
+
+class HitSensorKeeper {
+public:
+    sead::PtrArray<al::HitSensor> mSensors;
 };
+}

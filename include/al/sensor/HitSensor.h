@@ -6,7 +6,7 @@
 #include "al/sensor/SensorHitGroup.h"
 
 namespace al {
-    class LiveActor;
+class LiveActor;
 class HitSensor {
 public:
     HitSensor(al::LiveActor*, const char*, unsigned int, float, unsigned short,
@@ -23,12 +23,15 @@ public:
     void update();
     void addHitSensor(al::HitSensor*);
 
+    struct Type {
+        unsigned int idx;
+        const char* name;
+    };
+
     const char* mName;
-    int _8;
-    float _C;
-    float _10;
-    float _14;
-    float _18;
+    unsigned int mType;
+    sead::Vector3f vVar1;
+    float mRadius;
     unsigned short mMaxSensorCount;
     unsigned short mSensorCount;
     al::HitSensor** mSensors;
@@ -36,10 +39,9 @@ public:
     al::SensorHitGroup* mHitGroup;
     bool mIsValidBySystem;
     bool mIsValid;
-    bool _3A[4];                    // unknown type
-    unsigned short _3E;
-    al::LiveActor* mParentActor;
+    al::LiveActor* mHost;
     const sead::Vector3<float>* mFollowPos;
     const sead::Matrix34<float>* mFollowMtx;
+    sead::Vector3f vVar2;
 };
 };  // namespace al

@@ -1,5 +1,4 @@
-#ifndef SEAD_NEW_H_
-#define SEAD_NEW_H_
+#pragma once
 
 #include <cstddef>
 #include <new>
@@ -64,4 +63,4 @@ inline u8* AllocBuffer(size_t size, Heap* heap, s32 alignment) {
     return nullptr;
 }
 }  // namespace sead
-#endif  // SEAD_NEW_H_
+

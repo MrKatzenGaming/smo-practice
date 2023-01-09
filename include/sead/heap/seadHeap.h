@@ -1,5 +1,4 @@
-#ifndef SEAD_HEAP_H_
-#define SEAD_HEAP_H_
+#pragma once
 
 #include <stddef.h>
 
@@ -125,4 +124,4 @@ inline void* Heap::tryRealloc(void*, size_t, s32)
 
 }  // namespace sead
 
-#endif  // SEAD_HEAP_H_
+

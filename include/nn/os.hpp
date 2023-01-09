@@ -82,7 +82,9 @@ namespace os {
     struct ConditionVariableType {};
 
     struct SystemEvent;
-    struct SystemEventType;
+    struct SystemEventType {
+        char mData[24];
+    };
 
     // ARG
     void SetHostArgc(s32);

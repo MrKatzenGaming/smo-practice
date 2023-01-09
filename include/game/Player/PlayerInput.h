@@ -5,10 +5,9 @@
 class PlayerActorHakoniwa;
 
 class PlayerInput {
-    public:
-        bool isTriggerRollingRestartSwing() const;
+public:
+    bool isTriggerRollingRestartSwing() const;
 
-        PlayerActorHakoniwa* mPlayer;
-        IUsePlayerCollision* mPlayerCollider;
-
+    PlayerActorHakoniwa* mPlayer;
+    IUsePlayerCollision* mPlayerCollider;
 };

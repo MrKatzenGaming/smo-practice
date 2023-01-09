@@ -1,7 +1,7 @@
-#ifndef SEAD_FRAMEWORK_H_
-#define SEAD_FRAMEWORK_H_
+#pragma once
 
 //#include <sead/framework/seadMethodTreeMgr.h>
+#include "sead/hostio/seadHostIONode.h"
 #include <sead/framework/seadTaskBase.h>
 //#include <sead/framework/seadTaskMgr.h>
 //#include <sead/gfx/seadFrameBuffer.h>
@@ -21,7 +21,7 @@ class LogicalFrameBuffer;
 class MethodTreeMgr;
 class TaskMgr;
 
-class Framework
+class Framework : public sead::hostio::Node
 {
     SEAD_RTTI_BASE(Framework)
 
@@ -69,6 +69,7 @@ public:
     virtual bool setProcessPriority(ProcessPriority);
     virtual void reserveReset(void*);
     virtual void initRun_(Heap*);
+    virtual void quitRun_(Heap*);
     virtual void runImpl_();
     virtual MethodTreeMgr* createMethodTreeMgr_(Heap*) = 0;
     virtual void procReset_();
@@ -87,4 +88,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_FRAMEWORK_H_
+

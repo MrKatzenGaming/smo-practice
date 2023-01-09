@@ -4,6 +4,7 @@
 #include "al/hio/HioNode.h"
 #include "al/iuse/IUseNerve.h"
 #include "al/iuse/IUseExecutor.h"
+#include "al/iuse/IUseEffectKeeper.h"
 #include "al/iuse/IUseCamera.h"
 #include "al/camera/CameraDirector.h"
 #include "al/audio/AudioKeeper.h"
@@ -29,6 +30,21 @@ public:
 
 class LayoutActor : public al::IUseHioNode, public al::IUseNerve, public al::IUseLayout, public al::IUseLayoutAction, public al::IUseMessageSystem, public al::IUseCamera, public al::IUseAudioKeeper, public al::IUseEffectKeeper, public al::IUseSceneObjHolder {
 public:
+    virtual al::NerveKeeper* getNerveKeeper() const override;
+    virtual void appear();
+    virtual void kill();
+    virtual void movement();
+    virtual void calcAnim(bool);
+    virtual const char* getName() const override;
+    virtual al::EffectKeeper* getEffectKeeper() const override;
+    virtual al::AudioKeeper* getAudioKeeper() const override;
+    virtual al::LayoutActionKeeper* getLayoutActionKeeper() const override;
+    virtual al::LayoutKeeper* getLayoutKeeper() const;
+    virtual al::CameraDirector* getCameraDirector() const override;
+    virtual al::SceneObjHolder* getSceneObjHolder() const override;
+    virtual al::MessageSystem* getMessageSystem() const override;
+    virtual void control();
+
     sead::FixedSafeString<128> mName;
     al::NerveKeeper* mNerveKeeper;
     al::LayoutKeeper* mLayoutKeeper;

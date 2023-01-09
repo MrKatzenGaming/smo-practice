@@ -1,5 +1,4 @@
-#ifndef SEAD_CRITICAL_SECTION_H_
-#define SEAD_CRITICAL_SECTION_H_
+#pragma once
 
 #include <nn/os.hpp>
 
@@ -32,4 +31,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_CRITICAL_SECTION_H_
+

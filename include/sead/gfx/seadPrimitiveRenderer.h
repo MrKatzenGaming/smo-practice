@@ -1,6 +1,6 @@
-#ifndef SEAD_PRIMITIVE_RENDERER_H_
-#define SEAD_PRIMITIVE_RENDERER_H_
+#pragma once
 
+#include "nvn/nvn_types.h"
 #include <sead/math/seadBoundBox.h>
 #include <sead/gfx/seadColor.h>
 #include <sead/gfx/seadContext.h>
@@ -21,7 +21,41 @@ class Projection;
 class Texture;
 class DrawContext;
 
+class PrimitiveDrawMgrBase {};
+
+class PrimitiveDrawMgrNvn : public PrimitiveDrawMgrBase, public IDisposer {
+    SEAD_SINGLETON_DISPOSER(PrimitiveDrawMgrNvn)
+
+public:
+    virtual void prepareFromBinaryImpl(sead::Heap*, void const*, unsigned int);
+    virtual void prepareImpl(sead::Heap*, sead::SafeString const&);
+    virtual void beginImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Matrix44f const&);
+    virtual void endImpl(sead::DrawContext*);
+    virtual void drawQuadImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawQuadImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Texture const&, sead::Color4f const&, sead::Color4f const&, sead::Vector2f const&, sead::Vector2f const&);
+    virtual void drawBoxImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawCubeImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawWireCubeImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawLineImpl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawSphere4x8Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawSphere8x16Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawDisk16Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawDisk32Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawCircle16Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&);
+    virtual void drawCircle32Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&);
+    virtual void drawCylinder16Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual void drawCylinder32Impl(sead::DrawContext*, sead::Matrix34f const&, sead::Color4f const&, sead::Color4f const&);
+    virtual ~PrimitiveDrawMgrNvn();
+
+    PrimitiveDrawMgrNvn();
+    void setupNVNBuffer_(NVNbuffer*, NVNmemoryPool*, unsigned long*, unsigned long);
+    void swapUniformBlockBuffer();
+
+};
+
 class PrimitiveDrawer {
+    SEAD_SINGLETON_DISPOSER(PrimitiveDrawer)
+
 public:
     class QuadArg {
     public:
@@ -35,7 +69,7 @@ public:
         QuadArg() : mCenter(Vector3f::zero), mSize(Vector2f::zero), mColor0(Color4f::cWhite), mColor1(Color4f::cWhite), mHorizontal(false) {}
 
         void setCornerAndSize(const Vector3f &, const Vector2f &);
-        // void setBoundBox(const BoundBox2f&, float);
+        void setBoundBox(const BoundBox2f&, float);
         void setColor(const Color4f &, const Color4f &);
         void setColorHorizontal(const Color4f &, const Color4f &);
 
@@ -64,13 +98,18 @@ public:
         Color4f mColor1;
         Color4f mColor2;
     };
+
     PrimitiveDrawer(sead::DrawContext *);
-    ~PrimitiveDrawer();
+    virtual ~PrimitiveDrawer();
+    void begin();
+    
     void setDrawContext(sead::DrawContext *);
-    const sead::Matrix34f *mModelMatrix;
-    sead::Matrix34f *mCamMatrix;
-    sead::Matrix44f *mProjMatrix;
-    sead::DrawContext *mDrawCtx;
+
+
+    const sead::Matrix34f* mModelMatrix;
+    sead::Matrix34f* mCamMatrix;
+    sead::Matrix44f* mProjMatrix;
+    sead::DrawContext* mDrawCtx;
 };
 
 class PrimitiveRendererBase {
@@ -168,4 +207,4 @@ private:
 
 } // namespace sead
 
-#endif // SEAD_PRIMITIVE_RENDERER_H_
+

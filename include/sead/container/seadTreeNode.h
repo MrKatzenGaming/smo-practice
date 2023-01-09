@@ -1,5 +1,4 @@
-#ifndef SEAD_TREENODE_H_
-#define SEAD_TREENODE_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 
@@ -60,4 +59,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_TREENODE_H_
+

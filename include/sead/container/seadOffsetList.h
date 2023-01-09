@@ -1,5 +1,4 @@
-#ifndef SEAD_OFFSET_LIST_H_
-#define SEAD_OFFSET_LIST_H_
+#pragma once
 
 #include <sead/basis/seadRawPrint.h>
 #include <sead/basis/seadTypes.h>
@@ -215,4 +214,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_OFFSET_LIST_H_
+

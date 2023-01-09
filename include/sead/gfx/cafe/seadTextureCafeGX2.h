@@ -1,5 +1,4 @@
-#ifndef SEAD_TEXTURE_CAFE_GX2_H_
-#define SEAD_TEXTURE_CAFE_GX2_H_
+#pragma once
 
 #include <cafe.h>
 
@@ -24,4 +23,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_TEXTURE_CAFE_GX2_H_
+

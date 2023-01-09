@@ -2,27 +2,29 @@
 
 #include "al/actor/WaterSurfaceFinder.h"
 #include "al/nerve/NerveStateBase.h"
-#include "PlayerAnimator.h"
-#include "PlayerConst.h"
-#include "PlayerInput.h"
-#include "PlayerTrigger.h"
 #include "al/sensor/HitSensor.h"
+#include "game/Interfaces/IUseDimension.h"
+#include "game/Player/PlayerAction.h"
+#include "game/Player/PlayerAnimator.h"
+#include "game/Player/PlayerConst.h"
+#include "game/Player/PlayerInput.h"
+#include "game/Player/PlayerJointControl.h"
 #include "game/Player/PlayerJudge.h"
+#include "game/Player/PlayerJumpMessageRequest.h"
+#include "game/Player/PlayerTrigger.h"
 #include "game/Player/PlayerWallActionHistory.h"
 #include <sead/math/seadVector.h>
 
 class IUsePlayerCeilingCheck;
 class IUsePlayerCollision;
-class PlayerActionDiveInWater;
-class PlayerActionAirMoveControl;
-class PlayerActionGroundMoveControl;
-class PlayerActionCollisionSnap;
-class PlayerCounterForceRun;
 class PlayerSpinCapAttack;
 class PlayerJointParamCapThrow;
 class PlayerJointParamGrab;
 class PlayerJointParamHandLegAngle;
 class PlayerModelHolder;
+class PlayerContinuousJump;
+class HackCap;
+class HackCapJudgeHoldHoveringJump;
 
 class PlayerStateAbyss;
 class PlayerStateAutoDash;
@@ -80,7 +82,49 @@ class PlayerStateGroundSpin;
 class PlayerStateHack;
 class PlayerStateHeadSliding;
 class PlayerStateHipDrop;
-class PlayerStateJump;
+
+class PlayerStateJump : public al::ActorStateBase {
+public:
+    PlayerConst* mPlayerConst;
+    IPlayerModelChanger* mModelChanger;
+    IUseDimension* mDimensionKeeper;
+    PlayerJumpMessageRequest* mJumpMessageRequest;
+    PlayerJudgeCapCatch* mJudgeCapCatch;
+    PlayerCounterForceRun* mCounterForceRun;
+    PlayerJointControlKeeper* mJointControlKeeper;
+    IUsePlayerCollision* mCollider;
+    PlayerAnimator* mAnimator;
+    PlayerContinuousJump* mContinuousJump;
+    PlayerTrigger* mPlayerTrigger;
+    PlayerActionDiveInWater* mActionDiveInWater;
+    PlayerActionAirMoveControl* mActionAirMoveControl;
+    HackCap* mHackCap;
+    HackCapJudgeHoldHoveringJump* mHackCapJudgeHoldHoveringJump;
+    bool bVar1;
+    int mExtendFrame;
+    float mJumpPower;
+    float mJumpMoveSpeedMax;
+    float mGravity;
+    int iVar1;
+    unsigned int mContinuousJumpCount;
+    bool bVar2;
+    bool bVar3;
+    bool bVar4;
+    bool bVar5;
+    bool bVar6;
+    bool bVar7;
+    bool mIsHoldCapSeparateJump;
+    sead::Vector3f vVar1;
+    const char* mJumpName;
+    const char* sVar1;
+    PlayerInput* mPlayerInput;
+    sead::Vector3f vVar2;
+    int iVar2;
+    bool bVar8;
+
+
+};
+
 class PlayerStateJump2D3D;
 class PlayerStateLongJump;
 class PlayerStateNormalFall;

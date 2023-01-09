@@ -14,21 +14,24 @@
 
 
 namespace al {
-
 class ActorResourceHolder;
 class GravityHolder;
 class GraphicsSystemInfo;
+class ModelDrawBufferCounter;
 class ModelDrawBufferUpdater;
 class ModelDisplayListController;
 class ClippingDirector;
+class ItemDirectorBase;
 class HitSensorDirector;
 class ScreenPointDirector;
 class ShadowDirector;
 class StageSwitchDirector;
+class ProjectDemoDirector;
+class GamePadSystem;
 class PadRumbleDirector;
 class ModelGroup;
 
-class LiveActorKit : public al::HioNode { // 0xf8
+class LiveActorKit : public al::HioNode {
 public:
     unsigned char gap1[0x8];
     int iVar1;
@@ -38,17 +41,17 @@ public:
     GravityHolder* mGravityHolder;
     EffectSystem* mEffectSystem;
     GraphicsSystemInfo* mGraphicsSystemInfo;
-    int* pIVar1;
+    ModelDrawBufferCounter* mModelDrawBufferCounter;
     ModelDrawBufferUpdater* mModelDrawBufferUpdater;
     ExecuteAsyncExecutor* mExecuteAsyncExecutor1;
     ExecuteAsyncExecutor* mExecuteAsyncExecutor2;
     ModelDisplayListController* mModelDisplayListController;
-    void* unk1;
+    void* unk1; // ExecuteSystemInitInfo
     LiveActorGroup* mOriginalDrawingGroup;
     CameraDirector* mCameraDirector;
     ClippingDirector* mClippingDirector;
     CollisionDirector* mCollisionDirector;
-    void* unk2;
+    ItemDirectorBase* mItemDirector;
     PlayerHolder* mPlayerHolder;
     HitSensorDirector* mHitSensorDirector;
     ScreenPointDirector* mScreenPointDirector;
@@ -56,8 +59,8 @@ public:
     StageSwitchDirector* mStageSwitchDirector;
     SwitchAreaDirector* mSwitchAreaDirector;
     LiveActorGroup* mAllActors;
-    void* unk3;
-    void* unk4;
+    ProjectDemoDirector* unk3;
+    GamePadSystem* unk4;
     PadRumbleDirector* mPadRumbleDirector;
     NatureDirector* mNatureDirector;
     ModelGroup* mModelGroup;

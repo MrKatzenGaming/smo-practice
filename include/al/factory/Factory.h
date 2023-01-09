@@ -5,12 +5,6 @@
 
 namespace al {
 template <class T>
-struct NameToCreator {
-    const char* actorName; 
-    T createActorFunction; 
-};
-
-template <class T>
 class Factory {
 public:
     inline Factory() {};
@@ -27,9 +21,9 @@ public:
         return nullptr;
     };
 
-protected:
-    const char *factoryName;
-    al::NameToCreator<T> *actorTable;
-    int factoryCount;
+public:
+    const char *mName;
+    al::NameToCreator<T> *mTable;
+    int mCount;
 };
 } // namespace al

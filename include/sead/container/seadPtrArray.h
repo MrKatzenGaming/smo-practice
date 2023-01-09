@@ -1,5 +1,4 @@
-#ifndef SEAD_PTR_ARRAY_H_
-#define SEAD_PTR_ARRAY_H_
+#pragma once
 
 //#include <algorithm>
 #include <sead/basis/seadRawPrint.h>
@@ -366,4 +365,4 @@ private:
 
 }  // namespace sead
 
-#endif  // SEAD_PTR_ARRAY_H_
+

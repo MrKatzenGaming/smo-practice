@@ -1,5 +1,4 @@
-#ifndef SEAD_LIST_IMPL_H_
-#define SEAD_LIST_IMPL_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 
@@ -116,4 +115,4 @@ protected:
 
 }  // namespace sead
 
-#endif  // SEAD_LIST_IMPL_H_
+

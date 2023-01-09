@@ -1,5 +1,4 @@
-#ifndef SEAD_HEAP_POLICIES_H_
-#define SEAD_HEAP_POLICIES_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/heap/seadHeapMgr.h>
@@ -43,4 +42,4 @@ struct HeapPolicies
 
 }  // namespace sead
 
-#endif  // SEAD_HEAP_POLICIES_H_
+

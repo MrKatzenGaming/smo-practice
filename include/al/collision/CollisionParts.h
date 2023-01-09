@@ -5,7 +5,6 @@
 #include <sead/container/seadTList.h>
 #include <sead/math/seadMatrix.h>
 
-
 namespace al {
 class CollisionParts {
 public:

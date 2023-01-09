@@ -1,5 +1,6 @@
 #pragma once
 
+#include "sead/math/seadMathCalcCommon.h"
 #include <sead/math/seadVector.h>
 
 namespace sead {
@@ -80,7 +81,10 @@ struct BoundBox3
     bool isUndef() const;
     bool isInside(const Vector3& p) const;
 
-    void setUndef();
+    inline void setUndef() {
+        mMin = {Mathf::maxNumber(), Mathf::maxNumber(), Mathf::maxNumber()};
+        mMax = {Mathf::minNumber(), Mathf::minNumber(), Mathf::minNumber()};
+    }
     void set(T x0, T y0, T z0, T x1, T y1, T z1);
     void set(const Vector3& min, const Vector3& max);
     void setMin(const Vector3& min);

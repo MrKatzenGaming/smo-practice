@@ -1,7 +1,7 @@
 #pragma once
 
 #ifdef NNSDK
-#include <nn/os.h>
+#include <nn/os.hpp>
 #endif
 
 #include <sead/heap/seadDisposer.h>
@@ -38,11 +38,11 @@ private:
 #endif
     }
 
-#ifdef NNSDK
+// #ifdef NNSDK
     nn::os::LightEventType mEventInner;
-#else
-#error "Unknown platform"
-#endif
+// #else
+// #error "Unknown platform"
+// #endif
 
 #ifdef SEAD_DEBUG
     bool mInitialized = false;

@@ -1,5 +1,4 @@
-#ifndef SEAD_TLIST_H_
-#define SEAD_TLIST_H_
+#pragma once
 
 #include <sead/container/seadListImpl.h>
 
@@ -203,4 +202,4 @@ public:
 }  // namespace sead
 
 
-#endif  // SEAD_TLIST_H_
+

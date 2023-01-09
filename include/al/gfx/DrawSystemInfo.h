@@ -4,7 +4,7 @@
 #include <agl/RenderBuffer.h>
 
 namespace agl {
-    struct DrawContext;
+struct DrawContext;
 }
 
 namespace al {

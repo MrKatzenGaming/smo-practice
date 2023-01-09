@@ -1,14 +1,14 @@
 #include "al/util.hpp"
 #include "smo/packet.h"
 #include "game/Layouts/CoinCounter.h"
-#include "nn/init.h"
-#include "nn/os.hpp"
+#include <nn/init.h>
+#include <nn/os.hpp>
 #include "types.h"
-#include <smo/server.h>
+#include "smo/server.h"
 #include <mem.h>
 #include <nn/nifm.h>
 #include <nn/socket.h>
-#include <sead/basis/seadNew.hpp>
+#include <sead/basis/seadNew.h>
 
 #define IN_PACKET(TYPE) case smo::InPacketType::TYPE: {\
                 InPacket##TYPE p;\
@@ -16,13 +16,11 @@
                 p.on(*this);\
                 break;}
 
-void threadFunc(void* args)
-{
+void threadFunc(void* args) {
     smo::Server* server = (smo::Server*) args;
     nn::TimeSpan w = nn::TimeSpan::FromNanoSeconds(1000000);
     u8* buf = (u8*) nn::init::GetAllocator()->Allocate(30720);
-    while (true)
-    {
+    while (true) {
         server->handlePacket(buf, 30720);
         nn::os::YieldThread();
         nn::os::SleepThread(w);
@@ -30,8 +28,7 @@ void threadFunc(void* args)
     nn::init::GetAllocator()->Free(buf);
 }
 
-namespace smo
-{
+namespace smo {
     void Server::sendInit() {
         OutPacketType dummy = OutPacketType::DummyInit;
         nn::socket::SendTo(socket, &dummy, 1, 0, (struct sockaddr*) &server, sizeof(server));
@@ -39,10 +36,8 @@ namespace smo
         nn::socket::SendTo(socket, &dummy, 1, 0, (struct sockaddr*) &server, sizeof(server));
     }
 
-    u8 Server::connect(const char* ipS, u16 port)
-    {
-        if (connected)
-        {
+    u8 Server::connect(const char* ipS, u16 port) {
+        if (connected) {
             sendInit();
             return 4;
         }
@@ -73,8 +68,7 @@ namespace smo
 
         connected = true;
 
-        if (!thread)
-        {
+        if (!thread) {
             thread = (nn::os::ThreadType*) nn::init::GetAllocator()->Allocate(sizeof(nn::os::ThreadType));
             threadStack = aligned_alloc(0x1000, 0x15000);
             nn::os::CreateThread(thread, threadFunc, this, threadStack, 0x15000, 16, 0);
@@ -87,10 +81,8 @@ namespace smo
         return 0;
     }
 
-    void Server::disconnect()
-    {
-        if (thread)
-        {
+    void Server::disconnect() {
+        if (thread) {
             nn::os::SuspendThread(thread);
             nn::os::DestroyThread(thread);
             /*free(thread);
@@ -98,16 +90,14 @@ namespace smo
             thread = nullptr;
             threadStack = nullptr;*/
         }
-        if (socket != -1)
-        {
+        if (socket != -1) {
             nn::socket::Close(socket);
             socket = -1;
         }
         connected = false;
     }
 
-    void Server::sendPacket(OutPacket& packet, OutPacketType type)
-    {
+    void Server::sendPacket(OutPacket& packet, OutPacketType type) {
         u32 len = packet.calcLen();
         
         u8 data[len + 1];
@@ -116,16 +106,14 @@ namespace smo
         nn::socket::SendTo(socket, data, len + 1, 0, (struct sockaddr*) &server, sizeof(server));
     }
 
-    void Server::handlePacket(u8* buf, size_t bufSize)
-    {
+    void Server::handlePacket(u8* buf, size_t bufSize) {
         if (!connected) return;
         static int i = 0;
         i++;
         u32 size = sizeof(server);
         u32 len = nn::socket::RecvFrom(socket, buf, bufSize, 0, &server, &size);
-        switch ((InPacketType) buf[0])
-        {
-            case 0: break; //timeout
+        switch ((InPacketType) buf[0]) {
+            case Timeout: break;
             IN_PACKET(PlayerScriptInfo);
             IN_PACKET(PlayerTeleport);
             IN_PACKET(PlayerGo);
@@ -134,8 +122,7 @@ namespace smo
         }
     }
 
-    bool Server::isConnected()
-    {
+    bool Server::isConnected() {
         return connected;
     }
 }

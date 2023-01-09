@@ -1,5 +1,4 @@
-#ifndef SEAD_NAMABLE_H_
-#define SEAD_NAMABLE_H_
+#pragma once
 
 #include <sead/prim/seadSafeString.h>
 
@@ -19,4 +18,4 @@ private:
 
 }  // namespace sead
 
-#endif  // SEAD_NAMABLE_H_
+

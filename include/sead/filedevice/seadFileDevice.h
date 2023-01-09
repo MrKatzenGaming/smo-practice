@@ -1,5 +1,4 @@
-#ifndef SEAD_FILEDEVICE_H_
-#define SEAD_FILEDEVICE_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 #include <sead/container/seadSafeArray.h>
@@ -415,4 +414,4 @@ struct DirectoryEntry
 
 }  // namespace sead
 
-#endif  // SEAD_FILEDEVICE_H_
+

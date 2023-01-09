@@ -1,5 +1,4 @@
-#ifndef SEAD_MEM_UTIL_H_
-#define SEAD_MEM_UTIL_H_
+#pragma once
 
 #include <sead/basis/seadTypes.h>
 
@@ -28,4 +27,4 @@ public:
 #include <sead/prim/nin/seadMemUtilNin.hpp>
 #undef SEAD_PRIM_MEM_UTIL_H_
 
-#endif  // SEAD_MEM_UTIL_H_
+

@@ -2,7 +2,10 @@
 
 #include "al/area/AreaObjGroup.h"
 #include "al/area/AreaObj.h"
+#include "al/collision/CollisionParts.h"
 #include "al/collision/HitInfo.h"
+#include "al/collision/KCollisionServer.h"
+#include "al/collision/KCPrism.h"
 #include "al/LiveActor/LiveActorKit.h"
 #include "al/PlayerHolder/PlayerHolder.h"
 #include "al/scene/Scene.h"
@@ -15,7 +18,8 @@
 
 float calcFadeoff(al::LiveActor const *actor, sead::Vector3f pos2);
 // bool tryDrawAreaGroup(al::Scene *curScene, char const *area, bool isDrawSolid, sead::Color4f wire, sead::Color4f solid, sead::Color4f cyl);
-void drawAreaObjGroup(sead::PrimitiveRenderer* renderer, al::AreaObjGroup *group, bool isDrawSolid = false, sead::Color4f wire = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f), sead::Color4f solid = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f), sead::Color4f cyl = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f));
-void drawAreaObj(sead::PrimitiveRenderer* renderer, al::AreaObj* area, bool isDrawSolid = false, sead::Color4f wire = sead::Color4f(0.0f, 1.0f, 0.0f, 0.5f), sead::Color4f solid = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f), sead::Color4f cyl = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f));
-void drawHitInfo(sead::PrimitiveRenderer* renderer, al::HitInfo* hitInfo, sead::Color4f wire = sead::Color4f(0.96f, 0.96f, 0.86f, 0.8f), sead::Color4f solid = sead::Color4f(1.0f, 0.1f, 0.1f, 0.3f));
-
+void drawWireTriangle(sead::PrimitiveRenderer* renderer, al::Triangle const& tri, sead::Color4f wire, sead::Color4f colorNormal, bool drawNormal);
+void drawAreaObjGroup(sead::PrimitiveRenderer* renderer, al::AreaObjGroup const* group, bool isDrawSolid = false, sead::Color4f wire = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f), sead::Color4f solid = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f), sead::Color4f cyl = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f));
+void drawAreaObj(sead::PrimitiveRenderer* renderer, al::AreaObj const* area, bool isDrawSolid = false, sead::Color4f wire = sead::Color4f(0.0f, 1.0f, 0.0f, 0.5f), sead::Color4f solid = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f), sead::Color4f cyl = sead::Color4f(0.0f, 1.0f, 0.0f, 0.1f));
+void drawHitInfo(sead::PrimitiveRenderer* renderer, al::HitInfo const* hitInfo, sead::Color4f wire = sead::Color4f(0.96f, 0.96f, 0.86f, 0.8f), sead::Color4f solid = sead::Color4f(1.0f, 0.1f, 0.1f, 0.3f));
+void drawAllCollision(sead::PrimitiveRenderer* renderer, al::LiveActorKit const& liveActorKit);

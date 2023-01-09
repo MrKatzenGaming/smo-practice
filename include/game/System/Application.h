@@ -1,8 +1,9 @@
 #pragma once
 
+#include "al/gfx/DrawSystemInfo.h"
 #include "al/system/AccountHolder.h"
 #include "al/system/SystemKit.h"
-#include "game/System/GameFrameworkNx.h"
+#include "al/system/GameFrameworkNx.h"
 #include <sead/heap/seadDisposer.h>
 
 class Application : public sead::IDisposer {
@@ -11,7 +12,7 @@ public:
 
     al::SystemKit* mSystemKit;
     al::GameFrameworkNx *mFramework;
-    void* gap1;
+    al::DrawSystemInfo* mDrawSystemInfo;
     al::AccountHolder* mAccountHolder;
 };
 // const Application *Application::sInstance;

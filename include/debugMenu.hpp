@@ -2,7 +2,7 @@
 
 #include <sead/devenv/seadDebugFontMgrNvn.h>
 #include <sead/textwriter.h>
-#include <sead/basis/seadNew.hpp>
+#include <sead/basis/seadNew.h>
 #include <sead/gfx/seadViewport.h>
 #include <sead/gfx/seadCamera.h>
 #include <sead/gfx/seadPrimitiveRenderer.h>

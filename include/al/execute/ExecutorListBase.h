@@ -5,9 +5,10 @@
 namespace al {
 class ExecutorListBase : public al::HioNode {
 public:
+    ExecutorListBase(const char*);
     virtual ~ExecutorListBase();
-    virtual void executeList() const;
-    virtual bool isActive() const;
+    virtual void executeList() const = 0;
+    virtual bool isActive() const = 0;
 
     const char* mName;
 };

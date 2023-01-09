@@ -1,5 +1,4 @@
-#ifndef SEAD_BIT_FLAG_H_
-#define SEAD_BIT_FLAG_H_
+#pragma once
 
 #include <limits>
 
@@ -125,4 +124,4 @@ typedef BitFlag<u64> BitFlag64;
 
 }  // namespace sead
 
-#endif  // SEAD_BIT_FLAG_H_
+

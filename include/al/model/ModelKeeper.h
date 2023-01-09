@@ -1,18 +1,21 @@
 #pragma once
 
+#include "al/actor/ActorResource.h"
 #include "al/hio/HioNode.h"
+#include "al/model/ModelCtrl.h"
 #include <sead/math/seadMatrix.h>
 
 namespace al {
-
-class ModelCtrl;
-class ActorResource;
 class AnimPlayerSkl;
 class AnimPlayerMat;
 class AnimPlayerVis;
 
 class ModelKeeper : public al::HioNode {
 public:
+    void setDisplayRootJointMtxPtr(sead::Matrix34f const*);
+    void setModelLodCtrl(al::ModelLodCtrl*);
+    void setDitherAnimator(al::DitherAnimator*);
+
     unsigned char pad[0x8];
     const char* mName;
     al::ModelCtrl* mModelCtrl;
@@ -30,5 +33,4 @@ public:
     bool bVar3;
     bool bVar4;
 };
-
 }

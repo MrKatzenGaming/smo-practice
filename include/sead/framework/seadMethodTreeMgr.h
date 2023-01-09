@@ -1,5 +1,4 @@
-#ifndef SEAD_METHODTREEMGR_H_
-#define SEAD_METHODTREEMGR_H_
+#pragma once
 
 //#include <sead/framework/seadMethodTree.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
@@ -26,4 +25,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_METHODTREEMGR_H_
+

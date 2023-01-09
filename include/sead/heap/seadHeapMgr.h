@@ -1,5 +1,4 @@
-#ifndef SEAD_HEAPMGR_H_
-#define SEAD_HEAPMGR_H_
+#pragma once
 
 #include <sead/container/seadPtrArray.h>
 #include <sead/heap/seadArena.h>
@@ -94,4 +93,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_HEAPMGR_H_
+

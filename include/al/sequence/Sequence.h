@@ -1,10 +1,10 @@
 #pragma once
 
-#include "al/nerve/NerveExecutor.h"
+#include "al/gfx/DrawSystemInfo.h"
 #include "al/iuse/IUseAudioKeeper.h"
 #include "al/iuse/IUseSceneCreator.h"
+#include "al/nerve/NerveExecutor.h"
 #include "al/scene/Scene.h"
-#include "al/system/DrawSystemInfo.h"
 #include <sead/prim/seadSafeString.h>
 
 

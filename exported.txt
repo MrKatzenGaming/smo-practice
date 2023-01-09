@@ -23,6 +23,12 @@
         _Z24isTriggerSnapShotModeVarPKN2al18IUseSceneObjHolderE;
         _Z12drawMainHookP16HakoniwaSequencePN4sead8ViewportEPNS1_11DrawContextE;
         _Z20nerveKeeperUpdateVarv;
+        _Z31setPlayerEnableToSeeOddSpaceVarPKN2al9LiveActorE;
+        _Z22executeDirectorDrawVarPKcS0_;
+        _Z26executeTableHolderDrawCtorPN2al22ExecuteTableHolderDrawE;
+        _Z29executeTableHolderDrawExecutePN2al22ExecuteTableHolderDrawE;
+        _Z9initActorPN2al9LiveActorERKNS_13ActorInitInfoEPN4sead14SafeStringBaseIcEES8_PKc;
+        _Z25shineListLayoutDecideHookP15ShineListLayout;
 
         _Z14fgetRightSticki;
         _Z13fgetLeftSticki;

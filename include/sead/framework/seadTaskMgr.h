@@ -1,10 +1,10 @@
-#ifndef SEAD_TASKMGR_H_
-#define SEAD_TASKMGR_H_
+#pragma once
 
 #include <sead/framework/seadHeapPolicies.h>
 #include <sead/framework/seadMethodTree.h>
 #include <sead/framework/seadTaskBase.h>
 #include <sead/heap/seadHeapMgr.h>
+#include <sead/hostio/seadHostIONode.h>
 #include <sead/thread/seadCriticalSection.h>
 
 namespace sead {
@@ -13,17 +13,13 @@ class Framework;
 class Heap;
 class NullFaderTask;
 
-class TaskMgr
-{
+class TaskMgr : public sead::hostio::Node {
 public:
-    struct InitializeArg
-    {
+    struct InitializeArg {
     public:
         InitializeArg(const TaskBase::CreateArg& roottask_arg)
             : create_queue_size(0x20), prepare_stack_size(0x8000), prepare_priority(-1),
-              roottask_create_arg(roottask_arg), heap(NULL), parent_framework(NULL)
-        {
-        }
+              roottask_create_arg(roottask_arg), heap(NULL), parent_framework(NULL) {}
 
         u32 create_queue_size;
         u32 prepare_stack_size;
@@ -35,7 +31,6 @@ public:
 
     class TaskCreateContextMgr;
 
-public:
     TaskMgr(const InitializeArg& arg);
 
     void appendToList_(TaskBase::List& ls, TaskBase* task);
@@ -61,8 +56,6 @@ public:
     TaskBase::CreateArg mRootTaskCreateArg;
     TaskMgr::InitializeArg mInitializeArg;
     MethodTreeNode mCalcDestructionTreeNode;
-    u32 useless1;
-    u32 useless2;
 };
 
 }  // namespace sead
@@ -121,4 +114,4 @@ protected:                                                                      
                                                                                                    \
     CLASS* CLASS::sInstance = nullptr;
 
-#endif  // SEAD_TASKMGR_H_
+

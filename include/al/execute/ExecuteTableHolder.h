@@ -37,7 +37,7 @@ public:
     sead::PtrArray<al::ExecutorListBase> arr1;
     sead::PtrArray<al::ExecutorListBase> mListAll;
     sead::PtrArray<al::ExecutorListActorExecuteBase> mListActor;            // useless? some entries have 8 buffer size but no items
-    sead::PtrArray<al::ExecutorListActorModelDrawBase> mListActorModel;     // more useful lol
+    sead::PtrArray<al::ExecutorListActorModelDrawBase> mListActorModel;
     sead::PtrArray<al::ExecutorListLayoutDrawBase> mListLayout;
     sead::PtrArray<al::ExecutorListIUseExecutorBase> mListUser;
     sead::PtrArray<al::ExecutorListFunctor> mListFunctor;

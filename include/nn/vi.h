@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "os.h"
+#include "os.hpp"
 #include "types.h"
 
 namespace nn {
@@ -25,7 +25,7 @@ namespace nn {
 
         void Initialize();
         Result OpenDefaultDisplay(nn::vi::Display **out_Disp);
-        Result CreateLayer(nn::vi::Layer *out_Layer*, nn::vi::Display *disp);
+        Result CreateLayer(nn::vi::Layer *out_Layer, nn::vi::Display *disp);
         Result SetLayerScalingMode(nn::vi::Layer *layer, nn::vi::ScalingMode scalingMode);
         Result GetDisplayVsyncEvent(nn::os::SystemEventType *, nn::vi::Display *);
         Result GetNativeWindow(void **window, nn::vi::Layer *);

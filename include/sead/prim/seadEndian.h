@@ -1,5 +1,4 @@
-#ifndef SEAD_ENDIAN_H_
-#define SEAD_ENDIAN_H_
+#pragma once
 
 #include <sead/basis/seadRawPrint.h>
 #include <sead/basis/seadTypes.h>
@@ -110,4 +109,4 @@ private:
 };
 }  // namespace sead
 
-#endif  // SEAD_ENDIAN_H_
+

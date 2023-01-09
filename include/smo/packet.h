@@ -24,7 +24,7 @@ namespace smo {
 
     enum InPacketType : u8
     {
-        PlayerScriptInfo = 1, PlayerScriptData = 2, PlayerTeleport = 3, PlayerGo = 4
+        Timeout = 0, PlayerScriptInfo = 1, PlayerScriptData = 2, PlayerTeleport = 3, PlayerGo = 4
     };
 
     class InPacket

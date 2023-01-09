@@ -1,13 +1,13 @@
 #pragma once
 
 #include <sead/gfx/seadColor.h>
+#include <sead/gfx/seadDisplayBuffer.h>
 #include <sead/math/seadBoundBox.h>
 #include <sead/math/seadVector.h>
 #include <sead/prim/seadRuntimeTypeInfo.h>
 
 namespace sead {
 class DrawContext;
-class DisplayBuffer;
 
 class LogicalFrameBuffer
 {

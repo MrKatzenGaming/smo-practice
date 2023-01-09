@@ -4,16 +4,15 @@
 #include "smo/util.h"
 #include "game/Player/PlayerActorHakoniwa.h"
 #include "game/StageScene/ChangeStageInfo.h"
-#include "nn/mem.h"
+#include <nn/mem.h>
 #include "rs/util.hpp"
-#include "sead/prim/seadSafeString.h"
-#include <smo/packet.h>
+#include <sead/prim/seadSafeString.h>
+#include "smo/packet.h"
 #include <str.h>
 #include <mem.h>
 #include <nn/init.h>
 
-namespace smo
-{
+namespace smo {
     u32 OutPacketLog::calcLen()
     {
         return strlen(message) + 1;
@@ -93,8 +92,8 @@ namespace smo
             if (stageName) m->Free(stageName);
         }
         
-        ChangeStageInfo info = ChangeStageInfo(stageScene->mDataHolderBase, entrance, stageName, false, scenario, {0});
-        stageScene->mDataHolderBase->changeNextStage(&info, 0);
+        ChangeStageInfo info = ChangeStageInfo(stageScene->mDataHolder, entrance, stageName, false, scenario, {0});
+        stageScene->mDataHolder->changeNextStage(&info, 0);
 
         if (entrance) m->Free(entrance);
         if (stageName) m->Free(stageName);

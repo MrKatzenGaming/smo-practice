@@ -1,5 +1,4 @@
-#ifndef SEAD_HOST_IO_MGR_H_
-#define SEAD_HOST_IO_MGR_H_
+#pragma once
 
 namespace sead {
 class HostIOMgr
@@ -12,4 +11,4 @@ public:
 
 }  // namespace sead
 
-#endif  // SEAD_HOST_IO_MGR_H_
+
