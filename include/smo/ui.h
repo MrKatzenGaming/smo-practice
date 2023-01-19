@@ -69,6 +69,7 @@ private:
     void loadPosition(al::LiveActor* actor, s8 idx);
     void toggleNoclip(PlayerActorHakoniwa& player);
 
+
 public:
     static inline PracticeUI& instance() {static PracticeUI ui; return ui;}
     void update(StageScene& stageScene);
@@ -79,6 +80,7 @@ public:
 
     struct {
         bool teleportEnabled = true;
+        bool teleportKeysEnabled = true;
         bool noclipEnabled = true;
         bool shineRefresh = false;
         bool gotShineRefresh = false;
@@ -143,7 +145,7 @@ public:
         TestExecute, TestExecuteDraw,
         TestNatureDirector, TestCollisionDirector,
         TestGameDataHolder, TestGameDataFile, TestGameDataShine,
-        TestTalkatoo, TestOther, TestLoadingZones
+        TestTalkatoo, TestOther, TestLoadingZones, Kassu, KassuCoins, OptionsKassuTeleport, OptionsKassuMoonJump, KassuSpeed
     };
 
     Page curPage = Menu;

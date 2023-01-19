@@ -15,6 +15,7 @@
 *.pchtxt
 *.ips
 *.sh
+*.lst
 .vscode/
 build*/
 release/

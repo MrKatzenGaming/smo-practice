@@ -1,9 +1,38 @@
 #include "debugMenu.hpp"
 #include "drawer.h"
-#include <sead/math/seadVector.h>
-#include "smo/ui.h"
 #include "rs/util.hpp"
+
+
+#include "al/camera/CameraPoser.h"
+#include "al/collision/KCPrism.h"
+#include "al/collision/KCollisionServer.h"
+#include "al/execute/ExecuteTableHolder.h"
+#include "al/pose/ActorPoseKeeper.h"
 #include "al/util.hpp"
+#include "game/Actors/GrowPlantSeed.h"
+#include "game/Actors/Fastener.h"
+#include <sead/math/seadVector.h>
+#include "game/Layouts/CommonVerticalList.h"
+#include "types.h"
+#include "al/effect/EffectSystem.h"
+#include "al/effect/EffectUserInfo.h"
+#include "al/effect/EffectInfo.h"
+#include "game/SceneObjs/CapManHeroDemoDirector.h"
+#include "game/Player/PlayerConst.h"
+
+#include <cstdint>
+#include "smo/common.h"
+#include "smo/server.h"
+#include "smo/input.h"
+#include "smo/tas.h"
+#include "smo/ui.h"
+#include "smo/util.h"
+#include "smo/rtti.hpp"
+#include <str.h>
+#include <cxxabi.h>
+#include <typeinfo>
+
+
 
 // These files must exist in your romfs! they are not there by default, and must be added in order for the debug font to work correctly.
 static const char *DBG_FONT_PATH = "DebugData/Font/nvn_font_jis1.ntx";
@@ -183,9 +212,23 @@ void drawMainHook(HakoniwaSequence *curSequence, sead::Viewport *viewport, sead:
             ui.menu(*gTextWriter);
             gTextWriter->endDraw();
         }
-    }
+        if(isInGame) {
+            gTextWriter->beginDraw();
+            gTextWriter->printf("\n\n\n\n\n\n\n\n\nActual current Speed: %.1f\n", player->mPlayerConst->getNormalMaxSpeed());
+            gTextWriter->printf("Actual current Jump Speed: %.1f\n", player->mPlayerConst->getJumpBaseSpeedMax());
+            if(options.moonJump) gTextWriter->printf("Moon Jump: ON\n");
+            else gTextWriter->printf("Moon Jump: OFF\n");
+            gTextWriter->printf(" Current Scenario: %d\n", GameDataFunction::getWorldScenarioNo(*stageScene->mDataHolder, GameDataFunction::getCurrentWorldId(*stageScene->mDataHolder)));
+            gTextWriter->printf(" Current World ID: %d\n", GameDataFunction::getCurrentWorldId(*stageScene->mDataHolder));
+            gTextWriter->printf(" Current Stage Name: %s\n", GameDataFunction::getCurrentStageName(*stageScene->mDataHolder));
+
+            gTextWriter->setScaleFromFontHeight(20.f);
+            gTextWriter->endDraw();
+        
+        }
 
     isInGame = false;
 
     al::executeDraw(curSequence->mLytKit, "２Ｄバック（メイン画面）");
 }
+

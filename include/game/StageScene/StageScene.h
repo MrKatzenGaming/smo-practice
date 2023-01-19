@@ -84,6 +84,7 @@ public:
     bool isEnableSave(void) const;
     bool isDefeatKoopaLv1(void) const;
     
+    
     sead::FixedSafeString<64> mCurrentStageName;
     unsigned int scenarioNo;
     

@@ -12,6 +12,11 @@ all: starlight
 starlight:
 	$(MAKE) all -f MakefileNSO S2VER=$(S2VER) S2VERSTR=$(S2VERSTR)
 	$(MAKE) starlight_patch_$(S2VER)/*.ips
+	mkdir -p starlight_patch_$(S2VER)/exefs/
+
+	mv starlight_patch_$(S2VER)/3CA12DFAAF9C82DA064D1698DF79CDA1.ips starlight_patch_$(S2VER)/exefs/$(PROJNAME)/3CA12DFAAF9C82DA064D1698DF79CDA1.ips
+	mv $(shell basename $(CURDIR))$(S2VER).elf starlight_patch_$(S2VER)/subsdk1.elf
+	mv $(shell basename $(CURDIR))$(S2VER).nso starlight_patch_$(S2VER)/exefs/subsdk1
 
 starlight_patch_$(S2VER)/*.ips: patches/*.slpatch patches/configs/$(S2VER).config patches/maps/$(S2VER)/*.map \
 								build$(S2VER)/$(shell basename $(CURDIR))$(S2VER).map scripts/genPatch.py

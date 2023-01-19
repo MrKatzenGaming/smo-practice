@@ -13,6 +13,8 @@
 #include "al/effect/EffectUserInfo.h"
 #include "al/effect/EffectInfo.h"
 #include "game/SceneObjs/CapManHeroDemoDirector.h"
+#include "game/GameData/GameDataFile.h"
+#include "game/Player/PlayerConst.h"
 
 #include <cstdint>
 #include "smo/common.h"
@@ -28,12 +30,31 @@
 
 const char* stageNames[] = {"CapWorldHomeStage", "WaterfallWorldHomeStage", "SandWorldHomeStage", "LakeWorldHomeStage", "ForestWorldHomeStage", "CloudWorldHomeStage", "ClashWorldHomeStage", "CityWorldHomeStage",
                             "SnowWorldHomeStage", "SeaWorldHomeStage", "LavaWorldHomeStage", "BossRaidWorldHomeStage", "SkyWorldHomeStage", "MoonWorldHomeStage", "PeachWorldHomeStage", "Special1WorldHomeStage", "Special2WorldHomeStage", "MoonWorldBasementStage", "MoonWorldKoopa1Stage", "MoonWorldKoopa2Stage", "AnimalChaseExStage", "BikeSteelExStage", "BikeSteelNoCapExStage", "BullRunExStage", "ByugoPuzzleExStage", "CapAppearExStage", "CapAppearLavaLiftExStage", "CapRotatePackunExStage", "CapWorldTowerStage", "CityPeopleRoadStage", "CityWorldFactoryStage", "CityWorldMainTowerStage", "CityWorldSandSlotStage", "CityWorldShop01Stage", "ClashWorldShopStage", "CloudExStage", "Cube2DExStage", "DemoBossRaidAttackStage", "DemoChangeWorldBossRaidAttackStage", "DemoChangeWorldFindKoopaShipStage", "DemoChangeWorldStage", "DemoCrashHomeFallStage", "DemoCrashHomeStage", "DemoEndingStage", "DemoHackFirstStage", "DemoHackKoopaStage", "DemoLavaWorldScenario1EndStage", "DemoMeetCapNpcSubStage", "DemoOpeningStage", "DemoStartWorldWaterfallStage", "DemoTakeOffKoopaForMoonStage", "DemoWorldMoveBackwardArriveStage", "DemoWorldMoveBackwardStage", "DemoWorldMoveForwardArriveStage", "DemoWorldMoveForwardFirstStage", "DemoWorldMoveForwardStage", "DemoWorldMoveMoonBackwardStage", "DemoWorldMoveMoonForwardFirstStage", "DemoWorldMoveMoonForwardStage", "DemoWorldWarpHoleStage", "DonsukeExStage", "DotHardExStage", "DotTowerExStage", "ElectricWireExStage", "FastenerExStage", "FogMountainExStage", "ForestWorldBonusStage", "ForestWorldBossStage", "ForestWorldCloudBonusExStage", "ForestWorldTowerStage", "ForestWorldWaterExStage", "ForestWorldWoodsCostumeStage", "ForestWorldWoodsStage", "ForestWorldWoodsTreasureStage", "ForkExStage", "FrogPoisonExStage", "FrogSearchExStage", "FukuwaraiKuriboStage", "FukuwaraiMarioStage", "GabuzouClockExStage", "Galaxy2DExStage", "GotogotonExStage", "HomeShipInsideStage", "IceWalkerExStage", "IceWaterBlockExStage", "IceWaterDashExStage", "ImomuPoisonExStage", "JangoExStage", "JizoSwitchExStage", "KaronWingTowerStage", "KillerRailCollisionExStage", "KillerRoadExStage", "KillerRoadNoCapExStage", "LakeWorldShopStage", "LavaWorldBubbleLaneExStage", "LavaWorldClockExStage", "LavaWorldCostumeStage", "LavaWorldExcavationExStage", "LavaWorldFenceLiftExStage", "LavaWorldShopStage", "LavaWorldTreasureStage", "LavaWorldUpDownExStage", "LavaWorldUpDownYoshiExStage", "Lift2DExStage", "MeganeLiftExStage", "MoonAthleticExStage", "MoonWorldCaptureParadeStage", "MoonWorldShopRoom", "MoonWorldSphinxRoom", "MoonWorldWeddingRoom2Stage", "MoonWorldWeddingRoomStage", "Note2D3DRoomExStage", "PackunPoisonExStage", "PackunPoisonNoCapExStage", "PeachWorldCastleStage", "PeachWorldCostumeStage", "PeachWorldPictureBossForestStage", "PeachWorldPictureBossKnuckleStage", "PeachWorldPictureBossMagmaStage", "PeachWorldPictureBossRaidStage", "PeachWorldPictureGiantWanderBossStage", "PeachWorldPictureMofumofuStage", "PeachWorldShopStage", "PoisonWaveExStage", "PoleGrabCeilExStage", "PoleKillerExStage", "PushBlockExStage", "RadioControlExStage", "RailCollisionExStage", "ReflectBombExStage", "RevengeBossKnuckleStage", "RevengeBossMagmaStage", "RevengeBossRaidStage", "RevengeForestBossStage", "RevengeGiantWanderBossStage", "RevengeMofumofuStage", "RocketFlowerExStage", "RollingExStage", "SandWorldCostumeStage", "SandWorldKillerExStage", "SandWorldMeganeExStage", "SandWorldPressExStage", "SandWorldPyramid000Stage", "SandWorldPyramid001Stage", "SandWorldRotateExStage", "SandWorldSecretStage", "SandWorldShopStage", "SandWorldSlotStage", "SandWorldSphinxExStage", "SandWorldUnderground000Stage", "SandWorldUnderground001Stage", "SandWorldVibrationStage", "SeaWorldCostumeStage", "SeaWorldSecretStage", "SeaWorldSneakingManStage", "SeaWorldUtsuboCaveStage", "SeaWorldVibrationStage", "SenobiTowerExStage", "SenobiTowerYoshiExStage", "ShootingCityExStage", "ShootingCityYoshiExStage", "ShootingElevatorExStage", "SkyWorldCloudBonusExStage", "SkyWorldCostumeStage", "SkyWorldShopStage", "SkyWorldTreasureStage", "SnowWorldCloudBonusExStage", "SnowWorldCostumeStage", "SnowWorldLobby000Stage", "SnowWorldLobby001Stage", "SnowWorldLobbyExStage", "SnowWorldRace000Stage", "SnowWorldRace001Stage", "SnowWorldRaceExStage", "SnowWorldRaceHardExStage", "SnowWorldRaceTutorialStage", "SnowWorldShopStage", "SnowWorldTownStage", "Special1WorldTowerBombTailStage", "Special1WorldTowerCapThrowerStage", "Special1WorldTowerFireBlowerStage", "Special1WorldTowerStackerStage", "Special2WorldCloudStage", "Special2WorldKoopaStage", "Special2WorldLavaStage", "StaffRollMoonRockDemo", "SwingSteelExStage", "Theater2DExStage", "TogezoRotateExStage", "TrampolineWallCatchExStage", "TrexBikeExStage", "TrexPoppunExStage", "TsukkunClimbExStage", "TsukkunRotateExStage", "WanwanClashExStage", "WaterTubeExStage", "WaterValleyExStage", "WindBlowExStage", "WorldStage", "YoshiCloudExStage"};
+constexpr const char* stageNameDescriptions[17][15] = {
+    {"first visit, spawn airborne", "plot complete", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "trailer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "plot complete", "post-game", "moon rock", "Koopa Freerunning", "Luigi's Balloon World", "post-game, copy", "trailer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "night", "plot complete", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "E3 demo", "trailer", "night, E3 demonstration", "crashes", "crashes", "crashes", "crashes", "crashes"},
+    {"first visit", "plot complete", "post-game", "moon rock", "Koopa Freerunning", "Luigi's Balloon World", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "night", "plot complete", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "first visit, copy", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "plot complete", "post-game", "moon rock", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "plot complete", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"night", "day", "festival", "plot complete", "post-game", "Luigi's Balloon World", "festival, revisit", "moon rock", "Koopa Freerunning", "morning metro", "festival, 8-bit", "morning, missing wire", "day, trailer", "festival, trailer", "night, copy"},
+    {"first visit", "plot complete", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "plot complete", "post-game", "moon rock", "Koopa Freerunning", "Luigi's Balloon World", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "evening", "plot complete", "Koopa Freerunning", "incomplete", "incomplete", "post-game", "moon rock", "Luigi's Balloon World", "bruncheon", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "plot complete", "post-game", "moon rock", "crashes", "crashes", "crashes", "crashes", "crashes", "crashes", "crashes", "crashes", "crashes", "crashes", "crashes"},
+    {"first visit", "plot complete", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layere"},
+    {"first visit", "post-game", "moon rock", "Luigi's Balloon World", "Koopa Freerunning", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"rushroom", "first visit", "post-game", "Koopa Freerunning", "Luigi's Balloon World", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "post-game", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"},
+    {"first visit", "post-game", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer", "common layer"} };
 
 const char* executeTableDrawNames[] = {"3D (culling)", "3D (depth shadow)", "3D (depth shadow player)", "3D (static depth shadow)", "3D (world AO)", "3D (ocean depth)", "3D (sky)", "3D (opaque Z prepass)", "3D (deferred terrain)", "3D (no reflection on the deferred)", "3D (deferred character)", "3D (deferred different space)", "3D (deferred player)", "3D (deferred middle view)", "3D (deferred translucent)", "3D (depth clear player)", "3D (forward distant view)", "3D (forward player)", "3D (forward)", "3D (indirect)", "3D (forward after indirect)", "3D (distant view after indirect)", "3D (indirect after fog)", "3D (distant view after fog)", "3D (after fog)", "3D (chroma key Z prepass)", "3D (chroma key player)", "3D (chroma key character)", "2D back (main screen)", "2D base (main screen)", "2D effect (main screen)", "2D over (main screen)", "2D (demo screen)", "post effect mask", "actor drawing (original render target)", "actor drawing (project specific)", "model drawing buffer update", "3D (world map deferred)", "3D (world map forward)", "2D (world map drawing)", "2D (moon get drawing)", "2D (snapshot)", "2D (for shooting)", "2D (miss)"};
 
 
-
-
+bool KassuEditSpeed = false;
+float KassuEditSpeedValue = 14.0f;
+float KassuEditJumpSpeedValue = 24.0f;
 
 #define printf(FORMAT, ...) p.printf(FORMAT, ##__VA_ARGS__)
 
@@ -194,7 +215,6 @@ void smo::PracticeUI::kill() {
     areaGroupIndex = 0;
     areaIndex = 0;
 }
-
 void smo::PracticeUI::update(StageScene& stageScene) {
     this->stageScene = &stageScene;
     isInGame = true;
@@ -235,7 +255,7 @@ void smo::PracticeUI::update(StageScene& stageScene) {
 
     if (!showMenu || (!inputEnabled && !holdL))
     {
-        if (options.teleportEnabled)
+        if (options.teleportEnabled && options.teleportKeysEnabled)
         {
             if (triggerLeft)
                 savePosition(*player, savestateIndex);
@@ -250,6 +270,12 @@ void smo::PracticeUI::update(StageScene& stageScene) {
                 toggleNoclip(*player);
         }
     }
+    if(KassuEditSpeed) {
+        if(isExistPlayer) {
+            player->mPlayerConst->mNormalMaxSpeed = KassuEditSpeedValue;
+            player->mPlayerConst->mJumpBaseSpeedMax = KassuEditJumpSpeedValue;
+        }
+    } else if (isExistPlayer) { player->mPlayerConst->mNormalMaxSpeed = 14.0f; player->mPlayerConst->mJumpBaseSpeedMax = 24.0f;}
 
     if (reloadStageForPos != -1)
     {
@@ -279,6 +305,7 @@ void smo::PracticeUI::update(StageScene& stageScene) {
 
 void smo::PracticeUI::menu(sead::TextWriter& p) {
     if (!stageScene) return;
+    
     if (showMenu) {
         const char* charCursor = " ";
 
@@ -312,7 +339,7 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
 
         switch (curPage) {
             case Menu: {
-                MAX_LINE(10); // fix
+                MAX_LINE(11); // fix
                 TITLE("Welcome to the Practice Mod!");
                 CHANGE_PAGE("About", About, 0)
                 CHANGE_PAGE("Options", Options, 1);
@@ -324,6 +351,96 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                 CHANGE_PAGE("Debug", Debug, 7);
                 CHANGE_PAGE("Testing", Test, 8);
                 CHANGE_PAGE("Loading Zones", TestLoadingZones, 9);
+                CHANGE_PAGE("Kassu", Kassu, 10);
+                break;
+            }
+
+
+            case Kassu: {
+                TITLE("Kassu");
+                MAX_LINE(10);
+                BACK_PAGE(Menu, 0);
+
+                CHANGE_PAGE("Teleport", OptionsKassuTeleport, 1);
+                CHANGE_PAGE("Moon Jump", OptionsKassuMoonJump, 2);
+
+                TOGGLE("Infinite Cap Bounces", options.repeatCapBounce, 3);
+                TOGGLE("Cap Bounce After Wall Jump", options.wallJumpCapBounce, 4);
+                TRIGGER("Kill Mario", 5, { if (isExistPlayer) player->mDamageKeeper->dead(); });
+                TRIGGER("Damage Mario", 6, {
+                    if (isExistPlayer) {
+                        bool tmpDamage = options.noDamageLife;
+                        options.noDamageLife = false;
+                        player->mDamageKeeper->damageForce(1);
+                        options.noDamageLife = tmpDamage;
+                    }
+                    });
+                TRIGGER("Life Up Heart", 7, stageScene->mDataHolder->mPlayingFile->getPlayerHitPointData()->getMaxUpItem());
+                CHANGE_PAGE("Coins", KassuCoins, 8);
+                CHANGE_PAGE("Speed" , KassuSpeed, 9);
+                break;
+            }
+            case KassuSpeed:{
+                TITLE("Kassu: Speed");
+                MAX_LINE(11);
+                BACK_PAGE(Kassu, 0);
+                CURSOR(1);
+
+                if (KassuEditSpeed){
+                    if (inputEnabled && !movingPage && curLine == 1) {
+                        if (!nextFrameNoLeftInput && triggerLeft) {KassuEditSpeedValue -= 1.0f; KassuEditJumpSpeedValue -= 1.0f;}
+                        else if (!nextFrameNoRightInput && triggerRight) {KassuEditSpeedValue += 1.0f; KassuEditJumpSpeedValue += 1.0f;}
+                    }
+                }
+                printf("%sActual current Speed: %.1f\n", charCursor,  player->mPlayerConst->getNormalMaxSpeed());
+                printf("%sActual current Jump Speed: %.1f\n", charCursor,  player->mPlayerConst->getJumpBaseSpeedMax());
+                TOGGLE("Edit Speed", KassuEditSpeed, 2);
+                TRIGGER("Set to 50", 3, KassuEditSpeedValue = 50.0f; KassuEditJumpSpeedValue = 50.0f;);
+                TRIGGER("Set to 100", 4, KassuEditSpeedValue = 100.0f; KassuEditJumpSpeedValue = 100.0f;);
+                TRIGGER("Set to 150", 5, KassuEditSpeedValue = 150.0f; KassuEditJumpSpeedValue = 150.0f;);
+                TRIGGER("Set to 200", 6, KassuEditSpeedValue = 200.0f; KassuEditJumpSpeedValue = 200.0f;);
+                TRIGGER("Set to 250", 7, KassuEditSpeedValue = 250.0f; KassuEditJumpSpeedValue = 250.0f;); 
+                TRIGGER("Set to 300", 8, KassuEditSpeedValue = 300.0f; KassuEditJumpSpeedValue = 300.0f;);
+                TRIGGER("Set to 350", 9, KassuEditSpeedValue = 350.0f; KassuEditJumpSpeedValue = 350.0f;);
+                TRIGGER("Set to 400", 10, KassuEditSpeedValue = 400.0f; KassuEditJumpSpeedValue = 400.0f;);
+                printf(" Edited current Speed: %.1f\n", KassuEditSpeedValue);
+                printf(" Edited current Jump Speed: %.1f\n", KassuEditJumpSpeedValue);
+                break;
+            }
+            case OptionsKassuMoonJump: {
+                TITLE("Kassu: Moon Jump");
+                MAX_LINE(10);
+                BACK_PAGE(Kassu, 0);
+                TOGGLE("Moon Jump", options.moonJump, 1);
+                
+                CURSOR(2);
+                if (inputEnabled && !movingPage && curLine == 2) {
+                    if (!nextFrameNoLeftInput && triggerLeft) moonJumpVel -= 1.0f;
+                    else if (!nextFrameNoRightInput && triggerRight) moonJumpVel += 1.0f;
+                }
+                printf("%sVelocity: %.1f\n", charCursor, moonJumpVel);
+                TRIGGER("Reset", 3, moonJumpVel = 0.0f);
+                TRIGGER("Set to 50", 4, moonJumpVel = 50.0f);
+                TRIGGER("Set to 100", 5, moonJumpVel = 100.0f);
+                TRIGGER("Set to 200", 6, moonJumpVel = 200.0f);
+                TRIGGER("Set to 300", 7, moonJumpVel = 300.0f);
+                TRIGGER("Set to 400", 8, moonJumpVel = 400.0f);
+                TRIGGER("Set to 500", 9, moonJumpVel = 500.0f);           
+                break;
+            }
+            case KassuCoins: {
+                TITLE("Kassu: Coins");
+                MAX_LINE(9);
+                BACK_PAGE(Kassu, 0);
+                TRIGGER("Add 1 coin", 1, stageScene->mDataHolder->mPlayingFile->addCoin(1););
+                TRIGGER("Add 10 coins", 2, stageScene->mDataHolder->mPlayingFile->addCoin(10););
+                TRIGGER("Add 100 coins", 3, stageScene->mDataHolder->mPlayingFile->addCoin(100););
+                TRIGGER("Add 1000 coins", 4, stageScene->mDataHolder->mPlayingFile->addCoin(1000););
+                TRIGGER("Remove 1 coin", 5, stageScene->mDataHolder->mPlayingFile->addCoin(-1););
+                TRIGGER("Remove 10 coins", 6, stageScene->mDataHolder->mPlayingFile->addCoin(-10););
+                TRIGGER("Remove 100 coins", 7, stageScene->mDataHolder->mPlayingFile->addCoin(-100););
+                TRIGGER("Remove 1000 coins", 8, stageScene->mDataHolder->mPlayingFile->addCoin(-1000););
+
                 break;
             }
             case About: {
@@ -354,29 +471,30 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                 break;
             }
             case OptionsMvmt: {
-                TITLE("Options: Movement");
-                MAX_LINE(8);
-                BACK_PAGE(Options, 0);
+                    TITLE("Options: Movement");
+                    MAX_LINE(8);
+                    BACK_PAGE(Options, 0);
 
-                CHANGE_PAGE("Teleport", OptionsTeleport, 1);
-                TOGGLE("Noclip", options.noclipEnabled, 2);
-                CHANGE_PAGE("Moon Jump", OptionsMoon, 3);
-                TOGGLE("X/Y Motion Rolls", options.buttonMotionRoll, 4);
-                TOGGLE("Infinite Cap Bounces", options.repeatCapBounce, 5);
-                TOGGLE("Infinite Rainbow Spins", options.repeatRainbowSpin, 6);
-                TOGGLE("Cap Bounce After Wall Jump", options.wallJumpCapBounce, 7);
+                    CHANGE_PAGE("Teleport", OptionsTeleport, 1);
+                    TOGGLE("Noclip", options.noclipEnabled, 2);
+                    CHANGE_PAGE("Moon Jump", OptionsMoon, 3);
+                    TOGGLE("X/Y Motion Rolls", options.buttonMotionRoll, 4);
+                    TOGGLE("Infinite Cap Bounces", options.repeatCapBounce, 5);
+                    TOGGLE("Infinite Rainbow Spins", options.repeatRainbowSpin, 6);
+                    TOGGLE("Cap Bounce After Wall Jump", options.wallJumpCapBounce, 7);
 
                 break;
             }
             case OptionsTeleport: {
                 TITLE("Options: Teleport");
-                MAX_LINE(6);
+                MAX_LINE(7);
                 BACK_PAGE(OptionsMvmt, 0);
 
                 TOGGLE("Teleport", options.teleportEnabled, 1);
+                TOGGLE("Teleport Hotkeys", options.teleportKeysEnabled, 2);
 
-                CURSOR(2);
-                if (inputEnabled && !movingPage && curLine == 2) {
+                CURSOR(3);
+                if (inputEnabled && !movingPage && curLine == 3) {
                     if (!nextFrameNoLeftInput && triggerLeft) savestateIndex--;
                     else if (!nextFrameNoRightInput && triggerRight) savestateIndex++;
                 }
@@ -384,10 +502,49 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                 if (savestateIndex >= NUMSAVES) savestateIndex = 0;
 
                 printf("%sTeleport Index: %d/%d%s\n", charCursor, savestateIndex + 1, NUMSAVES, savestates[savestateIndex].mSaved ? "" : " (unsaved)");
-                TRIGGER("Save Position", 3, { if (isExistPlayer) savePosition(*player, savestateIndex); });
-                TRIGGER("Load Position", 4, { if (isExistPlayer) loadPositionPlayer(*player, savestateIndex); });
+                TRIGGER("Save Position", 4, { if (isExistPlayer) savePosition(*player, savestateIndex); });
+                TRIGGER("Load Position", 5, { if (isExistPlayer) loadPositionPlayer(*player, savestateIndex); });
 
-                TRIGGER("tmp load", 5, {
+                TRIGGER("tmp load", 6, {
+                    if (isExistPlayer) {
+                        al::offCollide(player);
+                        al::setQuat(player, {0.8225067, 0.0, -0.5686121, 0.0});
+                        al::setTrans(player, {2573.247, 3022.991, 3529.164});
+                        al::setVelocity(player, {6483.206, -35.0, 17163.543});
+                        al::onCollide(player);
+                        player->getNerveKeeper()->mStep = 275254;
+                    }
+                });
+
+                sead::Vector3f curPos = savestates[savestateIndex].mTrans;
+                sead::Quatf curQuat = savestates[savestateIndex].mQuat;
+                printf(" Position: (X: %.3f Y: %.3f Z: %.3f)\n", curPos.x, curPos.y, curPos.z);
+                printf(" Rotation: (W: %.3f X: %.3f Y: %.3f Z: %.3f)\n", curQuat.w, curQuat.x, curQuat.y, curQuat.z);
+
+
+                break;
+            }
+            case OptionsKassuTeleport: {
+                TITLE("Kassu: Teleport");
+                MAX_LINE(7);
+                BACK_PAGE(Kassu, 0);
+
+                TOGGLE("Teleport", options.teleportEnabled, 1);
+                TOGGLE("Teleport Hotkeys", options.teleportKeysEnabled, 2);
+
+                CURSOR(3);
+                if (inputEnabled && !movingPage && curLine == 3) {
+                    if (!nextFrameNoLeftInput && triggerLeft) savestateIndex--;
+                    else if (!nextFrameNoRightInput && triggerRight) savestateIndex++;
+                }
+                if (savestateIndex < 0) savestateIndex = NUMSAVES - 1;
+                if (savestateIndex >= NUMSAVES) savestateIndex = 0;
+
+                printf("%sTeleport Index: %d/%d%s\n", charCursor, savestateIndex + 1, NUMSAVES, savestates[savestateIndex].mSaved ? "" : " (unsaved)");
+                TRIGGER("Save Position", 4, { if (isExistPlayer) savePosition(*player, savestateIndex); });
+                TRIGGER("Load Position", 5, { if (isExistPlayer) loadPositionPlayer(*player, savestateIndex); });
+
+                TRIGGER("tmp load", 6, {
                     if (isExistPlayer) {
                         al::offCollide(player);
                         al::setQuat(player, {0.8225067, 0.0, -0.5686121, 0.0});
@@ -470,7 +627,12 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                 printf("%sStage: %s\n", charCursor, stageNames[currentStage]);
 
                 INDEXRL(currentScenario, 0, 15, 2);
-                if (currentScenario != 0) {printf("%sScenario: %d\n", charCursor, currentScenario);}
+                if (currentScenario != 0) {
+                    if (currentStage < 17) {
+                        const char* description = stageNameDescriptions[currentStage][currentScenario - 1];
+                        printf("%sScenario: %d (%s)\n", charCursor, currentScenario, description);
+                    }
+                }
                 else printf("%sScenario: Don't change\n", charCursor);
 
                 TRIGGER("Go", 3, {
@@ -483,7 +645,7 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
             }
             case Misc: {
                 TITLE("Miscellaneous");
-                MAX_LINE(9);
+                MAX_LINE(11);
                 BACK_PAGE(Menu, 0);
 
                 TRIGGER("Kill Mario", 1, { if (isExistPlayer) player->mDamageKeeper->dead(); });
@@ -499,10 +661,11 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                 TRIGGER("Heal Mario", 4, stageScene->mDataHolder->mPlayingFile->getPlayerHitPointData()->recover());
                 TRIGGER("Remove Cappy", 5, GameDataFunction::disableCapByPlacement(cappy));
                 TRIGGER("Invincibility Star", 6, { if (isExistPlayer) player->mDamageKeeper->activatePreventDamage(); });
+                TRIGGER("Add 1000 coins", 7,  stageScene->mDataHolder->mPlayingFile->addCoin(1000););
                 
                 static u8 gravity = 0;
 
-                CURSOR(7);
+                CURSOR(8);
 
                 const char* gravityString = nullptr;
 
@@ -516,8 +679,8 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                 bool gravityChangedFrame = false;
 
                 printf("%sGravity: %s\n", charCursor, gravityString);
-                if (curLine == 7 && inputEnabled && !movingPage && !nextFrameNoLeftInput && triggerLeft) {gravity--; gravityChangedFrame = true;}
-                else if (curLine == 7 && inputEnabled && !movingPage && !nextFrameNoRightInput && triggerRight) {gravity++; gravityChangedFrame = true;}
+                if (curLine == 8 && inputEnabled && !movingPage && !nextFrameNoLeftInput && triggerLeft) {gravity--; gravityChangedFrame = true;}
+                else if (curLine == 8 && inputEnabled && !movingPage && !nextFrameNoRightInput && triggerRight) {gravity++; gravityChangedFrame = true;}
                 if (gravity == 255) gravity = 5;
                 else if (gravity > 5) gravity = 0;
 
@@ -535,7 +698,7 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                     }
                 }
 
-                TRIGGER("Reload Stage", 8, {
+                TRIGGER("Reload Sceen", 9, {
                     reloadStageForPos = 0;
                     if (isExistPlayer) {
                         reloadStageTrans = *al::getTrans(player);
@@ -544,6 +707,9 @@ void smo::PracticeUI::menu(sead::TextWriter& p) {
                     ChangeStageInfo info = ChangeStageInfo(stageScene->mDataHolder, "start", stageScene->mDataHolder->getCurrentStageName(), false, CURRENT_SCENARIO, {0});
                     stageScene->mDataHolder->changeNextStage(&info, 0);
                 });
+                TRIGGER("Previous scene", 10, {
+                    stageScene->mDataHolder->returnPrevStage();
+                    });
 
                 break;
             }
